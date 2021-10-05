@@ -1,0 +1,2475 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PropertyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerFileBook">
+          <Key>
+            <PropertyRef Name="FileBookID" />
+          </Key>
+          <Property Name="FileBookID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerID" Type="bigint" Nullable="false" />
+          <Property Name="fkFileID" Type="int" Nullable="false" />
+          <Property Name="MemberShipNo" Type="nvarchar" MaxLength="40" />
+          <Property Name="AreaType" Type="nvarchar" MaxLength="70" />
+          <Property Name="Area" Type="float" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="DownPayment" Type="bigint" />
+          <Property Name="ConfirmationFee" Type="bigint" />
+          <Property Name="ConfirmationFeeDate" Type="date" />
+          <Property Name="PayMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegistrationFee" Type="bigint" />
+          <Property Name="BookingStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerKin">
+          <Key>
+            <PropertyRef Name="CustomerKinId" />
+          </Key>
+          <Property Name="CustomerKinId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkCustomerId" Type="bigint" Nullable="false" />
+          <Property Name="KinName" Type="nvarchar" MaxLength="200" />
+          <Property Name="KinCNIC" Type="nvarchar" MaxLength="13" />
+          <Property Name="KinMobile" Type="nvarchar" MaxLength="10" />
+          <Property Name="KinRelation" Type="nvarchar" MaxLength="150" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerRegM">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkProjectID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubProjID" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerRegNo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CNIC" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="10" />
+          <Property Name="PresentAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="PermAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="OfficeNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="CustIMG" Type="image" />
+          <Property Name="CNICFrontIMG" Type="image" />
+          <Property Name="CNICBackIMG" Type="image" />
+          <Property Name="DealerYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Files">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileNumber" Type="nvarchar" MaxLength="60" />
+          <Property Name="fkProjectId" Type="nvarchar" MaxLength="20" />
+          <Property Name="Block" Type="nvarchar" MaxLength="20" />
+          <Property Name="PlotCat" Type="nvarchar" MaxLength="20" />
+          <Property Name="Plot_Factor" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlotNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="PlotSize" Type="float" />
+          <Property Name="ConfirmationFee" Type="bigint" />
+          <Property Name="AutoPlotNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="PlotRate" Type="float" />
+          <Property Name="TotalPloValue" Type="bigint" />
+          <Property Name="PlotCatDesc" Type="nvarchar" MaxLength="150" />
+          <Property Name="FileStatus" Type="bigint" />
+          <Property Name="PlotValue" Type="nvarchar" MaxLength="60" />
+          <Property Name="PlotExtChargs" Type="int" />
+          <Property Name="UnitStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_InstDetail">
+          <Key>
+            <PropertyRef Name="instDID" />
+          </Key>
+          <Property Name="instDID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkInstMId" Type="bigint" Nullable="false" />
+          <Property Name="srno" Type="int" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="CustomAmount" Type="int" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="InstType" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_InstMaster">
+          <Key>
+            <PropertyRef Name="InstMId" />
+          </Key>
+          <Property Name="InstMId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkFileID" Type="int" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" />
+          <Property Name="DateOfInst" Type="date" />
+          <Property Name="Nature" Type="nvarchar" MaxLength="15" />
+          <Property Name="NoOfInst" Type="int" />
+          <Property Name="InstAmount" Type="bigint" />
+          <Property Name="CustomPeriod" Type="int" />
+          <Property Name="CustomAmount" Type="bigint" />
+          <Property Name="CustomTime" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_InstReceived">
+          <Key>
+            <PropertyRef Name="InstRcvID" />
+          </Key>
+          <Property Name="InstRcvID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkFileID" Type="int" Nullable="false" />
+          <Property Name="fkinstDID" Type="bigint" Nullable="false" />
+          <Property Name="srno" Type="int" />
+          <Property Name="Total" Type="int" Nullable="false" />
+          <Property Name="InstAmount" Type="int" />
+          <Property Name="CustomAmount" Type="int" />
+          <Property Name="DiscPercent" Type="int" />
+          <Property Name="DiscAmount" Type="int" />
+          <Property Name="instType" Type="nvarchar" MaxLength="100" />
+          <Property Name="paymentMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_List">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="ParentCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="SOUR" Type="nvarchar" MaxLength="50" />
+          <Property Name="TYP" Type="nvarchar" MaxLength="10" />
+          <Property Name="RMKS" Type="nvarchar" MaxLength="50" />
+          <Property Name="AST" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tbl_Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ParentID" Type="nvarchar" MaxLength="20" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProjectAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="AreaType" Type="nvarchar" MaxLength="70" />
+          <Property Name="TotalArea" Type="float" />
+          <Property Name="MapIMG" Type="image" />
+          <Property Name="ProjectType" Type="nvarchar" MaxLength="70" />
+          <Property Name="Main_Sub" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_UserLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="fkRoleID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="RMKS" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="15" />
+          <Property Name="PWD" Type="nvarchar" MaxLength="15" />
+          <Property Name="CPWD" Type="nvarchar" MaxLength="15" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_userMenu">
+          <Key>
+            <PropertyRef Name="fkRoleID" />
+            <PropertyRef Name="fkMenuID" />
+          </Key>
+          <Property Name="fkRoleID" Type="int" Nullable="false" />
+          <Property Name="fkMenuID" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="TYP" Type="nvarchar" MaxLength="10" />
+          <Property Name="ParentCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="AST" Type="nvarchar" MaxLength="1" />
+          <Property Name="PST" Type="nvarchar" MaxLength="1" />
+          <Property Name="VST" Type="nvarchar" MaxLength="1" />
+          <Property Name="INST" Type="nvarchar" MaxLength="1" />
+          <Property Name="UPST" Type="nvarchar" MaxLength="1" />
+          <Property Name="DLST" Type="nvarchar" MaxLength="1" />
+          <Property Name="CHST" Type="nvarchar" MaxLength="1" />
+          <Property Name="ADST" Type="nvarchar" MaxLength="1" />
+          <Property Name="ICN" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_UserRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="RMKS" Type="nvarchar" MaxLength="100" />
+          <Property Name="AST" Type="nvarchar" MaxLength="1" />
+          <Property Name="PST" Type="nvarchar" MaxLength="1" />
+          <Property Name="VST" Type="nvarchar" MaxLength="1" />
+          <Property Name="INST" Type="nvarchar" MaxLength="1" />
+          <Property Name="UPST" Type="nvarchar" MaxLength="1" />
+          <Property Name="DLST" Type="nvarchar" MaxLength="1" />
+          <Property Name="CHST" Type="nvarchar" MaxLength="1" />
+          <Property Name="ADST" Type="nvarchar" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Property.dbo.View_CustomerFileBooking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_CustomerFileBooking">
+          <Key>
+            <PropertyRef Name="FileBookID" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+            <PropertyRef Name="CustomerRegNo" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CNIC" />
+            <PropertyRef Name="DealerYN" />
+            <PropertyRef Name="ActiveYN" />
+          </Key>
+          <Property Name="FileBookID" Type="bigint" Nullable="false" />
+          <Property Name="fkFileID" Type="int" Nullable="false" />
+          <Property Name="MemberShipNo" Type="nvarchar" MaxLength="40" />
+          <Property Name="CustomerID" Type="bigint" Nullable="false" />
+          <Property Name="fkProjectID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="SubProjID" Type="nvarchar" MaxLength="20" />
+          <Property Name="CustomerRegNo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CNIC" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="10" />
+          <Property Name="PresentAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="PermAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="OfficeNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="DealerYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Installment_Receive">
+          <Key>
+            <PropertyRef Name="instDID" />
+            <PropertyRef Name="fkInstMId" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CustomerRegNo" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="FileBookID" />
+          </Key>
+          <Property Name="instDID" Type="bigint" Nullable="false" />
+          <Property Name="fkInstMId" Type="bigint" Nullable="false" />
+          <Property Name="srno" Type="int" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="CustomAmount" Type="int" />
+          <Property Name="DueDate" Type="date" />
+          <Property Name="InstType" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerID" Type="bigint" Nullable="false" />
+          <Property Name="fkProjectID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="CustomerRegNo" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="fkFileID" Type="int" Nullable="false" />
+          <Property Name="FileBookID" Type="bigint" Nullable="false" />
+          <Property Name="InstRcvID" Type="bigint" />
+        </EntityType>
+        <Association Name="CustFileBook_CustRegM_fk">
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerRegM">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkCustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustFileBook_FileID_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustFileBook_tbl_CustRegM_fk">
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerRegM">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustRegM_tbl_Projects_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="fkProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Files_tbl_Project_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="fkProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_InstMaster_fk">
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_InstMaster">
+              <PropertyRef Name="InstMId" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="fkInstMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstMaster_tbl_File_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstReceived_tbl_File_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstReceived_tbl_InstDetail_fk">
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_InstDetail">
+              <PropertyRef Name="instDID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="fkinstDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Projects_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Projects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Projects_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Projects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerKin_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerKin_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerRegM_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerRegM_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Files_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Files_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstMaster_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstMaster_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstReceived_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstReceived_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Projects_Parentid_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="0..1" />
+          <End Role="tbl_Projects1" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_Projects1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserMenu_Menu_FK">
+          <End Role="tbl_Menu" Type="Self.tbl_Menu" Multiplicity="1" />
+          <End Role="tbl_userMenu" Type="Self.tbl_userMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Menu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="tbl_userMenu">
+              <PropertyRef Name="fkMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userMenu_userrole_FK">
+          <End Role="tbl_UserRole" Type="Self.tbl_UserRole" Multiplicity="1" />
+          <End Role="tbl_userMenu" Type="Self.tbl_userMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbl_userMenu">
+              <PropertyRef Name="fkRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole_fk">
+          <End Role="tbl_UserRole" Type="Self.tbl_UserRole" Multiplicity="1" />
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbl_UserLogin">
+              <PropertyRef Name="fkRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="Pro_CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_USER_NAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_PASSWORD" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_USER_ID" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARM_FULL_USER_NAME" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARM_USER_ROLE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_CustomerFileBook" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_FileBookID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkCustomerID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkFileID" Type="int" Mode="In" />
+          <Parameter Name="PARAM_MemberShipNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_AreaType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_Area" Type="float" Mode="In" />
+          <Parameter Name="PARAM_Price" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_DownPayment" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_ConfirmationFee" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_ConfirmationFeeDate" Type="date" Mode="In" />
+          <Parameter Name="PARAM_PayMethod" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_RegistrationFee" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_BookingStatus" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARAM_New_FileBookID" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_CustomerKin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CustomerKinId" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkCustomerId" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_KinName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_KinCNIC" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_KinMobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_KinRelation" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_ActiveYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_CustomerRegM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CustomerID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkProjectID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_SubProjID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CustomerRegNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CustomerName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_FatherName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CNIC" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_Mobile" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PresentAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PermAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_OfficeNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CustIMG" Type="image" Mode="In" />
+          <Parameter Name="PARAM_CNICFrontIMG" Type="image" Mode="In" />
+          <Parameter Name="PARAM_CNICBackIMG" Type="image" Mode="In" />
+          <Parameter Name="PARAM_DealerYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_ActiveYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARAM_New_CustomerID" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_Files" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_FileID" Type="int" Mode="In" />
+          <Parameter Name="PARAM_FileNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_fkProjectId" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_Block" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PlotCat" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_Plot_Factor" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PlotNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PlotSize" Type="float" Mode="In" />
+          <Parameter Name="PARAM_ConfirmationFee" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_AutoPlotNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PlotRate" Type="float" Mode="In" />
+          <Parameter Name="PARAM_TotalPloValue" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_PlotCatDesc" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_FileStatus" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_PlotValue" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_PlotExtChargs" Type="int" Mode="In" />
+          <Parameter Name="PARAM_UnitStatus" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_InstDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_instDID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkInstMId" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_srno" Type="int" Mode="In" />
+          <Parameter Name="PARAM_Total" Type="int" Mode="In" />
+          <Parameter Name="PARAM_Amount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_CustomAmount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_DueDate" Type="date" Mode="In" />
+          <Parameter Name="PARAM_InstType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARAM_New_instDID" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_InstMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_InstMId" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkFileID" Type="int" Mode="In" />
+          <Parameter Name="PARAM_Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_DateOfInst" Type="date" Mode="In" />
+          <Parameter Name="PARAM_Nature" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_NoOfInst" Type="int" Mode="In" />
+          <Parameter Name="PARAM_InstAmount" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_CustomPeriod" Type="int" Mode="In" />
+          <Parameter Name="PARAM_CustomAmount" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_CustomTime" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARAM_New_InstMId" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_InstReceived" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_InstRcvID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_fkFileID" Type="int" Mode="In" />
+          <Parameter Name="PARAM_fkinstDID" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_srno" Type="int" Mode="In" />
+          <Parameter Name="PARAM_Total" Type="int" Mode="In" />
+          <Parameter Name="PARAM_InstAmount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_CustomAmount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_DiscPercent" Type="int" Mode="In" />
+          <Parameter Name="PARAM_DiscAmount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_instType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_paymentMethod" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARAM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+          <Parameter Name="PARAM_New_instRcvID" Type="bigint" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_Projects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ProjectID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ParentID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ProjectName" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ProjectAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_AreaType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_TotalArea" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_MapIMG" Type="image" Mode="In" />
+          <Parameter Name="PARM_ProjectType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_Main_Sub" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ActiveYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="Pro_IDU_UserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_USER_ID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ROLE_ID" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_NAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_RMKS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_USER_NAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_PWD" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_CPWD" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ACTIVEYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PropertyModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerFileBook" EntityType="Self.tbl_CustomerFileBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerKin" EntityType="Self.tbl_CustomerKin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_CustomerRegM" EntityType="Self.tbl_CustomerRegM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Files" EntityType="Self.tbl_Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_InstDetail" EntityType="Self.tbl_InstDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_InstMaster" EntityType="Self.tbl_InstMaster" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_InstReceived" EntityType="Self.tbl_InstReceived" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_List" EntityType="Self.tbl_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Projects" EntityType="Self.tbl_Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserLogin" EntityType="Self.tbl_UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_userMenu" EntityType="Self.tbl_userMenu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_CustomerFileBooking" EntityType="Self.View_CustomerFileBooking" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CustomerFileBooking].[FileBookID] AS [FileBookID], 
+    [View_CustomerFileBooking].[fkFileID] AS [fkFileID], 
+    [View_CustomerFileBooking].[MemberShipNo] AS [MemberShipNo], 
+    [View_CustomerFileBooking].[CustomerID] AS [CustomerID], 
+    [View_CustomerFileBooking].[fkProjectID] AS [fkProjectID], 
+    [View_CustomerFileBooking].[SubProjID] AS [SubProjID], 
+    [View_CustomerFileBooking].[CustomerRegNo] AS [CustomerRegNo], 
+    [View_CustomerFileBooking].[FatherName] AS [FatherName], 
+    [View_CustomerFileBooking].[CustomerName] AS [CustomerName], 
+    [View_CustomerFileBooking].[CNIC] AS [CNIC], 
+    [View_CustomerFileBooking].[Mobile] AS [Mobile], 
+    [View_CustomerFileBooking].[PresentAddress] AS [PresentAddress], 
+    [View_CustomerFileBooking].[PermAddress] AS [PermAddress], 
+    [View_CustomerFileBooking].[OfficeNumber] AS [OfficeNumber], 
+    [View_CustomerFileBooking].[DealerYN] AS [DealerYN], 
+    [View_CustomerFileBooking].[ActiveYN] AS [ActiveYN]
+    FROM [dbo].[View_CustomerFileBooking] AS [View_CustomerFileBooking]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Installment_Receive" EntityType="Self.View_Installment_Receive" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Installment_Receive].[instDID] AS [instDID], 
+    [View_Installment_Receive].[fkInstMId] AS [fkInstMId], 
+    [View_Installment_Receive].[srno] AS [srno], 
+    [View_Installment_Receive].[Total] AS [Total], 
+    [View_Installment_Receive].[Amount] AS [Amount], 
+    [View_Installment_Receive].[CustomAmount] AS [CustomAmount], 
+    [View_Installment_Receive].[DueDate] AS [DueDate], 
+    [View_Installment_Receive].[InstType] AS [InstType], 
+    [View_Installment_Receive].[CustomerID] AS [CustomerID], 
+    [View_Installment_Receive].[fkProjectID] AS [fkProjectID], 
+    [View_Installment_Receive].[CustomerName] AS [CustomerName], 
+    [View_Installment_Receive].[CustomerRegNo] AS [CustomerRegNo], 
+    [View_Installment_Receive].[fkFileID] AS [fkFileID], 
+    [View_Installment_Receive].[FileBookID] AS [FileBookID], 
+    [View_Installment_Receive].[InstRcvID] AS [InstRcvID]
+    FROM [dbo].[View_Installment_Receive] AS [View_Installment_Receive]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="CustFileBook_CustRegM_fk" Association="Self.CustFileBook_CustRegM_fk">
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="CustFileBook_FileID_fk" Association="Self.CustFileBook_FileID_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="CustFileBook_tbl_CustRegM_fk" Association="Self.CustFileBook_tbl_CustRegM_fk">
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="CustRegM_tbl_Projects_fk" Association="Self.CustRegM_tbl_Projects_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Createdby_fk" Association="Self.FileBook_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Updatedby_fk" Association="Self.FileBook_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="Files_tbl_Project_fk" Association="Self.Files_tbl_Project_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_Createdby_fk" Association="Self.InstDetail_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_InstMaster_fk" Association="Self.InstDetail_InstMaster_fk">
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_Updatedby_fk" Association="Self.InstDetail_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstMaster_tbl_File_fk" Association="Self.InstMaster_tbl_File_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="InstReceived_tbl_File_fk" Association="Self.InstReceived_tbl_File_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="InstReceived_tbl_InstDetail_fk" Association="Self.InstReceived_tbl_InstDetail_fk">
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="Projects_Createdby_fk" Association="Self.Projects_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="Projects_Updatedby_fk" Association="Self.Projects_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerKin_Createdby_fk" Association="Self.tbl_CustomerKin_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerKin_Updatedby_fk" Association="Self.tbl_CustomerKin_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerRegM_Createdby_fk" Association="Self.tbl_CustomerRegM_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerRegM_Updatedby_fk" Association="Self.tbl_CustomerRegM_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Files_Createdby_fk" Association="Self.tbl_Files_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Files_Updatedby_fk" Association="Self.tbl_Files_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstMaster_Createdby_fk" Association="Self.tbl_InstMaster_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstMaster_Updatedby_fk" Association="Self.tbl_InstMaster_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstReceived_Createdby_fk" Association="Self.tbl_InstReceived_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstReceived_Updatedby_fk" Association="Self.tbl_InstReceived_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Projects_Parentid_fk" Association="Self.tbl_Projects_Parentid_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_Projects1" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="UserMenu_Menu_FK" Association="Self.UserMenu_Menu_FK">
+            <End Role="tbl_Menu" EntitySet="tbl_Menu" />
+            <End Role="tbl_userMenu" EntitySet="tbl_userMenu" />
+          </AssociationSet>
+          <AssociationSet Name="userMenu_userrole_FK" Association="Self.userMenu_userrole_FK">
+            <End Role="tbl_UserRole" EntitySet="tbl_UserRole" />
+            <End Role="tbl_userMenu" EntitySet="tbl_userMenu" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole_fk" Association="Self.UserRole_fk">
+            <End Role="tbl_UserRole" EntitySet="tbl_UserRole" />
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PropertyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerKin">
+          <Key>
+            <PropertyRef Name="CustomerKinId" />
+          </Key>
+          <Property Name="CustomerKinId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerId" Type="Int64" Nullable="false" />
+          <Property Name="KinName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KinCNIC" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="KinMobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="KinRelation" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerRegM" Relationship="Self.CustFileBook_tbl_CustRegM_fk" FromRole="tbl_CustomerKin" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_CustomerKin_Createdby_fk" FromRole="tbl_CustomerKin" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_CustomerKin_Updatedby_fk" FromRole="tbl_CustomerKin" ToRole="tbl_UserLogin" />
+        </EntityType>
+        <EntityType Name="tbl_CustomerRegM">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkProjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubProjID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRegNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CNIC" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PresentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PermAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CustIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CNICFrontIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CNICBackIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="DealerYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerKin" Relationship="Self.CustFileBook_tbl_CustRegM_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_CustomerKin" />
+          <NavigationProperty Name="tbl_Projects" Relationship="Self.CustRegM_tbl_Projects_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_Projects" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_CustomerRegM_Createdby_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_CustomerRegM_Updatedby_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_CustomerFileBook" />
+        </EntityType>
+        <EntityType Name="tbl_Files">
+          <Key>
+            <PropertyRef Name="FileID" />
+          </Key>
+          <Property Name="FileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileNumber" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="fkProjectId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Block" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PlotCat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Plot_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlotNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PlotSize" Type="Double" />
+          <Property Name="ConfirmationFee" Type="Int64" />
+          <Property Name="AutoPlotNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PlotRate" Type="Double" />
+          <Property Name="TotalPloValue" Type="Int64" />
+          <Property Name="PlotCatDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FileStatus" Type="Int64" />
+          <Property Name="PlotValue" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="PlotExtChargs" Type="Int32" />
+          <Property Name="UnitStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Projects" Relationship="Self.Files_tbl_Project_fk" FromRole="tbl_Files" ToRole="tbl_Projects" />
+          <NavigationProperty Name="tbl_InstMaster" Relationship="Self.InstMaster_tbl_File_fk" FromRole="tbl_Files" ToRole="tbl_InstMaster" />
+          <NavigationProperty Name="tbl_InstReceived" Relationship="Self.InstReceived_tbl_File_fk" FromRole="tbl_Files" ToRole="tbl_InstReceived" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_Files_Createdby_fk" FromRole="tbl_Files" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_Files_Updatedby_fk" FromRole="tbl_Files" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.CustFileBook_FileID_fk" FromRole="tbl_Files" ToRole="tbl_CustomerFileBook" />
+        </EntityType>
+        <EntityType Name="tbl_InstDetail">
+          <Key>
+            <PropertyRef Name="instDID" />
+          </Key>
+          <Property Name="instDID" Type="Int64" Nullable="false" />
+          <Property Name="fkInstMId" Type="Int64" Nullable="false" />
+          <Property Name="srno" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="CustomAmount" Type="Int32" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="InstType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.InstDetail_Createdby_fk" FromRole="tbl_InstDetail" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_InstMaster" Relationship="Self.InstDetail_InstMaster_fk" FromRole="tbl_InstDetail" ToRole="tbl_InstMaster" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.InstDetail_Updatedby_fk" FromRole="tbl_InstDetail" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_InstReceived" Relationship="Self.InstReceived_tbl_InstDetail_fk" FromRole="tbl_InstDetail" ToRole="tbl_InstReceived" />
+        </EntityType>
+        <EntityType Name="tbl_InstMaster">
+          <Key>
+            <PropertyRef Name="InstMId" />
+          </Key>
+          <Property Name="InstMId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfInst" Type="DateTime" Precision="0" />
+          <Property Name="Nature" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="NoOfInst" Type="Int32" />
+          <Property Name="InstAmount" Type="Int64" />
+          <Property Name="CustomPeriod" Type="Int32" />
+          <Property Name="CustomAmount" Type="Int64" />
+          <Property Name="CustomTime" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Files" Relationship="Self.InstMaster_tbl_File_fk" FromRole="tbl_InstMaster" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_InstDetail" Relationship="Self.InstDetail_InstMaster_fk" FromRole="tbl_InstMaster" ToRole="tbl_InstDetail" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_InstMaster_Createdby_fk" FromRole="tbl_InstMaster" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_InstMaster_Updatedby_fk" FromRole="tbl_InstMaster" ToRole="tbl_UserLogin" />
+        </EntityType>
+        <EntityType Name="tbl_InstReceived">
+          <Key>
+            <PropertyRef Name="InstRcvID" />
+          </Key>
+          <Property Name="InstRcvID" Type="Int64" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="fkinstDID" Type="Int64" Nullable="false" />
+          <Property Name="srno" Type="Int32" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+          <Property Name="InstAmount" Type="Int32" />
+          <Property Name="CustomAmount" Type="Int32" />
+          <Property Name="DiscPercent" Type="Int32" />
+          <Property Name="DiscAmount" Type="Int32" />
+          <Property Name="instType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_Files" Relationship="Self.InstReceived_tbl_File_fk" FromRole="tbl_InstReceived" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_InstDetail" Relationship="Self.InstReceived_tbl_InstDetail_fk" FromRole="tbl_InstReceived" ToRole="tbl_InstDetail" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_InstReceived_Createdby_fk" FromRole="tbl_InstReceived" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_InstReceived_Updatedby_fk" FromRole="tbl_InstReceived" ToRole="tbl_UserLogin" />
+        </EntityType>
+        <EntityType Name="tbl_List">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActiveYN" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SOUR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RMKS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_userMenu" Relationship="Self.UserMenu_Menu_FK" FromRole="tbl_Menu" ToRole="tbl_userMenu" />
+        </EntityType>
+        <EntityType Name="tbl_Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ParentID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AreaType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="TotalArea" Type="Double" />
+          <Property Name="MapIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ProjectType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Main_Sub" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerRegM" Relationship="Self.CustRegM_tbl_Projects_fk" FromRole="tbl_Projects" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_Files" Relationship="Self.Files_tbl_Project_fk" FromRole="tbl_Projects" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.Projects_Createdby_fk" FromRole="tbl_Projects" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.Projects_Updatedby_fk" FromRole="tbl_Projects" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_Projects1" Relationship="Self.tbl_Projects_Parentid_fk" FromRole="tbl_Projects" ToRole="tbl_Projects1" />
+          <NavigationProperty Name="tbl_Projects2" Relationship="Self.tbl_Projects_Parentid_fk" FromRole="tbl_Projects1" ToRole="tbl_Projects" />
+        </EntityType>
+        <EntityType Name="tbl_UserLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fkRoleID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RMKS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CPWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerKin" Relationship="Self.tbl_CustomerKin_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerKin" />
+          <NavigationProperty Name="tbl_CustomerKin1" Relationship="Self.tbl_CustomerKin_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerKin" />
+          <NavigationProperty Name="tbl_CustomerRegM" Relationship="Self.tbl_CustomerRegM_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_CustomerRegM1" Relationship="Self.tbl_CustomerRegM_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_Files" Relationship="Self.tbl_Files_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_Files1" Relationship="Self.tbl_Files_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_InstDetail" Relationship="Self.InstDetail_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstDetail" />
+          <NavigationProperty Name="tbl_InstDetail1" Relationship="Self.InstDetail_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstDetail" />
+          <NavigationProperty Name="tbl_InstMaster" Relationship="Self.tbl_InstMaster_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstMaster" />
+          <NavigationProperty Name="tbl_InstMaster1" Relationship="Self.tbl_InstMaster_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstMaster" />
+          <NavigationProperty Name="tbl_InstReceived" Relationship="Self.tbl_InstReceived_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstReceived" />
+          <NavigationProperty Name="tbl_InstReceived1" Relationship="Self.tbl_InstReceived_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_InstReceived" />
+          <NavigationProperty Name="tbl_Projects" Relationship="Self.Projects_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Projects" />
+          <NavigationProperty Name="tbl_Projects1" Relationship="Self.Projects_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Projects" />
+          <NavigationProperty Name="tbl_UserRole" Relationship="Self.UserRole_fk" FromRole="tbl_UserLogin" ToRole="tbl_UserRole" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.FileBook_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
+          <NavigationProperty Name="tbl_CustomerFileBook1" Relationship="PropertyModel.FileBook_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
+        </EntityType>
+        <EntityType Name="tbl_userMenu">
+          <Key>
+            <PropertyRef Name="fkRoleID" />
+            <PropertyRef Name="fkMenuID" />
+          </Key>
+          <Property Name="fkRoleID" Type="Int32" Nullable="false" />
+          <Property Name="fkMenuID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TYP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ParentCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="INST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="UPST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DLST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CHST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ADST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ICN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_Menu" Relationship="Self.UserMenu_Menu_FK" FromRole="tbl_userMenu" ToRole="tbl_Menu" />
+          <NavigationProperty Name="tbl_UserRole" Relationship="Self.userMenu_userrole_FK" FromRole="tbl_userMenu" ToRole="tbl_UserRole" />
+        </EntityType>
+        <EntityType Name="tbl_UserRole">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RMKS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="PST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="VST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="INST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="UPST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DLST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CHST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ADST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.UserRole_fk" FromRole="tbl_UserRole" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_userMenu" Relationship="Self.userMenu_userrole_FK" FromRole="tbl_UserRole" ToRole="tbl_userMenu" />
+        </EntityType>
+        <Association Name="CustFileBook_tbl_CustRegM_fk">
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerRegM">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="fkCustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerKin_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerKin_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerKin">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustRegM_tbl_Projects_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="fkProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerRegM_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_CustomerRegM_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerRegM">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Files_tbl_Project_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="fkProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstMaster_tbl_File_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstReceived_tbl_File_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Files_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Files_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Files">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_InstMaster_fk">
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_InstMaster">
+              <PropertyRef Name="InstMId" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="fkInstMId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstDetail_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstDetail">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstReceived_tbl_InstDetail_fk">
+          <End Role="tbl_InstDetail" Type="Self.tbl_InstDetail" Multiplicity="1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_InstDetail">
+              <PropertyRef Name="instDID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="fkinstDID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstMaster_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstMaster_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstMaster" Type="Self.tbl_InstMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstMaster">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstReceived_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_InstReceived_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_InstReceived" Type="Self.tbl_InstReceived" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_InstReceived">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserMenu_Menu_FK">
+          <End Role="tbl_Menu" Type="Self.tbl_Menu" Multiplicity="1" />
+          <End Role="tbl_userMenu" Type="Self.tbl_userMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Menu">
+              <PropertyRef Name="MenuId" />
+            </Principal>
+            <Dependent Role="tbl_userMenu">
+              <PropertyRef Name="fkMenuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Projects_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Projects">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Projects_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_Projects">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="tbl_Projects_Parentid_fk">
+          <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="0..1" />
+          <End Role="tbl_Projects1" Type="Self.tbl_Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="tbl_Projects1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole_fk">
+          <End Role="tbl_UserRole" Type="Self.tbl_UserRole" Multiplicity="1" />
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbl_UserLogin">
+              <PropertyRef Name="fkRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="userMenu_userrole_FK">
+          <End Role="tbl_UserRole" Type="Self.tbl_UserRole" Multiplicity="1" />
+          <End Role="tbl_userMenu" Type="Self.tbl_userMenu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserRole">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="tbl_userMenu">
+              <PropertyRef Name="fkRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PropertyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_CustomerKin" EntityType="Self.tbl_CustomerKin" />
+          <EntitySet Name="tbl_CustomerRegM" EntityType="Self.tbl_CustomerRegM" />
+          <EntitySet Name="tbl_Files" EntityType="Self.tbl_Files" />
+          <EntitySet Name="tbl_InstDetail" EntityType="Self.tbl_InstDetail" />
+          <EntitySet Name="tbl_InstMaster" EntityType="Self.tbl_InstMaster" />
+          <EntitySet Name="tbl_InstReceived" EntityType="Self.tbl_InstReceived" />
+          <EntitySet Name="tbl_List" EntityType="Self.tbl_List" />
+          <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" />
+          <EntitySet Name="tbl_Projects" EntityType="Self.tbl_Projects" />
+          <EntitySet Name="tbl_UserLogin" EntityType="Self.tbl_UserLogin" />
+          <EntitySet Name="tbl_userMenu" EntityType="Self.tbl_userMenu" />
+          <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" />
+          <AssociationSet Name="CustFileBook_tbl_CustRegM_fk" Association="Self.CustFileBook_tbl_CustRegM_fk">
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerKin_Createdby_fk" Association="Self.tbl_CustomerKin_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerKin_Updatedby_fk" Association="Self.tbl_CustomerKin_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
+          </AssociationSet>
+          <AssociationSet Name="CustRegM_tbl_Projects_fk" Association="Self.CustRegM_tbl_Projects_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerRegM_Createdby_fk" Association="Self.tbl_CustomerRegM_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_CustomerRegM_Updatedby_fk" Association="Self.tbl_CustomerRegM_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+          </AssociationSet>
+          <AssociationSet Name="Files_tbl_Project_fk" Association="Self.Files_tbl_Project_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="InstMaster_tbl_File_fk" Association="Self.InstMaster_tbl_File_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="InstReceived_tbl_File_fk" Association="Self.InstReceived_tbl_File_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Files_Createdby_fk" Association="Self.tbl_Files_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Files_Updatedby_fk" Association="Self.tbl_Files_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_Createdby_fk" Association="Self.InstDetail_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_InstMaster_fk" Association="Self.InstDetail_InstMaster_fk">
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstDetail_Updatedby_fk" Association="Self.InstDetail_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+          </AssociationSet>
+          <AssociationSet Name="InstReceived_tbl_InstDetail_fk" Association="Self.InstReceived_tbl_InstDetail_fk">
+            <End Role="tbl_InstDetail" EntitySet="tbl_InstDetail" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstMaster_Createdby_fk" Association="Self.tbl_InstMaster_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstMaster_Updatedby_fk" Association="Self.tbl_InstMaster_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstMaster" EntitySet="tbl_InstMaster" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstReceived_Createdby_fk" Association="Self.tbl_InstReceived_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_InstReceived_Updatedby_fk" Association="Self.tbl_InstReceived_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_InstReceived" EntitySet="tbl_InstReceived" />
+          </AssociationSet>
+          <AssociationSet Name="UserMenu_Menu_FK" Association="Self.UserMenu_Menu_FK">
+            <End Role="tbl_Menu" EntitySet="tbl_Menu" />
+            <End Role="tbl_userMenu" EntitySet="tbl_userMenu" />
+          </AssociationSet>
+          <AssociationSet Name="Projects_Createdby_fk" Association="Self.Projects_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="Projects_Updatedby_fk" Association="Self.Projects_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="tbl_Projects_Parentid_fk" Association="Self.tbl_Projects_Parentid_fk">
+            <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+            <End Role="tbl_Projects1" EntitySet="tbl_Projects" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole_fk" Association="Self.UserRole_fk">
+            <End Role="tbl_UserRole" EntitySet="tbl_UserRole" />
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+          </AssociationSet>
+          <AssociationSet Name="userMenu_userrole_FK" Association="Self.userMenu_userrole_FK">
+            <End Role="tbl_UserRole" EntitySet="tbl_UserRole" />
+            <End Role="tbl_userMenu" EntitySet="tbl_userMenu" />
+          </AssociationSet>
+          <FunctionImport Name="Pro_CheckLogin">
+            <Parameter Name="PARM_USER_NAME" Mode="In" Type="String" />
+            <Parameter Name="PARM_PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="PARM_USER_ID" Mode="InOut" Type="String" />
+            <Parameter Name="PARM_FULL_USER_NAME" Mode="InOut" Type="String" />
+            <Parameter Name="PARM_USER_ROLE" Mode="InOut" Type="String" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_CustomerKin">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CustomerKinId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkCustomerId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_KinName" Mode="In" Type="String" />
+            <Parameter Name="PARAM_KinCNIC" Mode="In" Type="String" />
+            <Parameter Name="PARAM_KinMobile" Mode="In" Type="String" />
+            <Parameter Name="PARAM_KinRelation" Mode="In" Type="String" />
+            <Parameter Name="PARAM_ActiveYN" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_CustomerRegM">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CustomerID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkProjectID" Mode="In" Type="String" />
+            <Parameter Name="PARAM_SubProjID" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CustomerRegNo" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CustomerName" Mode="In" Type="String" />
+            <Parameter Name="PARAM_FatherName" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CNIC" Mode="In" Type="String" />
+            <Parameter Name="PARAM_Mobile" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PresentAddress" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PermAddress" Mode="In" Type="String" />
+            <Parameter Name="PARAM_OfficeNumber" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CustIMG" Mode="In" Type="Binary" />
+            <Parameter Name="PARAM_CNICFrontIMG" Mode="In" Type="Binary" />
+            <Parameter Name="PARAM_CNICBackIMG" Mode="In" Type="Binary" />
+            <Parameter Name="PARAM_DealerYN" Mode="In" Type="String" />
+            <Parameter Name="PARAM_ActiveYN" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_CustomerID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_Files">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_FileID" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_FileNumber" Mode="In" Type="String" />
+            <Parameter Name="PARAM_fkProjectId" Mode="In" Type="String" />
+            <Parameter Name="PARAM_Block" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PlotCat" Mode="In" Type="String" />
+            <Parameter Name="PARAM_Plot_Factor" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PlotNo" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PlotSize" Mode="In" Type="Double" />
+            <Parameter Name="PARAM_ConfirmationFee" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_AutoPlotNo" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PlotRate" Mode="In" Type="Double" />
+            <Parameter Name="PARAM_TotalPloValue" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_PlotCatDesc" Mode="In" Type="String" />
+            <Parameter Name="PARAM_FileStatus" Mode="In" Type="String" />
+            <Parameter Name="PARAM_PlotValue" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_PlotExtChargs" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_UnitStatus" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_InstDetail">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_instDID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkInstMId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Total" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Amount" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_InstType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_instDID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_InstMaster">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_InstMId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkFileID" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Type" Mode="In" Type="String" />
+            <Parameter Name="PARAM_DateOfInst" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_Nature" Mode="In" Type="String" />
+            <Parameter Name="PARAM_NoOfInst" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_InstAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_CustomPeriod" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_CustomTime" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_InstMId" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_InstReceived">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_InstRcvID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkFileID" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_fkinstDID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Total" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_InstAmount" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_DiscPercent" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_DiscAmount" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_instType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_paymentMethod" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_instRcvID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_Projects">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARM_ProjectID" Mode="In" Type="String" />
+            <Parameter Name="PARM_ParentID" Mode="In" Type="String" />
+            <Parameter Name="PARM_ProjectName" Mode="In" Type="String" />
+            <Parameter Name="PARM_ProjectAddress" Mode="In" Type="String" />
+            <Parameter Name="PARM_AreaType" Mode="In" Type="String" />
+            <Parameter Name="PARM_TotalArea" Mode="In" Type="String" />
+            <Parameter Name="PARM_MapIMG" Mode="In" Type="Binary" />
+            <Parameter Name="PARM_ProjectType" Mode="In" Type="String" />
+            <Parameter Name="PARM_Main_Sub" Mode="In" Type="String" />
+            <Parameter Name="PARM_ActiveYN" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_UserLogin">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARM_USER_ID" Mode="In" Type="String" />
+            <Parameter Name="PARM_ROLE_ID" Mode="In" Type="String" />
+            <Parameter Name="PARM_NAME" Mode="In" Type="String" />
+            <Parameter Name="PARM_RMKS" Mode="In" Type="String" />
+            <Parameter Name="PARM_USER_NAME" Mode="In" Type="String" />
+            <Parameter Name="PARM_PWD" Mode="In" Type="String" />
+            <Parameter Name="PARM_CPWD" Mode="In" Type="String" />
+            <Parameter Name="PARM_ACTIVEYN" Mode="In" Type="String" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PropertyModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PropertyModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="Pro_IDU_CustomerFileBook">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_FileBookID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkCustomerID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkFileID" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_MemberShipNo" Mode="In" Type="String" />
+            <Parameter Name="PARAM_AreaType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_Area" Mode="In" Type="Double" />
+            <Parameter Name="PARAM_Price" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DownPayment" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_ConfirmationFee" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_ConfirmationFeeDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_PayMethod" Mode="In" Type="String" />
+            <Parameter Name="PARAM_RegistrationFee" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_BookingStatus" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_FileBookID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
+          <EntitySet Name="tbl_CustomerFileBook" EntityType="PropertyModel.tbl_CustomerFileBook" />
+          <AssociationSet Name="CustFileBook_CustRegM_fk" Association="PropertyModel.CustFileBook_CustRegM_fk">
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="CustFileBook_FileID_fk" Association="PropertyModel.CustFileBook_FileID_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Createdby_fk" Association="PropertyModel.FileBook_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Updatedby_fk" Association="PropertyModel.FileBook_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <EntitySet Name="View_CustomerFileBooking" EntityType="PropertyModel.View_CustomerFileBooking" />
+          <EntitySet Name="View_Installment_Receive" EntityType="PropertyModel.View_Installment_Receive" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="tbl_CustomerFileBook">
+          <Key>
+            <PropertyRef Name="FileBookID" />
+          </Key>
+          <Property Name="FileBookID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="AreaType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="Double" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="DownPayment" Type="Int64" />
+          <Property Name="ConfirmationFee" Type="Int64" />
+          <Property Name="ConfirmationFeeDate" Type="DateTime" Precision="0" />
+          <Property Name="PayMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationFee" Type="Int64" />
+          <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerRegM" Relationship="PropertyModel.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_Files" Relationship="PropertyModel.CustFileBook_FileID_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="PropertyModel.FileBook_Createdby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="PropertyModel.FileBook_Updatedby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
+        </EntityType>
+        <Association Name="CustFileBook_CustRegM_fk">
+          <End Type="PropertyModel.tbl_CustomerRegM" Role="tbl_CustomerRegM" Multiplicity="1" />
+          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerRegM">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkCustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustFileBook_FileID_fk">
+          <End Type="PropertyModel.tbl_Files" Role="tbl_Files" Multiplicity="1" />
+          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Createdby_fk">
+          <End Type="PropertyModel.tbl_UserLogin" Role="tbl_UserLogin" Multiplicity="0..1" />
+          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Updatedby_fk">
+          <End Type="PropertyModel.tbl_UserLogin" Role="tbl_UserLogin" Multiplicity="0..1" />
+          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="View_CustomerFileBooking">
+          <Key>
+            <PropertyRef Name="FileBookID" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+            <PropertyRef Name="CustomerRegNo" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CNIC" />
+            <PropertyRef Name="DealerYN" />
+            <PropertyRef Name="ActiveYN" />
+          </Key>
+          <Property Name="FileBookID" Type="Int64" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkProjectID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SubProjID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRegNo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CNIC" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PresentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PermAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DealerYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_Installment_Receive">
+          <Key>
+            <PropertyRef Name="instDID" />
+            <PropertyRef Name="fkInstMId" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CustomerRegNo" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="FileBookID" />
+          </Key>
+          <Property Name="instDID" Type="Int64" Nullable="false" />
+          <Property Name="fkInstMId" Type="Int64" Nullable="false" />
+          <Property Name="srno" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="CustomAmount" Type="Int32" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="InstType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkProjectID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRegNo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="FileBookID" Type="Int64" Nullable="false" />
+          <Property Name="InstRcvID" Type="Int64" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PropertyModelStoreContainer" CdmEntityContainer="PropertyEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PropertyModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CustomerKin">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_CustomerKin">
+              <MappingFragment StoreEntitySet="tbl_CustomerKin">
+                <ScalarProperty Name="CustomerKinId" ColumnName="CustomerKinId" />
+                <ScalarProperty Name="fkCustomerId" ColumnName="fkCustomerId" />
+                <ScalarProperty Name="KinName" ColumnName="KinName" />
+                <ScalarProperty Name="KinCNIC" ColumnName="KinCNIC" />
+                <ScalarProperty Name="KinMobile" ColumnName="KinMobile" />
+                <ScalarProperty Name="KinRelation" ColumnName="KinRelation" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_CustomerRegM">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_CustomerRegM">
+              <MappingFragment StoreEntitySet="tbl_CustomerRegM">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="SubProjID" ColumnName="SubProjID" />
+                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="PermAddress" ColumnName="PermAddress" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="CustIMG" ColumnName="CustIMG" />
+                <ScalarProperty Name="CNICFrontIMG" ColumnName="CNICFrontIMG" />
+                <ScalarProperty Name="CNICBackIMG" ColumnName="CNICBackIMG" />
+                <ScalarProperty Name="DealerYN" ColumnName="DealerYN" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Files">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_Files">
+              <MappingFragment StoreEntitySet="tbl_Files">
+                <ScalarProperty Name="FileID" ColumnName="FileID" />
+                <ScalarProperty Name="FileNumber" ColumnName="FileNumber" />
+                <ScalarProperty Name="fkProjectId" ColumnName="fkProjectId" />
+                <ScalarProperty Name="Block" ColumnName="Block" />
+                <ScalarProperty Name="PlotCat" ColumnName="PlotCat" />
+                <ScalarProperty Name="Plot_Factor" ColumnName="Plot_Factor" />
+                <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
+                <ScalarProperty Name="PlotSize" ColumnName="PlotSize" />
+                <ScalarProperty Name="ConfirmationFee" ColumnName="ConfirmationFee" />
+                <ScalarProperty Name="AutoPlotNo" ColumnName="AutoPlotNo" />
+                <ScalarProperty Name="PlotRate" ColumnName="PlotRate" />
+                <ScalarProperty Name="TotalPloValue" ColumnName="TotalPloValue" />
+                <ScalarProperty Name="PlotCatDesc" ColumnName="PlotCatDesc" />
+                <ScalarProperty Name="FileStatus" ColumnName="FileStatus" />
+                <ScalarProperty Name="PlotValue" ColumnName="PlotValue" />
+                <ScalarProperty Name="PlotExtChargs" ColumnName="PlotExtChargs" />
+                <ScalarProperty Name="UnitStatus" ColumnName="UnitStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_InstDetail">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_InstDetail">
+              <MappingFragment StoreEntitySet="tbl_InstDetail">
+                <ScalarProperty Name="instDID" ColumnName="instDID" />
+                <ScalarProperty Name="fkInstMId" ColumnName="fkInstMId" />
+                <ScalarProperty Name="srno" ColumnName="srno" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="InstType" ColumnName="InstType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_InstMaster">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_InstMaster">
+              <MappingFragment StoreEntitySet="tbl_InstMaster">
+                <ScalarProperty Name="InstMId" ColumnName="InstMId" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DateOfInst" ColumnName="DateOfInst" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="NoOfInst" ColumnName="NoOfInst" />
+                <ScalarProperty Name="InstAmount" ColumnName="InstAmount" />
+                <ScalarProperty Name="CustomPeriod" ColumnName="CustomPeriod" />
+                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
+                <ScalarProperty Name="CustomTime" ColumnName="CustomTime" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_InstReceived">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_InstReceived">
+              <MappingFragment StoreEntitySet="tbl_InstReceived">
+                <ScalarProperty Name="InstRcvID" ColumnName="InstRcvID" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="fkinstDID" ColumnName="fkinstDID" />
+                <ScalarProperty Name="srno" ColumnName="srno" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="InstAmount" ColumnName="InstAmount" />
+                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
+                <ScalarProperty Name="DiscPercent" ColumnName="DiscPercent" />
+                <ScalarProperty Name="DiscAmount" ColumnName="DiscAmount" />
+                <ScalarProperty Name="instType" ColumnName="instType" />
+                <ScalarProperty Name="paymentMethod" ColumnName="paymentMethod" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_List">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_List">
+              <MappingFragment StoreEntitySet="tbl_List">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Menu">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_Menu">
+              <MappingFragment StoreEntitySet="tbl_Menu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="SOUR" ColumnName="SOUR" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
+                <ScalarProperty Name="AST" ColumnName="AST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Projects">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_Projects">
+              <MappingFragment StoreEntitySet="tbl_Projects">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectAddress" ColumnName="ProjectAddress" />
+                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+                <ScalarProperty Name="TotalArea" ColumnName="TotalArea" />
+                <ScalarProperty Name="MapIMG" ColumnName="MapIMG" />
+                <ScalarProperty Name="ProjectType" ColumnName="ProjectType" />
+                <ScalarProperty Name="Main_Sub" ColumnName="Main_Sub" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserLogin">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_UserLogin">
+              <MappingFragment StoreEntitySet="tbl_UserLogin">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="fkRoleID" ColumnName="fkRoleID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="CPWD" ColumnName="CPWD" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_userMenu">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_userMenu">
+              <MappingFragment StoreEntitySet="tbl_userMenu">
+                <ScalarProperty Name="fkRoleID" ColumnName="fkRoleID" />
+                <ScalarProperty Name="fkMenuID" ColumnName="fkMenuID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="ParentCode" ColumnName="ParentCode" />
+                <ScalarProperty Name="AST" ColumnName="AST" />
+                <ScalarProperty Name="PST" ColumnName="PST" />
+                <ScalarProperty Name="VST" ColumnName="VST" />
+                <ScalarProperty Name="INST" ColumnName="INST" />
+                <ScalarProperty Name="UPST" ColumnName="UPST" />
+                <ScalarProperty Name="DLST" ColumnName="DLST" />
+                <ScalarProperty Name="CHST" ColumnName="CHST" />
+                <ScalarProperty Name="ADST" ColumnName="ADST" />
+                <ScalarProperty Name="ICN" ColumnName="ICN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserRole">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_UserRole">
+              <MappingFragment StoreEntitySet="tbl_UserRole">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
+                <ScalarProperty Name="AST" ColumnName="AST" />
+                <ScalarProperty Name="PST" ColumnName="PST" />
+                <ScalarProperty Name="VST" ColumnName="VST" />
+                <ScalarProperty Name="INST" ColumnName="INST" />
+                <ScalarProperty Name="UPST" ColumnName="UPST" />
+                <ScalarProperty Name="DLST" ColumnName="DLST" />
+                <ScalarProperty Name="CHST" ColumnName="CHST" />
+                <ScalarProperty Name="ADST" ColumnName="ADST" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Pro_CheckLogin" FunctionName="PropertyModel.Store.Pro_CheckLogin" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerKin" FunctionName="PropertyModel.Store.Pro_IDU_CustomerKin" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerRegM" FunctionName="PropertyModel.Store.Pro_IDU_CustomerRegM" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_Files" FunctionName="PropertyModel.Store.Pro_IDU_Files" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstDetail" FunctionName="PropertyModel.Store.Pro_IDU_InstDetail" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstMaster" FunctionName="PropertyModel.Store.Pro_IDU_InstMaster" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstReceived" FunctionName="PropertyModel.Store.Pro_IDU_InstReceived" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_Projects" FunctionName="PropertyModel.Store.Pro_IDU_Projects" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_UserLogin" FunctionName="PropertyModel.Store.Pro_IDU_UserLogin" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PropertyModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PropertyModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PropertyModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PropertyModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PropertyModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PropertyModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PropertyModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PropertyModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PropertyModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerFileBook" FunctionName="PropertyModel.Store.Pro_IDU_CustomerFileBook" />
+          <EntitySetMapping Name="tbl_CustomerFileBook">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_CustomerFileBook">
+              <MappingFragment StoreEntitySet="tbl_CustomerFileBook">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="RegistrationFee" ColumnName="RegistrationFee" />
+                <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+                <ScalarProperty Name="ConfirmationFeeDate" ColumnName="ConfirmationFeeDate" />
+                <ScalarProperty Name="ConfirmationFee" ColumnName="ConfirmationFee" />
+                <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="fkCustomerID" ColumnName="fkCustomerID" />
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CustomerFileBooking">
+            <EntityTypeMapping TypeName="PropertyModel.View_CustomerFileBooking">
+              <MappingFragment StoreEntitySet="View_CustomerFileBooking">
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="DealerYN" ColumnName="DealerYN" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="PermAddress" ColumnName="PermAddress" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
+                <ScalarProperty Name="SubProjID" ColumnName="SubProjID" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Installment_Receive">
+            <EntityTypeMapping TypeName="PropertyModel.View_Installment_Receive">
+              <MappingFragment StoreEntitySet="View_Installment_Receive">
+                <ScalarProperty Name="InstRcvID" ColumnName="InstRcvID" />
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="InstType" ColumnName="InstType" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="srno" ColumnName="srno" />
+                <ScalarProperty Name="fkInstMId" ColumnName="fkInstMId" />
+                <ScalarProperty Name="instDID" ColumnName="instDID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

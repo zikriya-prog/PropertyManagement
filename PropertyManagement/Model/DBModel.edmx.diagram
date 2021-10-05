@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe31d0feadc64080939d68f2a2b3c8f1" Name="Diagram1">
+        <EntityTypeShape EntityType="PropertyModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_CustomerKin" Width="1.5" PointX="5.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_CustomerRegM" Width="1.5" PointX="10.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_Files" Width="1.5" PointX="13.5" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_InstDetail" Width="1.5" PointX="18" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_InstMaster" Width="1.5" PointX="15.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_InstReceived" Width="1.5" PointX="20.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_List" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_Menu" Width="1.5" PointX="5.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_Projects" Width="1.5" PointX="5.25" PointY="41.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_UserLogin" Width="1.5" PointX="3" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_userMenu" Width="1.5" PointX="8" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_UserRole" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="PropertyModel.CustFileBook_tbl_CustRegM_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_CustomerKin_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_CustomerKin_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.CustRegM_tbl_Projects_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_CustomerRegM_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_CustomerRegM_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.Files_tbl_Project_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstMaster_tbl_File_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstReceived_tbl_File_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_Files_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_Files_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstDetail_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstDetail_InstMaster_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstDetail_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.InstReceived_tbl_InstDetail_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_InstMaster_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_InstMaster_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_InstReceived_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_InstReceived_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.UserMenu_Menu_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.Projects_Createdby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.Projects_Updatedby_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.tbl_Projects_Parentid_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.UserRole_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="PropertyModel.userMenu_userrole_FK" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PropertyModel.tbl_CustomerFileBook" Width="1.5" PointX="15.75" PointY="29.25" />
+        <AssociationConnector Association="PropertyModel.CustFileBook_CustRegM_fk" />
+        <AssociationConnector Association="PropertyModel.CustFileBook_FileID_fk" />
+        <AssociationConnector Association="PropertyModel.FileBook_Createdby_fk" />
+        <AssociationConnector Association="PropertyModel.FileBook_Updatedby_fk" />
+        <EntityTypeShape EntityType="PropertyModel.View_CustomerFileBooking" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="PropertyModel.View_Installment_Receive" Width="1.5" PointX="3.375" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
