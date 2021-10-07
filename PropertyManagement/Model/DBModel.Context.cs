@@ -43,6 +43,7 @@ namespace PropertyManagement.Model
         public virtual DbSet<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
         public virtual DbSet<View_CustomerFileBooking> View_CustomerFileBooking { get; set; }
         public virtual DbSet<View_Installment_Receive> View_Installment_Receive { get; set; }
+        public virtual DbSet<View_user_with_role> View_user_with_role { get; set; }
     
         public virtual int Pro_CheckLogin(string pARM_USER_NAME, string pARM_PASSWORD, ObjectParameter pARM_USER_ID, ObjectParameter pARM_FULL_USER_NAME, ObjectParameter pARM_USER_ROLE, ObjectParameter pARM_ERROR_MESSAGE)
         {
@@ -767,6 +768,51 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_CustomerFileBook", pARM_IDU_STSParameter, pARAM_FileBookIDParameter, pARAM_fkCustomerIDParameter, pARAM_fkFileIDParameter, pARAM_MemberShipNoParameter, pARAM_AreaTypeParameter, pARAM_AreaParameter, pARAM_PriceParameter, pARAM_DownPaymentParameter, pARAM_ConfirmationFeeParameter, pARAM_ConfirmationFeeDateParameter, pARAM_PayMethodParameter, pARAM_RegistrationFeeParameter, pARAM_BookingStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
+        }
+    
+        public virtual int Pro_IDU_List(string pARM_IDU_STS, Nullable<int> pARM_ListID, string pARM_Name, string pARM_Description, string pARM_Type, string pARM_ActiveYN, string pARM_CreatedBy, Nullable<System.DateTime> pARM_CreatedDate, string pARM_UpdatedBy, Nullable<System.DateTime> pARM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
+        {
+            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
+                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
+                new ObjectParameter("PARM_IDU_STS", typeof(string));
+    
+            var pARM_ListIDParameter = pARM_ListID.HasValue ?
+                new ObjectParameter("PARM_ListID", pARM_ListID) :
+                new ObjectParameter("PARM_ListID", typeof(int));
+    
+            var pARM_NameParameter = pARM_Name != null ?
+                new ObjectParameter("PARM_Name", pARM_Name) :
+                new ObjectParameter("PARM_Name", typeof(string));
+    
+            var pARM_DescriptionParameter = pARM_Description != null ?
+                new ObjectParameter("PARM_Description", pARM_Description) :
+                new ObjectParameter("PARM_Description", typeof(string));
+    
+            var pARM_TypeParameter = pARM_Type != null ?
+                new ObjectParameter("PARM_Type", pARM_Type) :
+                new ObjectParameter("PARM_Type", typeof(string));
+    
+            var pARM_ActiveYNParameter = pARM_ActiveYN != null ?
+                new ObjectParameter("PARM_ActiveYN", pARM_ActiveYN) :
+                new ObjectParameter("PARM_ActiveYN", typeof(string));
+    
+            var pARM_CreatedByParameter = pARM_CreatedBy != null ?
+                new ObjectParameter("PARM_CreatedBy", pARM_CreatedBy) :
+                new ObjectParameter("PARM_CreatedBy", typeof(string));
+    
+            var pARM_CreatedDateParameter = pARM_CreatedDate.HasValue ?
+                new ObjectParameter("PARM_CreatedDate", pARM_CreatedDate) :
+                new ObjectParameter("PARM_CreatedDate", typeof(System.DateTime));
+    
+            var pARM_UpdatedByParameter = pARM_UpdatedBy != null ?
+                new ObjectParameter("PARM_UpdatedBy", pARM_UpdatedBy) :
+                new ObjectParameter("PARM_UpdatedBy", typeof(string));
+    
+            var pARM_UpdatedDateParameter = pARM_UpdatedDate.HasValue ?
+                new ObjectParameter("PARM_UpdatedDate", pARM_UpdatedDate) :
+                new ObjectParameter("PARM_UpdatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_List", pARM_IDU_STSParameter, pARM_ListIDParameter, pARM_NameParameter, pARM_DescriptionParameter, pARM_TypeParameter, pARM_ActiveYNParameter, pARM_CreatedByParameter, pARM_CreatedDateParameter, pARM_UpdatedByParameter, pARM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
         }
     }
 }

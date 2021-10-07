@@ -751,15 +751,12 @@
             // 
             // cmb_paymentMethod
             // 
-            this.cmb_paymentMethod.EditValue = "Cash";
+            this.cmb_paymentMethod.EditValue = "";
             this.cmb_paymentMethod.Location = new System.Drawing.Point(106, 94);
             this.cmb_paymentMethod.MenuManager = this.barManager1;
             this.cmb_paymentMethod.Name = "cmb_paymentMethod";
             this.cmb_paymentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_paymentMethod.Properties.Items.AddRange(new object[] {
-            "Cash",
-            "Bank"});
             this.cmb_paymentMethod.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_paymentMethod.Size = new System.Drawing.Size(578, 20);
             this.cmb_paymentMethod.StyleController = this.layoutControl1;

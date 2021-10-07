@@ -12,16 +12,16 @@ namespace PropertyManagement.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_List
+    public partial class View_user_with_role
     {
-        public int id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Type { get; set; }
+        public string UserID { get; set; }
+        public int fkRoleID { get; set; }
+        public string NAME { get; set; }
+        public string RMKS { get; set; }
+        public string UserName { get; set; }
+        public string PWD { get; set; }
+        public string CPWD { get; set; }
         public string ActiveYN { get; set; }
-        public string CreatedBy { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string LoginName { get; set; }
     }
 }

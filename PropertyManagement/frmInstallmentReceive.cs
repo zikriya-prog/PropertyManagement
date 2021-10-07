@@ -20,10 +20,16 @@ namespace PropertyManagement
         bool isnew = false;
         List<View_CustomerFileBooking> customerList;
         View_Installment_Receive _View_Installment_Receive = null;
+        List<tbl_List> _tbl_list;
         public frmInstallmentReceive()
         {
             InitializeComponent();
             RefreshSources(0);
+            _tbl_list = db.tbl_List.ToList();
+            //"G:\\FreeLance\\PropertyManagement\\PropertyManagement\\bin\\Debug\\mylayout"
+            //if(File.Exists("mylayout"))
+            //layoutControl1.RestoreLayoutFromXml("mylayout");
+            cmb_paymentMethod.Properties.Items.AddRange(_tbl_list.Where(x => x.Type == "PayMode").Select(x => x.Name).ToList());
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)

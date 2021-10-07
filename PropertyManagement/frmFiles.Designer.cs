@@ -97,6 +97,7 @@
             this.txt_plotExtCharges = new DevExpress.XtraEditors.TextEdit();
             this.txt_unitStatus = new DevExpress.XtraEditors.TextEdit();
             this.cmb_plotCat = new DevExpress.XtraEditors.LookUpEdit();
+            this.tblListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txt_fileNumber = new DevExpress.XtraEditors.TextEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
@@ -151,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotExtCharges.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_unitStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_plotCat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_fileNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -256,148 +258,136 @@
             // 
             this.colFileID.FieldName = "FileID";
             this.colFileID.Name = "colFileID";
-            this.colFileID.Visible = true;
-            this.colFileID.VisibleIndex = 0;
             // 
             // colFileNumber
             // 
             this.colFileNumber.FieldName = "FileNumber";
             this.colFileNumber.Name = "colFileNumber";
             this.colFileNumber.Visible = true;
-            this.colFileNumber.VisibleIndex = 1;
+            this.colFileNumber.VisibleIndex = 0;
             // 
             // colfkProjectId
             // 
             this.colfkProjectId.FieldName = "fkProjectId";
             this.colfkProjectId.Name = "colfkProjectId";
-            this.colfkProjectId.Visible = true;
-            this.colfkProjectId.VisibleIndex = 2;
             // 
             // colBlock
             // 
             this.colBlock.FieldName = "Block";
             this.colBlock.Name = "colBlock";
             this.colBlock.Visible = true;
-            this.colBlock.VisibleIndex = 3;
+            this.colBlock.VisibleIndex = 1;
             // 
             // colPlotCat
             // 
             this.colPlotCat.FieldName = "PlotCat";
             this.colPlotCat.Name = "colPlotCat";
             this.colPlotCat.Visible = true;
-            this.colPlotCat.VisibleIndex = 4;
+            this.colPlotCat.VisibleIndex = 2;
             // 
             // colPlot_Factor
             // 
             this.colPlot_Factor.FieldName = "Plot_Factor";
             this.colPlot_Factor.Name = "colPlot_Factor";
             this.colPlot_Factor.Visible = true;
-            this.colPlot_Factor.VisibleIndex = 5;
+            this.colPlot_Factor.VisibleIndex = 3;
             // 
             // colPlotNo
             // 
             this.colPlotNo.FieldName = "PlotNo";
             this.colPlotNo.Name = "colPlotNo";
             this.colPlotNo.Visible = true;
-            this.colPlotNo.VisibleIndex = 6;
+            this.colPlotNo.VisibleIndex = 4;
             // 
             // colPlotSize
             // 
             this.colPlotSize.FieldName = "PlotSize";
             this.colPlotSize.Name = "colPlotSize";
             this.colPlotSize.Visible = true;
-            this.colPlotSize.VisibleIndex = 7;
+            this.colPlotSize.VisibleIndex = 5;
             // 
             // colConfirmationFee
             // 
             this.colConfirmationFee.FieldName = "ConfirmationFee";
             this.colConfirmationFee.Name = "colConfirmationFee";
             this.colConfirmationFee.Visible = true;
-            this.colConfirmationFee.VisibleIndex = 8;
+            this.colConfirmationFee.VisibleIndex = 6;
             // 
             // colAutoPlotNo
             // 
             this.colAutoPlotNo.FieldName = "AutoPlotNo";
             this.colAutoPlotNo.Name = "colAutoPlotNo";
             this.colAutoPlotNo.Visible = true;
-            this.colAutoPlotNo.VisibleIndex = 9;
+            this.colAutoPlotNo.VisibleIndex = 7;
             // 
             // colPlotRate
             // 
             this.colPlotRate.FieldName = "PlotRate";
             this.colPlotRate.Name = "colPlotRate";
             this.colPlotRate.Visible = true;
-            this.colPlotRate.VisibleIndex = 10;
+            this.colPlotRate.VisibleIndex = 8;
             // 
             // colTotalPloValue
             // 
             this.colTotalPloValue.FieldName = "TotalPloValue";
             this.colTotalPloValue.Name = "colTotalPloValue";
             this.colTotalPloValue.Visible = true;
-            this.colTotalPloValue.VisibleIndex = 11;
+            this.colTotalPloValue.VisibleIndex = 9;
             // 
             // colPlotCatDesc
             // 
             this.colPlotCatDesc.FieldName = "PlotCatDesc";
             this.colPlotCatDesc.Name = "colPlotCatDesc";
             this.colPlotCatDesc.Visible = true;
-            this.colPlotCatDesc.VisibleIndex = 12;
+            this.colPlotCatDesc.VisibleIndex = 10;
             // 
             // colFileStatus
             // 
             this.colFileStatus.FieldName = "FileStatus";
             this.colFileStatus.Name = "colFileStatus";
             this.colFileStatus.Visible = true;
-            this.colFileStatus.VisibleIndex = 13;
+            this.colFileStatus.VisibleIndex = 11;
             // 
             // colPlotValue
             // 
             this.colPlotValue.FieldName = "PlotValue";
             this.colPlotValue.Name = "colPlotValue";
             this.colPlotValue.Visible = true;
-            this.colPlotValue.VisibleIndex = 14;
+            this.colPlotValue.VisibleIndex = 12;
             // 
             // colPlotExtChargs
             // 
             this.colPlotExtChargs.FieldName = "PlotExtChargs";
             this.colPlotExtChargs.Name = "colPlotExtChargs";
             this.colPlotExtChargs.Visible = true;
-            this.colPlotExtChargs.VisibleIndex = 15;
+            this.colPlotExtChargs.VisibleIndex = 13;
             // 
             // colUnitStatus
             // 
             this.colUnitStatus.FieldName = "UnitStatus";
             this.colUnitStatus.Name = "colUnitStatus";
             this.colUnitStatus.Visible = true;
-            this.colUnitStatus.VisibleIndex = 16;
+            this.colUnitStatus.VisibleIndex = 14;
             // 
             // colCreatedBy
             // 
             this.colCreatedBy.FieldName = "CreatedBy";
             this.colCreatedBy.Name = "colCreatedBy";
-            this.colCreatedBy.Visible = true;
-            this.colCreatedBy.VisibleIndex = 17;
             // 
             // colCreatedDate
             // 
             this.colCreatedDate.FieldName = "CreatedDate";
             this.colCreatedDate.Name = "colCreatedDate";
-            this.colCreatedDate.Visible = true;
-            this.colCreatedDate.VisibleIndex = 18;
             // 
             // colUpdatedBy
             // 
             this.colUpdatedBy.FieldName = "UpdatedBy";
             this.colUpdatedBy.Name = "colUpdatedBy";
-            this.colUpdatedBy.Visible = true;
-            this.colUpdatedBy.VisibleIndex = 19;
             // 
             // colUpdatedDate
             // 
             this.colUpdatedDate.FieldName = "UpdatedDate";
             this.colUpdatedDate.Name = "colUpdatedDate";
-            this.colUpdatedDate.Visible = true;
-            this.colUpdatedDate.VisibleIndex = 20;
             // 
             // coltbl_CustomerFileBook
             // 
@@ -431,16 +421,16 @@
             // 
             // txt_block
             // 
-            this.txt_block.Location = new System.Drawing.Point(97, 89);
+            this.txt_block.Location = new System.Drawing.Point(94, 89);
             this.txt_block.Name = "txt_block";
             this.txt_block.Properties.UseReadOnlyAppearance = false;
-            this.txt_block.Size = new System.Drawing.Size(216, 20);
+            this.txt_block.Size = new System.Drawing.Size(219, 20);
             this.txt_block.StyleController = this.layoutControl1;
             this.txt_block.TabIndex = 6;
             // 
             // searchLookUpEdit1
             // 
-            this.searchLookUpEdit1.Location = new System.Drawing.Point(97, 41);
+            this.searchLookUpEdit1.Location = new System.Drawing.Point(94, 41);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -449,7 +439,7 @@
             this.searchLookUpEdit1.Properties.PopupView = this.gridView1;
             this.searchLookUpEdit1.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit1.Properties.ValueMember = "ProjectID";
-            this.searchLookUpEdit1.Size = new System.Drawing.Size(470, 20);
+            this.searchLookUpEdit1.Size = new System.Drawing.Size(473, 20);
             this.searchLookUpEdit1.StyleController = this.layoutControl1;
             this.searchLookUpEdit1.TabIndex = 4;
             // 
@@ -486,16 +476,12 @@
             // 
             this.gridColumn1.FieldName = "ProjectID";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 71;
             // 
             // gridColumn2
             // 
             this.gridColumn2.FieldName = "ParentID";
             this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
             this.gridColumn2.Width = 71;
             // 
             // gridColumn3
@@ -503,7 +489,7 @@
             this.gridColumn3.FieldName = "ProjectName";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 0;
             this.gridColumn3.Width = 71;
             // 
             // gridColumn4
@@ -511,7 +497,7 @@
             this.gridColumn4.FieldName = "ProjectAddress";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 71;
             // 
             // gridColumn5
@@ -519,7 +505,7 @@
             this.gridColumn5.FieldName = "AreaType";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 2;
             this.gridColumn5.Width = 71;
             // 
             // gridColumn6
@@ -527,7 +513,7 @@
             this.gridColumn6.FieldName = "TotalArea";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 71;
             // 
             // gridColumn7
@@ -535,7 +521,7 @@
             this.gridColumn7.FieldName = "ProjectMapPath";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 6;
+            this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 71;
             // 
             // gridColumn8
@@ -543,7 +529,7 @@
             this.gridColumn8.FieldName = "ProjectType";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 7;
+            this.gridColumn8.VisibleIndex = 5;
             this.gridColumn8.Width = 71;
             // 
             // gridColumn9
@@ -621,14 +607,14 @@
             // radioGroup1
             // 
             this.radioGroup1.EditValue = "Main";
-            this.radioGroup1.Location = new System.Drawing.Point(97, 12);
+            this.radioGroup1.Location = new System.Drawing.Point(94, 12);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Main", "Main"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Sub", "Sub")});
-            this.radioGroup1.Size = new System.Drawing.Size(203, 25);
+            this.radioGroup1.Size = new System.Drawing.Size(206, 25);
             this.radioGroup1.StyleController = this.layoutControl1;
             this.radioGroup1.TabIndex = 15;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
@@ -636,139 +622,147 @@
             // 
             // txt_plotFactor
             // 
-            this.txt_plotFactor.Location = new System.Drawing.Point(738, 89);
+            this.txt_plotFactor.Location = new System.Drawing.Point(735, 89);
             this.txt_plotFactor.Name = "txt_plotFactor";
             this.txt_plotFactor.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotFactor.Size = new System.Drawing.Size(222, 20);
+            this.txt_plotFactor.Size = new System.Drawing.Size(225, 20);
             this.txt_plotFactor.StyleController = this.layoutControl1;
             this.txt_plotFactor.TabIndex = 17;
             // 
             // txt_plotno
             // 
-            this.txt_plotno.Location = new System.Drawing.Point(97, 113);
+            this.txt_plotno.Location = new System.Drawing.Point(94, 113);
             this.txt_plotno.Name = "txt_plotno";
             this.txt_plotno.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotno.Size = new System.Drawing.Size(216, 20);
+            this.txt_plotno.Size = new System.Drawing.Size(219, 20);
             this.txt_plotno.StyleController = this.layoutControl1;
             this.txt_plotno.TabIndex = 18;
             // 
             // txt_plotSize
             // 
-            this.txt_plotSize.Location = new System.Drawing.Point(402, 113);
+            this.txt_plotSize.Location = new System.Drawing.Point(399, 113);
             this.txt_plotSize.Name = "txt_plotSize";
             this.txt_plotSize.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotSize.Size = new System.Drawing.Size(247, 20);
+            this.txt_plotSize.Size = new System.Drawing.Size(250, 20);
             this.txt_plotSize.StyleController = this.layoutControl1;
             this.txt_plotSize.TabIndex = 19;
             // 
             // txt_confimationFees
             // 
-            this.txt_confimationFees.Location = new System.Drawing.Point(738, 113);
+            this.txt_confimationFees.Location = new System.Drawing.Point(735, 113);
             this.txt_confimationFees.Name = "txt_confimationFees";
             this.txt_confimationFees.Properties.Mask.EditMask = "\\d+";
             this.txt_confimationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_confimationFees.Properties.NullText = "0";
             this.txt_confimationFees.Properties.UseReadOnlyAppearance = false;
-            this.txt_confimationFees.Size = new System.Drawing.Size(222, 20);
+            this.txt_confimationFees.Size = new System.Drawing.Size(225, 20);
             this.txt_confimationFees.StyleController = this.layoutControl1;
             this.txt_confimationFees.TabIndex = 20;
             // 
             // txt_autoPlotNo
             // 
-            this.txt_autoPlotNo.Location = new System.Drawing.Point(402, 137);
+            this.txt_autoPlotNo.Location = new System.Drawing.Point(399, 137);
             this.txt_autoPlotNo.Name = "txt_autoPlotNo";
             this.txt_autoPlotNo.Properties.UseReadOnlyAppearance = false;
-            this.txt_autoPlotNo.Size = new System.Drawing.Size(247, 20);
+            this.txt_autoPlotNo.Size = new System.Drawing.Size(250, 20);
             this.txt_autoPlotNo.StyleController = this.layoutControl1;
             this.txt_autoPlotNo.TabIndex = 21;
             // 
             // txt_plotRate
             // 
-            this.txt_plotRate.Location = new System.Drawing.Point(97, 137);
+            this.txt_plotRate.Location = new System.Drawing.Point(94, 137);
             this.txt_plotRate.Name = "txt_plotRate";
             this.txt_plotRate.Properties.Mask.EditMask = "\\d+";
             this.txt_plotRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotRate.Properties.NullText = "0";
             this.txt_plotRate.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotRate.Size = new System.Drawing.Size(216, 20);
+            this.txt_plotRate.Size = new System.Drawing.Size(219, 20);
             this.txt_plotRate.StyleController = this.layoutControl1;
             this.txt_plotRate.TabIndex = 22;
             // 
             // txt_totalPlotValue
             // 
-            this.txt_totalPlotValue.Location = new System.Drawing.Point(738, 137);
+            this.txt_totalPlotValue.Location = new System.Drawing.Point(735, 137);
             this.txt_totalPlotValue.Name = "txt_totalPlotValue";
             this.txt_totalPlotValue.Properties.Mask.EditMask = "\\d+";
             this.txt_totalPlotValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_totalPlotValue.Properties.NullText = "0";
             this.txt_totalPlotValue.Properties.UseReadOnlyAppearance = false;
-            this.txt_totalPlotValue.Size = new System.Drawing.Size(222, 20);
+            this.txt_totalPlotValue.Size = new System.Drawing.Size(225, 20);
             this.txt_totalPlotValue.StyleController = this.layoutControl1;
             this.txt_totalPlotValue.TabIndex = 23;
             // 
             // txt_plotStatus
             // 
-            this.txt_plotStatus.Location = new System.Drawing.Point(97, 161);
+            this.txt_plotStatus.Location = new System.Drawing.Point(94, 161);
             this.txt_plotStatus.Name = "txt_plotStatus";
             this.txt_plotStatus.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotStatus.Size = new System.Drawing.Size(216, 20);
+            this.txt_plotStatus.Size = new System.Drawing.Size(219, 20);
             this.txt_plotStatus.StyleController = this.layoutControl1;
             this.txt_plotStatus.TabIndex = 25;
             // 
             // txt_plotValue
             // 
-            this.txt_plotValue.Location = new System.Drawing.Point(738, 161);
+            this.txt_plotValue.Location = new System.Drawing.Point(735, 161);
             this.txt_plotValue.Name = "txt_plotValue";
             this.txt_plotValue.Properties.Mask.EditMask = "\\d+";
             this.txt_plotValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotValue.Properties.NullText = "0";
             this.txt_plotValue.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotValue.Size = new System.Drawing.Size(222, 20);
+            this.txt_plotValue.Size = new System.Drawing.Size(225, 20);
             this.txt_plotValue.StyleController = this.layoutControl1;
             this.txt_plotValue.TabIndex = 26;
             // 
             // txt_plotExtCharges
             // 
-            this.txt_plotExtCharges.Location = new System.Drawing.Point(97, 185);
+            this.txt_plotExtCharges.Location = new System.Drawing.Point(94, 185);
             this.txt_plotExtCharges.Name = "txt_plotExtCharges";
             this.txt_plotExtCharges.Properties.Mask.EditMask = "\\d+";
             this.txt_plotExtCharges.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotExtCharges.Properties.NullText = "0";
             this.txt_plotExtCharges.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotExtCharges.Size = new System.Drawing.Size(216, 20);
+            this.txt_plotExtCharges.Size = new System.Drawing.Size(219, 20);
             this.txt_plotExtCharges.StyleController = this.layoutControl1;
             this.txt_plotExtCharges.TabIndex = 27;
             // 
             // txt_unitStatus
             // 
-            this.txt_unitStatus.Location = new System.Drawing.Point(402, 161);
+            this.txt_unitStatus.Location = new System.Drawing.Point(399, 161);
             this.txt_unitStatus.Name = "txt_unitStatus";
             this.txt_unitStatus.Properties.UseReadOnlyAppearance = false;
-            this.txt_unitStatus.Size = new System.Drawing.Size(247, 20);
+            this.txt_unitStatus.Size = new System.Drawing.Size(250, 20);
             this.txt_unitStatus.StyleController = this.layoutControl1;
             this.txt_unitStatus.TabIndex = 28;
             // 
             // cmb_plotCat
             // 
-            this.cmb_plotCat.Location = new System.Drawing.Point(402, 89);
+            this.cmb_plotCat.Location = new System.Drawing.Point(399, 89);
             this.cmb_plotCat.Name = "cmb_plotCat";
             this.cmb_plotCat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_plotCat.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Name", 38, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cmb_plotCat.Properties.DataSource = this.tblListBindingSource;
+            this.cmb_plotCat.Properties.DisplayMember = "Name";
             this.cmb_plotCat.Properties.NullText = "";
             this.cmb_plotCat.Properties.PopupSizeable = false;
-            this.cmb_plotCat.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.cmb_plotCat.Properties.UseReadOnlyAppearance = false;
-            this.cmb_plotCat.Size = new System.Drawing.Size(247, 20);
+            this.cmb_plotCat.Properties.ValueMember = "id";
+            this.cmb_plotCat.Size = new System.Drawing.Size(250, 20);
             this.cmb_plotCat.StyleController = this.layoutControl1;
             this.cmb_plotCat.TabIndex = 16;
             // 
+            // tblListBindingSource
+            // 
+            this.tblListBindingSource.DataSource = typeof(PropertyManagement.Model.tbl_List);
+            // 
             // txt_fileNumber
             // 
-            this.txt_fileNumber.Location = new System.Drawing.Point(97, 65);
+            this.txt_fileNumber.Location = new System.Drawing.Point(94, 65);
             this.txt_fileNumber.MenuManager = this.barManager1;
             this.txt_fileNumber.Name = "txt_fileNumber";
             this.txt_fileNumber.Properties.UseReadOnlyAppearance = false;
-            this.txt_fileNumber.Size = new System.Drawing.Size(863, 20);
+            this.txt_fileNumber.Size = new System.Drawing.Size(866, 20);
             this.txt_fileNumber.StyleController = this.layoutControl1;
             this.txt_fileNumber.TabIndex = 30;
             // 
@@ -919,7 +913,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(305, 24);
             this.layoutControlItem3.Text = "Block";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem7
             // 
@@ -932,7 +926,7 @@
             this.layoutControlItem7.Size = new System.Drawing.Size(292, 29);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "Main/Sub";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem4
             // 
@@ -945,7 +939,7 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(952, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "Project";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem9
             // 
@@ -954,7 +948,7 @@
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(336, 24);
             this.layoutControlItem9.Text = "Plot Size";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem2
             // 
@@ -963,7 +957,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(336, 24);
             this.layoutControlItem2.Text = "Auto Plot No";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem15
             // 
@@ -972,7 +966,7 @@
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(305, 24);
             this.layoutControlItem15.Text = "Plot Ext Chargs";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem5
             // 
@@ -981,7 +975,7 @@
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(336, 24);
             this.layoutControlItem5.Text = "Plot Category";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem6
             // 
@@ -990,7 +984,7 @@
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem6.Text = "Plot Factor";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem8
             // 
@@ -999,7 +993,7 @@
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(305, 24);
             this.layoutControlItem8.Text = "Plot No.";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem1
             // 
@@ -1008,7 +1002,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem1.Text = "Confirmation Fee";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem10
             // 
@@ -1017,7 +1011,7 @@
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(305, 24);
             this.layoutControlItem10.Text = "Plot Rate";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem11
             // 
@@ -1026,7 +1020,7 @@
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem11.Text = "Total Plot Value";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem13
             // 
@@ -1035,7 +1029,7 @@
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(305, 24);
             this.layoutControlItem13.Text = "File Status";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem14
             // 
@@ -1044,7 +1038,7 @@
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem14.Text = "Plot Value";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(79, 13);
             // 
             // emptySpaceItem3
             // 
@@ -1081,7 +1075,7 @@
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.Size = new System.Drawing.Size(952, 24);
             this.layoutControlItem18.Text = "File Number";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(79, 13);
             // 
             // layoutControlItem16
             // 
@@ -1090,7 +1084,7 @@
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(336, 24);
             this.layoutControlItem16.Text = "Unit Status";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(79, 13);
             // 
             // frmFiles
             // 
@@ -1103,6 +1097,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "frmFiles";
+            this.Tag = "05";
             this.Text = "frmFiles";
             this.Load += new System.EventHandler(this.frmFiles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -1126,6 +1121,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotExtCharges.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_unitStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_plotCat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_fileNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
@@ -1256,5 +1252,6 @@
         private DevExpress.XtraEditors.LookUpEdit cmb_plotCat;
         private DevExpress.XtraEditors.TextEdit txt_fileNumber;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private System.Windows.Forms.BindingSource tblListBindingSource;
     }
 }

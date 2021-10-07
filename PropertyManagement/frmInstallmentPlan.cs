@@ -20,13 +20,16 @@ namespace PropertyManagement
         PropertyEntities db = new PropertyEntities();
         bool isnew = false;
         List<View_CustomerFileBooking> customerList;
+        List<tbl_List> _tbl_list;
         public frmInstallmentPlan()
         {
             InitializeComponent();
             RefreshSources();
+            _tbl_list = db.tbl_List.ToList();
             //"G:\\FreeLance\\PropertyManagement\\PropertyManagement\\bin\\Debug\\mylayout"
             //if(File.Exists("mylayout"))
             //layoutControl1.RestoreLayoutFromXml("mylayout");
+            cmb_instType.Properties.Items.AddRange(_tbl_list.Where(x => x.Type == "Instalment Type").Select(x => x.Name).ToList());
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)

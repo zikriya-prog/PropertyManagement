@@ -258,10 +258,10 @@
             // 
             // txt_projectName
             // 
-            this.txt_projectName.Location = new System.Drawing.Point(113, 107);
+            this.txt_projectName.Location = new System.Drawing.Point(111, 106);
             this.txt_projectName.Name = "txt_projectName";
             this.txt_projectName.Properties.UseReadOnlyAppearance = false;
-            this.txt_projectName.Size = new System.Drawing.Size(196, 20);
+            this.txt_projectName.Size = new System.Drawing.Size(198, 20);
             this.txt_projectName.StyleController = this.layoutControl1;
             this.txt_projectName.TabIndex = 14;
             this.txt_projectName.EditValueChanged += new System.EventHandler(this.textEdit6_EditValueChanged);
@@ -290,7 +290,7 @@
             // searchLookUpEdit1
             // 
             this.searchLookUpEdit1.Enabled = false;
-            this.searchLookUpEdit1.Location = new System.Drawing.Point(113, 83);
+            this.searchLookUpEdit1.Location = new System.Drawing.Point(111, 82);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -298,8 +298,9 @@
             this.searchLookUpEdit1.Properties.DisplayMember = "ProjectName";
             this.searchLookUpEdit1.Properties.NullText = "Select Master Project";
             this.searchLookUpEdit1.Properties.PopupView = this.gridView3;
+            this.searchLookUpEdit1.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit1.Properties.ValueMember = "ProjectID";
-            this.searchLookUpEdit1.Size = new System.Drawing.Size(476, 20);
+            this.searchLookUpEdit1.Size = new System.Drawing.Size(478, 20);
             this.searchLookUpEdit1.StyleController = this.layoutControl1;
             this.searchLookUpEdit1.TabIndex = 4;
             // 
@@ -453,23 +454,23 @@
             // 
             // txt_totalArea
             // 
-            this.txt_totalArea.Location = new System.Drawing.Point(113, 131);
+            this.txt_totalArea.Location = new System.Drawing.Point(111, 130);
             this.txt_totalArea.Name = "txt_totalArea";
             this.txt_totalArea.Properties.Mask.EditMask = "\\d+";
             this.txt_totalArea.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_totalArea.Properties.NullText = "0";
             this.txt_totalArea.Properties.UseReadOnlyAppearance = false;
-            this.txt_totalArea.Size = new System.Drawing.Size(196, 20);
+            this.txt_totalArea.Size = new System.Drawing.Size(198, 20);
             this.txt_totalArea.StyleController = this.layoutControl1;
             this.txt_totalArea.TabIndex = 6;
             this.txt_totalArea.EditValueChanged += new System.EventHandler(this.textEdit3_EditValueChanged);
             // 
             // memo_projectAddress
             // 
-            this.memo_projectAddress.Location = new System.Drawing.Point(113, 155);
+            this.memo_projectAddress.Location = new System.Drawing.Point(111, 154);
             this.memo_projectAddress.Name = "memo_projectAddress";
             this.memo_projectAddress.Properties.UseReadOnlyAppearance = false;
-            this.memo_projectAddress.Size = new System.Drawing.Size(476, 31);
+            this.memo_projectAddress.Size = new System.Drawing.Size(478, 31);
             this.memo_projectAddress.StyleController = this.layoutControl1;
             this.memo_projectAddress.TabIndex = 8;
             this.memo_projectAddress.EditValueChanged += new System.EventHandler(this.memo_projectAddress_EditValueChanged);
@@ -477,10 +478,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblProjectsBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(22, 202);
+            this.gridControl1.Location = new System.Drawing.Point(22, 201);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(919, 278);
+            this.gridControl1.Size = new System.Drawing.Size(919, 279);
             this.gridControl1.TabIndex = 13;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -518,99 +519,87 @@
             // 
             this.colProjectID1.FieldName = "ProjectID";
             this.colProjectID1.Name = "colProjectID1";
-            this.colProjectID1.Visible = true;
-            this.colProjectID1.VisibleIndex = 0;
             // 
             // colParentID1
             // 
             this.colParentID1.FieldName = "ParentID";
             this.colParentID1.Name = "colParentID1";
-            this.colParentID1.Visible = true;
-            this.colParentID1.VisibleIndex = 1;
             // 
             // colProjectName1
             // 
             this.colProjectName1.FieldName = "ProjectName";
             this.colProjectName1.Name = "colProjectName1";
             this.colProjectName1.Visible = true;
-            this.colProjectName1.VisibleIndex = 2;
+            this.colProjectName1.VisibleIndex = 0;
             // 
             // colProjectAddress1
             // 
             this.colProjectAddress1.FieldName = "ProjectAddress";
             this.colProjectAddress1.Name = "colProjectAddress1";
             this.colProjectAddress1.Visible = true;
-            this.colProjectAddress1.VisibleIndex = 3;
+            this.colProjectAddress1.VisibleIndex = 1;
             // 
             // colAreaType1
             // 
             this.colAreaType1.FieldName = "AreaType";
             this.colAreaType1.Name = "colAreaType1";
             this.colAreaType1.Visible = true;
-            this.colAreaType1.VisibleIndex = 4;
+            this.colAreaType1.VisibleIndex = 2;
             // 
             // colTotalArea1
             // 
             this.colTotalArea1.FieldName = "TotalArea";
             this.colTotalArea1.Name = "colTotalArea1";
             this.colTotalArea1.Visible = true;
-            this.colTotalArea1.VisibleIndex = 5;
+            this.colTotalArea1.VisibleIndex = 3;
             // 
             // colProjectMapPath1
             // 
             this.colProjectMapPath1.FieldName = "ProjectMapPath";
             this.colProjectMapPath1.Name = "colProjectMapPath1";
             this.colProjectMapPath1.Visible = true;
-            this.colProjectMapPath1.VisibleIndex = 6;
+            this.colProjectMapPath1.VisibleIndex = 4;
             // 
             // colProjectType1
             // 
             this.colProjectType1.FieldName = "ProjectType";
             this.colProjectType1.Name = "colProjectType1";
             this.colProjectType1.Visible = true;
-            this.colProjectType1.VisibleIndex = 7;
+            this.colProjectType1.VisibleIndex = 5;
             // 
             // colMain_Sub1
             // 
             this.colMain_Sub1.FieldName = "Main_Sub";
             this.colMain_Sub1.Name = "colMain_Sub1";
             this.colMain_Sub1.Visible = true;
-            this.colMain_Sub1.VisibleIndex = 8;
+            this.colMain_Sub1.VisibleIndex = 6;
             // 
             // colActiveYN1
             // 
             this.colActiveYN1.FieldName = "ActiveYN";
             this.colActiveYN1.Name = "colActiveYN1";
             this.colActiveYN1.Visible = true;
-            this.colActiveYN1.VisibleIndex = 9;
+            this.colActiveYN1.VisibleIndex = 7;
             // 
             // colCreatedBy1
             // 
             this.colCreatedBy1.FieldName = "CreatedBy";
             this.colCreatedBy1.Name = "colCreatedBy1";
-            this.colCreatedBy1.Visible = true;
-            this.colCreatedBy1.VisibleIndex = 10;
             // 
             // colCreatedDate1
             // 
             this.colCreatedDate1.FieldName = "CreatedDate";
             this.colCreatedDate1.Name = "colCreatedDate1";
-            this.colCreatedDate1.Visible = true;
-            this.colCreatedDate1.VisibleIndex = 11;
             // 
             // colUpdatedBy1
             // 
             this.colUpdatedBy1.FieldName = "UpdatedBy";
             this.colUpdatedBy1.Name = "colUpdatedBy1";
-            this.colUpdatedBy1.Visible = true;
-            this.colUpdatedBy1.VisibleIndex = 12;
             // 
             // colUpdatedDate1
             // 
             this.colUpdatedDate1.FieldName = "UpdatedDate";
             this.colUpdatedDate1.Name = "colUpdatedDate1";
-            this.colUpdatedDate1.Visible = true;
-            this.colUpdatedDate1.VisibleIndex = 13;
             // 
             // coltbl_CustomerFileBook1
             // 
@@ -649,25 +638,22 @@
             // 
             // cmb_areaType
             // 
-            this.cmb_areaType.EditValue = "Kanal";
-            this.cmb_areaType.Location = new System.Drawing.Point(392, 107);
+            this.cmb_areaType.EditValue = "";
+            this.cmb_areaType.Location = new System.Drawing.Point(390, 106);
             this.cmb_areaType.Name = "cmb_areaType";
             this.cmb_areaType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_areaType.Properties.Items.AddRange(new object[] {
-            "Kanal",
-            "Marla"});
             this.cmb_areaType.Properties.PopupSizeable = true;
             this.cmb_areaType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_areaType.Properties.UseReadOnlyAppearance = false;
-            this.cmb_areaType.Size = new System.Drawing.Size(197, 20);
+            this.cmb_areaType.Size = new System.Drawing.Size(199, 20);
             this.cmb_areaType.StyleController = this.layoutControl1;
             this.cmb_areaType.TabIndex = 6;
             // 
             // radioGroup1
             // 
             this.radioGroup1.EditValue = "Main";
-            this.radioGroup1.Location = new System.Drawing.Point(113, 53);
+            this.radioGroup1.Location = new System.Drawing.Point(111, 53);
             this.radioGroup1.MenuManager = this.barManager1;
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -675,7 +661,7 @@
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Main", "Main"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Sub", "Sub")});
-            this.radioGroup1.Size = new System.Drawing.Size(115, 26);
+            this.radioGroup1.Size = new System.Drawing.Size(117, 25);
             this.radioGroup1.StyleController = this.layoutControl1;
             this.radioGroup1.TabIndex = 15;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
@@ -683,17 +669,14 @@
             // 
             // cmb_projectType
             // 
-            this.cmb_projectType.Location = new System.Drawing.Point(392, 131);
+            this.cmb_projectType.Location = new System.Drawing.Point(390, 130);
             this.cmb_projectType.MenuManager = this.barManager1;
             this.cmb_projectType.Name = "cmb_projectType";
             this.cmb_projectType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_projectType.Properties.Items.AddRange(new object[] {
-            "Vertical",
-            "Horizontal"});
             this.cmb_projectType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_projectType.Properties.UseReadOnlyAppearance = false;
-            this.cmb_projectType.Size = new System.Drawing.Size(197, 20);
+            this.cmb_projectType.Size = new System.Drawing.Size(199, 20);
             this.cmb_projectType.StyleController = this.layoutControl1;
             this.cmb_projectType.TabIndex = 16;
             // 
@@ -704,13 +687,13 @@
             this.pic_map.Name = "pic_map";
             this.pic_map.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pic_map.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pic_map.Size = new System.Drawing.Size(336, 91);
+            this.pic_map.Size = new System.Drawing.Size(336, 90);
             this.pic_map.StyleController = this.layoutControl1;
             this.pic_map.TabIndex = 17;
             // 
             // btn_chooseFile
             // 
-            this.btn_chooseFile.Location = new System.Drawing.Point(831, 164);
+            this.btn_chooseFile.Location = new System.Drawing.Point(831, 163);
             this.btn_chooseFile.Name = "btn_chooseFile";
             this.btn_chooseFile.Size = new System.Drawing.Size(98, 22);
             this.btn_chooseFile.StyleController = this.layoutControl1;
@@ -761,7 +744,7 @@
             this.emptySpaceItem3});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(923, 180);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(923, 179);
             this.layoutControlGroup2.Text = "Projects";
             // 
             // layoutControlItem1
@@ -769,98 +752,101 @@
             this.layoutControlItem1.Control = this.searchLookUpEdit1;
             this.layoutControlItem1.CustomizationFormText = "Master Project";
             this.layoutControlItem1.Enabled = false;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 29);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(559, 24);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(559, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(559, 24);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "Master Project";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.radioGroup1;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(198, 29);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(198, 29);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(198, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(198, 29);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "Main/Sub";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(74, 13);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(198, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(361, 30);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(361, 29);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.txt_projectName;
             this.layoutControlItem17.CustomizationFormText = "Membership No.";
-            this.layoutControlItem17.Location = new System.Drawing.Point(0, 54);
+            this.layoutControlItem17.Location = new System.Drawing.Point(0, 53);
             this.layoutControlItem17.Name = "layoutControlItem17";
             this.layoutControlItem17.Size = new System.Drawing.Size(279, 24);
             this.layoutControlItem17.Text = "Project Name";
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.cmb_areaType;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem4.Location = new System.Drawing.Point(279, 54);
+            this.layoutControlItem4.Location = new System.Drawing.Point(279, 53);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(280, 24);
             this.layoutControlItem4.Text = "Area Type";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txt_totalArea;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 78);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 77);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(279, 24);
             this.layoutControlItem5.Text = "Total Area";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.cmb_projectType;
-            this.layoutControlItem3.Location = new System.Drawing.Point(279, 78);
+            this.layoutControlItem3.Location = new System.Drawing.Point(279, 77);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(280, 24);
             this.layoutControlItem3.Text = "Project Type";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.memo_projectAddress;
             this.layoutControlItem9.CustomizationFormText = "Present Address";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 102);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 101);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(559, 35);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(559, 35);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(559, 35);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.Text = "Project Address";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.pic_map;
             this.layoutControlItem6.Location = new System.Drawing.Point(559, 0);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(340, 111);
+            this.layoutControlItem6.Size = new System.Drawing.Size(340, 110);
             this.layoutControlItem6.Text = "Map Picture";
             this.layoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(76, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(74, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btn_chooseFile;
-            this.layoutControlItem7.Location = new System.Drawing.Point(797, 111);
+            this.layoutControlItem7.Location = new System.Drawing.Point(797, 110);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(102, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(102, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
@@ -873,7 +859,7 @@
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(559, 111);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(559, 110);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(238, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -882,9 +868,9 @@
             // 
             this.layoutControlItem16.Control = this.gridControl1;
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(0, 180);
+            this.layoutControlItem16.Location = new System.Drawing.Point(0, 179);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(923, 282);
+            this.layoutControlItem16.Size = new System.Drawing.Size(923, 283);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 

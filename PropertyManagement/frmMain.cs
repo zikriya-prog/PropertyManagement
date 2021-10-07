@@ -1,4 +1,5 @@
-﻿using DevExpress.Utils.CodedUISupport;
+﻿using DevExpress.Skins;
+using DevExpress.Utils.CodedUISupport;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraEditors;
@@ -24,6 +25,8 @@ namespace PropertyManagement
             _frmlogin = frmLogin;
             loginUser_txt.Caption = _frmlogin.txt_userName.Text;
             userMenuVisibility();
+            
+            
         }
         private void userMenuVisibility()
         {
@@ -41,6 +44,9 @@ namespace PropertyManagement
                 _frmCustomerRegisteration.Show();
             else
                 XtraMessageBox.Show(permissionMsg);
+
+            accordionControl1.BackColor = Color.FromArgb(88, 88, 88);
+
         }
 
         private void customerPlotBooking_accordionControlElement_Click(object sender, EventArgs e)
@@ -51,6 +57,10 @@ namespace PropertyManagement
                 _frmPlotBooking.Show();
             else
                 XtraMessageBox.Show(permissionMsg);
+
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.LookAndFeel.LookAndFeelHelper.ForceDefaultLookAndFeelChanged();
+            SkinManager.EnableMdiFormSkins();
         }
 
         private void installmentPlan_accordionControlElement_Click(object sender, EventArgs e)
@@ -114,6 +124,16 @@ namespace PropertyManagement
             _frmUserCreation.MdiParent = this;
             if (loginModel.userMenus.Any(x => x.fkMenuID == _frmUserCreation.Tag.ToString() && x.VST == "1"))
                 _frmUserCreation.Show();
+            else
+                XtraMessageBox.Show(permissionMsg);
+        }
+
+        private void accordionControlElement_idu_Click(object sender, EventArgs e)
+        {
+            frmIDU _frmIDU = new frmIDU();
+            _frmIDU.MdiParent = this;
+            if (loginModel.userMenus.Any(x => x.fkMenuID == _frmIDU.Tag.ToString() && x.VST == "1"))
+                _frmIDU.Show();
             else
                 XtraMessageBox.Show(permissionMsg);
         }

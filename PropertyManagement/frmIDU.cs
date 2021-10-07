@@ -9,22 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using PropertyManagement.Model;
-using PropertyManagement.Model.proModel;
 using System.Data.Entity.Core.Objects;
+using PropertyManagement.Model.proModel;
 
 namespace PropertyManagement
 {
-    public partial class frmUserCreation : DevExpress.XtraEditors.XtraForm
+    public partial class frmIDU : DevExpress.XtraEditors.XtraForm
     {
         PropertyEntities db = new PropertyEntities();
-        List<View_user_with_role> _View_user_with_role;
+        List<tbl_List> _tbl_List;
         bool isnew = false;
-        public frmUserCreation()
+        public frmIDU()
         {
             InitializeComponent();
-            cmb_role.Properties.DataSource = db.tbl_UserRole.ToList();
             RefreshSources();
-
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -36,7 +34,7 @@ namespace PropertyManagement
                 btn_update.Visibility = menu.UPST == "1" ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
                 btn_delete.Visibility = menu.DLST == "1" ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
                 btn_save.Visibility = menu.INST == "1" || menu.UPST == "1" ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
-               // btn_cancel.Visibility = menu.CHST == "1" ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
+                //btn_cancel.Visibility = menu.CHST == "1" ? DevExpress.XtraBars.BarItemVisibility.Always : DevExpress.XtraBars.BarItemVisibility.Never;
 
             }
         }
@@ -44,16 +42,16 @@ namespace PropertyManagement
         {
             PropertyEntities db1 = new PropertyEntities();
             //searchLookUpEdit1.Enabled = radioGroup1.EditValue.ToString() == "Main" ? true : false;
-            _View_user_with_role = db.View_user_with_role.ToList();
-            //cmb_type.Properties.Items.AddRange(_tbl_List.Select(x => x.Type).Distinct().ToList());
+            _tbl_List = db.tbl_List.ToList();
+            cmb_type.Properties.Items.AddRange(_tbl_List.Select(x=>x.Type).Distinct().ToList());
             //cmb_type.Properties.DisplayMember = "Type";
             //cmb_type.Properties.ValueMember = "Type";
 
-            gridControl1.DataSource = _View_user_with_role;
-
+            gridControl1.DataSource = _tbl_List;
+            
             if (gridView1.RowCount > 0)
             {
-                View_user_with_role idu = (View_user_with_role)gridView1.GetRow(gridView1.FocusedRowHandle);
+                tbl_List idu = (tbl_List)gridView1.GetRow(gridView1.FocusedRowHandle);
                 //cmb_type.EditValue = idu.Type;
                 setFields(idu);
             }
@@ -61,25 +59,20 @@ namespace PropertyManagement
 
             //searchLookUpEdit2.Properties.DataSource = db.tbl_Projects.Where(x => x.Main_Sub == "Sub").ToList();
         }
-        private void setFields(View_user_with_role uwr)
+        private void setFields(tbl_List list)
         {
-            cmb_role.EditValue = uwr.fkRoleID;
-             txt_name.EditValue = uwr.NAME;
-            txt_name.Tag = uwr.UserID;
-            txt_userName.EditValue = uwr.UserName;
-            txt_password.EditValue = uwr.PWD;
-            txt_cPassword.EditValue = uwr.CPWD;
-            chk_active.EditValue = uwr.ActiveYN.Equals("1", StringComparison.OrdinalIgnoreCase) ? true : false;
+            cmb_type.EditValue = list.Type;
+            txt_name.EditValue = list.Name;
+            txt_name.Tag = list.id;
+            txt_desc.EditValue = list.Description;
+            chk_active.EditValue = list.ActiveYN.Equals("Y", StringComparison.OrdinalIgnoreCase) ? true : false;
 
         }
         private void clearfields()
         {
-            cmb_role.EditValue = "";
+            cmb_type.SelectedIndex = 0;
             txt_name.EditValue = "";
-            txt_name.Tag = null;
-            txt_userName.EditValue = "";
-            txt_password.EditValue = "";
-            txt_cPassword.EditValue = "";
+            txt_desc.EditValue = "";
             chk_active.EditValue = true;
         }
         private void makereadonly(bool isActive)
@@ -104,20 +97,9 @@ namespace PropertyManagement
             }
 
         }
-        private void frmUserCreation_Load(object sender, EventArgs e)
+        private void frmIDU_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void gridView1_DoubleClick(object sender, EventArgs e)
-        {
-            View_user_with_role uwr = (View_user_with_role)gridView1.GetRow(gridView1.FocusedRowHandle);
-            if (uwr != null)
-            {
-
-                setFields(uwr);
-                makereadonly(true);
-            }
         }
 
         private void btn_create_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -128,30 +110,31 @@ namespace PropertyManagement
             makereadonly(false);
         }
 
-        private void btn_update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            makereadonly(false);
+            tbl_List idu = (tbl_List)gridView1.GetRow(gridView1.FocusedRowHandle);
+            if (idu != null)
+            {
+                
+                setFields(idu);
+                makereadonly(true);
+            }
         }
 
         private void btn_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(!txt_password.Text.Equals(txt_cPassword.Text))
-            {
-                XtraMessageBox.Show("Confirm password is not match!");
-                return;
-            }
             if (isnew)
             {
                 try
                 {
 
-
+                    
                     ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
 
 
 
-                    db.Pro_IDU_UserLogin("insert", null,cmb_role.EditValue.ToString(),txt_name.Text,txt_remark.Text,txt_userName.Text,
-                        txt_password.Text,txt_cPassword.Text, chk_active.Checked ? "1" : "0",pARM_ERROR_MESSAGE);
+                    db.Pro_IDU_List("insert", null,txt_name.Text,txt_desc.Text,cmb_type.Text,chk_active.Checked?"Y":"N",
+                               loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE);
 
 
                     XtraMessageBox.Show(pARM_ERROR_MESSAGE.Value.ToString());
@@ -175,8 +158,8 @@ namespace PropertyManagement
                     {
                         //tbl_Projects proj = projectList.FirstOrDefault(x => x.ProjectID == searchLookUpEdit1.EditValue.ToString());
                         ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
-                        db.Pro_IDU_UserLogin("update", txt_name.Tag.ToString(), cmb_role.EditValue.ToString(), txt_name.Text, txt_remark.Text, txt_userName.Text,
-                        txt_password.Text, txt_cPassword.Text, chk_active.Checked ? "1" : "0", pARM_ERROR_MESSAGE);
+                        db.Pro_IDU_List("update", Convert.ToInt32(txt_name.Tag), txt_name.Text, txt_desc.Text, cmb_type.Text, chk_active.Checked ? "Y" : "N",
+                               loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
 
 
                         XtraMessageBox.Show(pARM_ERROR_MESSAGE.Value.ToString());
@@ -210,8 +193,8 @@ namespace PropertyManagement
                     try
                     {
                         ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
-                        db.Pro_IDU_UserLogin("delete", txt_name.Tag.ToString(), cmb_role.EditValue.ToString(), txt_name.Text, txt_remark.Text, txt_userName.Text,
-                        txt_password.Text, txt_cPassword.Text, chk_active.Checked ? "1" : "0", pARM_ERROR_MESSAGE);
+                        db.Pro_IDU_List("delete", Convert.ToInt32(txt_name.Tag),txt_name.Text,txt_desc.Text,cmb_type.Text, chk_active.Checked ? "Y" : "N",
+                               loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
 
 
                         XtraMessageBox.Show(pARM_ERROR_MESSAGE.Value.ToString());
@@ -235,6 +218,11 @@ namespace PropertyManagement
             }
             RefreshSources();
             isnew = false;
+        }
+
+        private void btn_update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            makereadonly(false);
         }
     }
 }

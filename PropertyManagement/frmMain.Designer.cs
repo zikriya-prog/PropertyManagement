@@ -35,7 +35,6 @@
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.customerRegistration_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.customerPlotBooking_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -45,6 +44,7 @@
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement_files = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement_idu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
@@ -63,6 +63,7 @@
             // 
             // accordionControl1
             // 
+            this.accordionControl1.AnimationType = DevExpress.XtraBars.Navigation.AnimationType.Office2016;
             this.accordionControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -70,7 +71,6 @@
             this.accordionControlElement2,
             this.accordionControlElement8,
             this.accordionControlElement3,
-            this.accordionControlElement4,
             this.customerRegistration_accordionControlElement,
             this.customerPlotBooking_accordionControlElement,
             this.accordionControlElement7,
@@ -79,7 +79,8 @@
             this.accordionControlElement5,
             this.accordionControlElement6,
             this.accordionControlElement10,
-            this.accordionControlElement_files});
+            this.accordionControlElement_files,
+            this.accordionControlElement_idu});
             this.accordionControl1.Location = new System.Drawing.Point(0, 30);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
@@ -121,14 +122,6 @@
             this.accordionControlElement3.Tag = "04";
             this.accordionControlElement3.Text = "Payment Plan";
             this.accordionControlElement3.Visible = false;
-            // 
-            // accordionControlElement4
-            // 
-            this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement4.Tag = "05";
-            this.accordionControlElement4.Text = "Plot Inventory";
-            this.accordionControlElement4.Visible = false;
             // 
             // customerRegistration_accordionControlElement
             // 
@@ -201,9 +194,17 @@
             this.accordionControlElement_files.Name = "accordionControlElement_files";
             this.accordionControlElement_files.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement_files.Tag = "11";
-            this.accordionControlElement_files.Text = "Files";
+            this.accordionControlElement_files.Text = "Inventory (Files)";
             this.accordionControlElement_files.Visible = false;
             this.accordionControlElement_files.Click += new System.EventHandler(this.accordionControlElement_files_Click);
+            // 
+            // accordionControlElement_idu
+            // 
+            this.accordionControlElement_idu.Name = "accordionControlElement_idu";
+            this.accordionControlElement_idu.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement_idu.Tag = "13";
+            this.accordionControlElement_idu.Text = "IDU List";
+            this.accordionControlElement_idu.Click += new System.EventHandler(this.accordionControlElement_idu_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -232,6 +233,7 @@
             this.Name = "frmMain";
             this.NavigationControl = this.accordionControl1;
             this.Text = "FluentDesignForm1";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(241)))));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -248,7 +250,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
         private DevExpress.XtraBars.Navigation.AccordionControlElement customerRegistration_accordionControlElement;
         private DevExpress.XtraBars.Navigation.AccordionControlElement customerPlotBooking_accordionControlElement;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
@@ -260,8 +261,9 @@
         private DevExpress.XtraBars.BarStaticItem loginUser_txt;
         private DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl fluentDesignFormControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement8;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement_files;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement_files;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement_idu;
     }
 }

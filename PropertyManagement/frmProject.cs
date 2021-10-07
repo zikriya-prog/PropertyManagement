@@ -20,10 +20,14 @@ namespace PropertyManagement
         PropertyEntities db = new PropertyEntities();
         bool isnew = false;
         byte[] mapImage = null;
+        List<tbl_List> _tbl_list;
         public frmProject()
         {
             InitializeComponent();
             RefreshSources();
+            _tbl_list = db.tbl_List.ToList();
+            cmb_areaType.Properties.Items.AddRange(_tbl_list.Where(x=>x.Type == "AreaType").Select(x=>x.Name).ToList());
+            cmb_projectType.Properties.Items.AddRange(_tbl_list.Where(x => x.Type == "ProjectType").Select(x => x.Name).ToList());
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)

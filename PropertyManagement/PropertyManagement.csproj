@@ -107,6 +107,12 @@
     <Compile Include="frmFiles.Designer.cs">
       <DependentUpon>frmFiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIDU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIDU.Designer.cs">
+      <DependentUpon>frmIDU.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,10 +232,16 @@
     <Compile Include="Model\View_Installment_Receive.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\View_user_with_role.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmFiles.resx">
       <DependentUpon>frmFiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIDU.resx">
+      <DependentUpon>frmIDU.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -255,6 +267,7 @@
     <EmbeddedResource Include="frm_login.resx">
       <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -280,9 +293,12 @@
     <None Include="Properties\DataSources\PropertyManagement.Model.tbl_Files.datasource" />
     <None Include="Properties\DataSources\PropertyManagement.Model.tbl_InstDetail.datasource" />
     <None Include="Properties\DataSources\PropertyManagement.Model.tbl_InstMaster.datasource" />
+    <None Include="Properties\DataSources\PropertyManagement.Model.tbl_List.datasource" />
     <None Include="Properties\DataSources\PropertyManagement.Model.tbl_Projects.datasource" />
+    <None Include="Properties\DataSources\PropertyManagement.Model.tbl_UserRole.datasource" />
     <None Include="Properties\DataSources\PropertyManagement.Model.View_CustomerFileBooking.datasource" />
     <None Include="Properties\DataSources\PropertyManagement.Model.View_Installment_Receive.datasource" />
+    <None Include="Properties\DataSources\PropertyManagement.Model.View_user_with_role.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -50,6 +50,7 @@
         <AssociationConnector Association="PropertyModel.FileBook_Updatedby_fk" />
         <EntityTypeShape EntityType="PropertyModel.View_CustomerFileBooking" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="PropertyModel.View_Installment_Receive" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="PropertyModel.View_user_with_role" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

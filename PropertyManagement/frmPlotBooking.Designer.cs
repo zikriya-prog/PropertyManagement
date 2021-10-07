@@ -281,120 +281,106 @@
             // 
             this.colFileBookID.FieldName = "FileBookID";
             this.colFileBookID.Name = "colFileBookID";
-            this.colFileBookID.Visible = true;
-            this.colFileBookID.VisibleIndex = 0;
             // 
             // colfkCustomerID
             // 
             this.colfkCustomerID.FieldName = "fkCustomerID";
             this.colfkCustomerID.Name = "colfkCustomerID";
-            this.colfkCustomerID.Visible = true;
-            this.colfkCustomerID.VisibleIndex = 1;
             // 
             // colfkFileID
             // 
             this.colfkFileID.FieldName = "fkFileID";
             this.colfkFileID.Name = "colfkFileID";
-            this.colfkFileID.Visible = true;
-            this.colfkFileID.VisibleIndex = 2;
             // 
             // colMemberShipNo
             // 
             this.colMemberShipNo.FieldName = "MemberShipNo";
             this.colMemberShipNo.Name = "colMemberShipNo";
             this.colMemberShipNo.Visible = true;
-            this.colMemberShipNo.VisibleIndex = 3;
+            this.colMemberShipNo.VisibleIndex = 0;
             // 
             // colAreaType
             // 
             this.colAreaType.FieldName = "AreaType";
             this.colAreaType.Name = "colAreaType";
             this.colAreaType.Visible = true;
-            this.colAreaType.VisibleIndex = 4;
+            this.colAreaType.VisibleIndex = 1;
             // 
             // colArea
             // 
             this.colArea.FieldName = "Area";
             this.colArea.Name = "colArea";
             this.colArea.Visible = true;
-            this.colArea.VisibleIndex = 5;
+            this.colArea.VisibleIndex = 2;
             // 
             // colPrice
             // 
             this.colPrice.FieldName = "Price";
             this.colPrice.Name = "colPrice";
             this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 6;
+            this.colPrice.VisibleIndex = 3;
             // 
             // colDownPayment
             // 
             this.colDownPayment.FieldName = "DownPayment";
             this.colDownPayment.Name = "colDownPayment";
             this.colDownPayment.Visible = true;
-            this.colDownPayment.VisibleIndex = 7;
+            this.colDownPayment.VisibleIndex = 4;
             // 
             // colConfirmationFee1
             // 
             this.colConfirmationFee1.FieldName = "ConfirmationFee";
             this.colConfirmationFee1.Name = "colConfirmationFee1";
             this.colConfirmationFee1.Visible = true;
-            this.colConfirmationFee1.VisibleIndex = 8;
+            this.colConfirmationFee1.VisibleIndex = 5;
             // 
             // colConfirmationFeeDate
             // 
             this.colConfirmationFeeDate.FieldName = "ConfirmationFeeDate";
             this.colConfirmationFeeDate.Name = "colConfirmationFeeDate";
             this.colConfirmationFeeDate.Visible = true;
-            this.colConfirmationFeeDate.VisibleIndex = 9;
+            this.colConfirmationFeeDate.VisibleIndex = 6;
             // 
             // colPayMethod
             // 
             this.colPayMethod.FieldName = "PayMethod";
             this.colPayMethod.Name = "colPayMethod";
             this.colPayMethod.Visible = true;
-            this.colPayMethod.VisibleIndex = 10;
+            this.colPayMethod.VisibleIndex = 7;
             // 
             // colRegistrationFee
             // 
             this.colRegistrationFee.FieldName = "RegistrationFee";
             this.colRegistrationFee.Name = "colRegistrationFee";
             this.colRegistrationFee.Visible = true;
-            this.colRegistrationFee.VisibleIndex = 11;
+            this.colRegistrationFee.VisibleIndex = 8;
             // 
             // colBookingStatus
             // 
             this.colBookingStatus.FieldName = "BookingStatus";
             this.colBookingStatus.Name = "colBookingStatus";
             this.colBookingStatus.Visible = true;
-            this.colBookingStatus.VisibleIndex = 12;
+            this.colBookingStatus.VisibleIndex = 9;
             // 
             // colCreatedBy1
             // 
             this.colCreatedBy1.FieldName = "CreatedBy";
             this.colCreatedBy1.Name = "colCreatedBy1";
-            this.colCreatedBy1.Visible = true;
-            this.colCreatedBy1.VisibleIndex = 13;
             // 
             // colCreatedDate1
             // 
             this.colCreatedDate1.FieldName = "CreatedDate";
             this.colCreatedDate1.Name = "colCreatedDate1";
-            this.colCreatedDate1.Visible = true;
-            this.colCreatedDate1.VisibleIndex = 14;
             // 
             // colUpdatedBy1
             // 
             this.colUpdatedBy1.FieldName = "UpdatedBy";
             this.colUpdatedBy1.Name = "colUpdatedBy1";
-            this.colUpdatedBy1.Visible = true;
-            this.colUpdatedBy1.VisibleIndex = 15;
             // 
             // colUpdatedDate1
             // 
             this.colUpdatedDate1.FieldName = "UpdatedDate";
             this.colUpdatedDate1.Name = "colUpdatedDate1";
-            this.colUpdatedDate1.Visible = true;
-            this.colUpdatedDate1.VisibleIndex = 16;
             // 
             // coltbl_CustomerRegM
             // 

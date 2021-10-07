@@ -169,6 +169,10 @@
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="Type" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="ActiveYN" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="2" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="tbl_Menu">
           <Key>
@@ -309,6 +313,24 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <Property Name="fkFileID" Type="int" Nullable="false" />
           <Property Name="FileBookID" Type="bigint" Nullable="false" />
           <Property Name="InstRcvID" Type="bigint" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_user_with_role">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="fkRoleID" />
+            <PropertyRef Name="ActiveYN" />
+          </Key>
+          <Property Name="UserID" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="fkRoleID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RMKS" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="15" />
+          <Property Name="PWD" Type="nvarchar" MaxLength="15" />
+          <Property Name="CPWD" Type="nvarchar" MaxLength="15" />
+          <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <Association Name="CustFileBook_CustRegM_fk">
           <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
@@ -810,6 +832,19 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
           <Parameter Name="PARAM_New_instRcvID" Type="bigint" Mode="InOut" />
         </Function>
+        <Function Name="Pro_IDU_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ListID" Type="int" Mode="In" />
+          <Parameter Name="PARM_Name" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_Description" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_Type" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_ActiveYN" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARM_UpdatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
+        </Function>
         <Function Name="Pro_IDU_Projects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PARM_IDU_STS" Type="nvarchar" Mode="In" />
           <Parameter Name="PARM_ProjectID" Type="nvarchar" Mode="In" />
@@ -923,6 +958,19 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
     [View_Installment_Receive].[FileBookID] AS [FileBookID], 
     [View_Installment_Receive].[InstRcvID] AS [InstRcvID]
     FROM [dbo].[View_Installment_Receive] AS [View_Installment_Receive]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_user_with_role" EntityType="Self.View_user_with_role" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_user_with_role].[UserID] AS [UserID], 
+    [View_user_with_role].[fkRoleID] AS [fkRoleID], 
+    [View_user_with_role].[NAME] AS [NAME], 
+    [View_user_with_role].[LoginName] AS [LoginName], 
+    [View_user_with_role].[RMKS] AS [RMKS], 
+    [View_user_with_role].[UserName] AS [UserName], 
+    [View_user_with_role].[PWD] AS [PWD], 
+    [View_user_with_role].[CPWD] AS [CPWD], 
+    [View_user_with_role].[ActiveYN] AS [ActiveYN]
+    FROM [dbo].[View_user_with_role] AS [View_user_with_role]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="CustFileBook_CustRegM_fk" Association="Self.CustFileBook_CustRegM_fk">
             <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
@@ -1213,6 +1261,10 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ActiveYN" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="tbl_Menu">
           <Key>
@@ -1966,6 +2018,20 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           </AssociationSet>
           <EntitySet Name="View_CustomerFileBooking" EntityType="PropertyModel.View_CustomerFileBooking" />
           <EntitySet Name="View_Installment_Receive" EntityType="PropertyModel.View_Installment_Receive" />
+          <FunctionImport Name="Pro_IDU_List">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARM_ListID" Mode="In" Type="Int32" />
+            <Parameter Name="PARM_Name" Mode="In" Type="String" />
+            <Parameter Name="PARM_Description" Mode="In" Type="String" />
+            <Parameter Name="PARM_Type" Mode="In" Type="String" />
+            <Parameter Name="PARM_ActiveYN" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="View_user_with_role" EntityType="PropertyModel.View_user_with_role" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2107,6 +2173,22 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <Property Name="fkFileID" Type="Int32" Nullable="false" />
           <Property Name="FileBookID" Type="Int64" Nullable="false" />
           <Property Name="InstRcvID" Type="Int64" />
+        </EntityType>
+        <EntityType Name="View_user_with_role">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="fkRoleID" />
+            <PropertyRef Name="ActiveYN" />
+          </Key>
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="fkRoleID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RMKS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CPWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2257,6 +2339,10 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <EntitySetMapping Name="tbl_List">
             <EntityTypeMapping TypeName="PropertyModel.tbl_List">
               <MappingFragment StoreEntitySet="tbl_List">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -2446,6 +2532,22 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
                 <ScalarProperty Name="srno" ColumnName="srno" />
                 <ScalarProperty Name="fkInstMId" ColumnName="fkInstMId" />
                 <ScalarProperty Name="instDID" ColumnName="instDID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Pro_IDU_List" FunctionName="PropertyModel.Store.Pro_IDU_List" />
+          <EntitySetMapping Name="View_user_with_role">
+            <EntityTypeMapping TypeName="PropertyModel.View_user_with_role">
+              <MappingFragment StoreEntitySet="View_user_with_role">
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="CPWD" ColumnName="CPWD" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="fkRoleID" ColumnName="fkRoleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
