@@ -30,6 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmb_role = new DevExpress.XtraEditors.LookUpEdit();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btn_create = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_update = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_delete = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_save = new DevExpress.XtraBars.BarButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.tblUserRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.viewuserwithroleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -42,58 +55,45 @@
             this.colCPWD = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colActiveYN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoginName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txt_userName = new DevExpress.XtraEditors.TextEdit();
+            this.txt_name = new DevExpress.XtraEditors.TextEdit();
+            this.txt_remark = new DevExpress.XtraEditors.TextEdit();
+            this.txt_password = new DevExpress.XtraEditors.TextEdit();
+            this.chk_active = new DevExpress.XtraEditors.CheckEdit();
+            this.txt_cPassword = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btn_create = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_update = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_delete = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_save = new DevExpress.XtraBars.BarButtonItem();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.txt_userName = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_name = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_remark = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cmb_role = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_password = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.tblUserRoleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chk_active = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txt_cPassword = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_role.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblUserRoleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewuserwithroleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_userName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_remark.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_userName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_remark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_role.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblUserRoleBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_cPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,123 +115,25 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // gridControl1
+            // cmb_role
             // 
-            this.gridControl1.DataSource = this.viewuserwithroleBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 179);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(862, 241);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // viewuserwithroleBindingSource
-            // 
-            this.viewuserwithroleBindingSource.DataSource = typeof(PropertyManagement.Model.View_user_with_role);
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colUserID,
-            this.colfkRoleID,
-            this.colNAME,
-            this.colRMKS,
-            this.colUserName,
-            this.colPWD,
-            this.colCPWD,
-            this.colActiveYN,
-            this.colLoginName});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
-            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
-            // 
-            // colUserID
-            // 
-            this.colUserID.FieldName = "UserID";
-            this.colUserID.Name = "colUserID";
-            // 
-            // colfkRoleID
-            // 
-            this.colfkRoleID.FieldName = "fkRoleID";
-            this.colfkRoleID.Name = "colfkRoleID";
-            // 
-            // colNAME
-            // 
-            this.colNAME.FieldName = "NAME";
-            this.colNAME.Name = "colNAME";
-            this.colNAME.Visible = true;
-            this.colNAME.VisibleIndex = 0;
-            // 
-            // colRMKS
-            // 
-            this.colRMKS.FieldName = "RMKS";
-            this.colRMKS.Name = "colRMKS";
-            this.colRMKS.Visible = true;
-            this.colRMKS.VisibleIndex = 1;
-            // 
-            // colUserName
-            // 
-            this.colUserName.FieldName = "UserName";
-            this.colUserName.Name = "colUserName";
-            this.colUserName.Visible = true;
-            this.colUserName.VisibleIndex = 2;
-            // 
-            // colPWD
-            // 
-            this.colPWD.FieldName = "PWD";
-            this.colPWD.Name = "colPWD";
-            this.colPWD.Visible = true;
-            this.colPWD.VisibleIndex = 3;
-            // 
-            // colCPWD
-            // 
-            this.colCPWD.FieldName = "CPWD";
-            this.colCPWD.Name = "colCPWD";
-            this.colCPWD.Visible = true;
-            this.colCPWD.VisibleIndex = 4;
-            // 
-            // colActiveYN
-            // 
-            this.colActiveYN.FieldName = "ActiveYN";
-            this.colActiveYN.Name = "colActiveYN";
-            this.colActiveYN.Visible = true;
-            this.colActiveYN.VisibleIndex = 5;
-            // 
-            // colLoginName
-            // 
-            this.colLoginName.FieldName = "LoginName";
-            this.colLoginName.Name = "colLoginName";
-            this.colLoginName.Visible = true;
-            this.colLoginName.VisibleIndex = 6;
-            // 
-            // Root
-            // 
-            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.Root.GroupBordersVisible = false;
-            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem5,
-            this.layoutControlItem6,
-            this.emptySpaceItem1,
-            this.layoutControlItem7,
-            this.layoutControlItem8});
-            this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(886, 432);
-            this.Root.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 167);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(866, 245);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.cmb_role.Location = new System.Drawing.Point(101, 84);
+            this.cmb_role.MenuManager = this.barManager1;
+            this.cmb_role.Name = "cmb_role";
+            this.cmb_role.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_role.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RoleID", "Role ID", 59, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "NAME", 41, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.cmb_role.Properties.DataSource = this.tblUserRoleBindingSource;
+            this.cmb_role.Properties.DisplayMember = "NAME";
+            this.cmb_role.Properties.ReadOnly = true;
+            this.cmb_role.Properties.UseReadOnlyAppearance = false;
+            this.cmb_role.Properties.ValueMember = "RoleID";
+            this.cmb_role.Size = new System.Drawing.Size(353, 20);
+            this.cmb_role.StyleController = this.layoutControl1;
+            this.cmb_role.TabIndex = 8;
+            this.cmb_role.EditValueChanged += new System.EventHandler(this.cmb_role_EditValueChanged);
             // 
             // barManager1
             // 
@@ -336,143 +238,146 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 432);
             // 
+            // tblUserRoleBindingSource
+            // 
+            this.tblUserRoleBindingSource.DataSource = typeof(PropertyManagement.Model.tbl_UserRole);
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.viewuserwithroleBindingSource;
+            this.gridControl1.Location = new System.Drawing.Point(12, 179);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(862, 241);
+            this.gridControl1.TabIndex = 4;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // viewuserwithroleBindingSource
+            // 
+            this.viewuserwithroleBindingSource.DataSource = typeof(PropertyManagement.Model.View_user_with_role);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUserID,
+            this.colfkRoleID,
+            this.colNAME,
+            this.colRMKS,
+            this.colUserName,
+            this.colPWD,
+            this.colCPWD,
+            this.colActiveYN,
+            this.colLoginName});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // colUserID
+            // 
+            this.colUserID.FieldName = "UserID";
+            this.colUserID.Name = "colUserID";
+            // 
+            // colfkRoleID
+            // 
+            this.colfkRoleID.FieldName = "fkRoleID";
+            this.colfkRoleID.Name = "colfkRoleID";
+            // 
+            // colNAME
+            // 
+            this.colNAME.FieldName = "NAME";
+            this.colNAME.Name = "colNAME";
+            this.colNAME.Visible = true;
+            this.colNAME.VisibleIndex = 0;
+            // 
+            // colRMKS
+            // 
+            this.colRMKS.FieldName = "RMKS";
+            this.colRMKS.Name = "colRMKS";
+            this.colRMKS.Visible = true;
+            this.colRMKS.VisibleIndex = 1;
+            // 
+            // colUserName
+            // 
+            this.colUserName.FieldName = "UserName";
+            this.colUserName.Name = "colUserName";
+            this.colUserName.Visible = true;
+            this.colUserName.VisibleIndex = 2;
+            // 
+            // colPWD
+            // 
+            this.colPWD.FieldName = "PWD";
+            this.colPWD.Name = "colPWD";
+            this.colPWD.Visible = true;
+            this.colPWD.VisibleIndex = 3;
+            // 
+            // colCPWD
+            // 
+            this.colCPWD.FieldName = "CPWD";
+            this.colCPWD.Name = "colCPWD";
+            this.colCPWD.Visible = true;
+            this.colCPWD.VisibleIndex = 4;
+            // 
+            // colActiveYN
+            // 
+            this.colActiveYN.FieldName = "ActiveYN";
+            this.colActiveYN.Name = "colActiveYN";
+            this.colActiveYN.Visible = true;
+            this.colActiveYN.VisibleIndex = 5;
+            // 
+            // colLoginName
+            // 
+            this.colLoginName.FieldName = "LoginName";
+            this.colLoginName.Name = "colLoginName";
+            this.colLoginName.Visible = true;
+            this.colLoginName.VisibleIndex = 6;
+            // 
             // txt_userName
             // 
-            this.txt_userName.Location = new System.Drawing.Point(99, 12);
+            this.txt_userName.Location = new System.Drawing.Point(101, 12);
             this.txt_userName.MenuManager = this.barManager1;
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.Properties.ReadOnly = true;
             this.txt_userName.Properties.UseReadOnlyAppearance = false;
-            this.txt_userName.Size = new System.Drawing.Size(355, 20);
+            this.txt_userName.Size = new System.Drawing.Size(353, 20);
             this.txt_userName.StyleController = this.layoutControl1;
             this.txt_userName.TabIndex = 5;
             // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.txt_userName;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(446, 24);
-            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.Text = "User Name";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(84, 13);
-            // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(99, 36);
+            this.txt_name.Location = new System.Drawing.Point(101, 36);
             this.txt_name.MenuManager = this.barManager1;
             this.txt_name.Name = "txt_name";
             this.txt_name.Properties.ReadOnly = true;
             this.txt_name.Properties.UseReadOnlyAppearance = false;
-            this.txt_name.Size = new System.Drawing.Size(355, 20);
+            this.txt_name.Size = new System.Drawing.Size(353, 20);
             this.txt_name.StyleController = this.layoutControl1;
             this.txt_name.TabIndex = 6;
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txt_name;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(446, 24);
-            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "Name";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(84, 13);
-            // 
             // txt_remark
             // 
-            this.txt_remark.Location = new System.Drawing.Point(99, 60);
+            this.txt_remark.Location = new System.Drawing.Point(101, 60);
             this.txt_remark.MenuManager = this.barManager1;
             this.txt_remark.Name = "txt_remark";
             this.txt_remark.Properties.ReadOnly = true;
             this.txt_remark.Properties.UseReadOnlyAppearance = false;
-            this.txt_remark.Size = new System.Drawing.Size(355, 20);
+            this.txt_remark.Size = new System.Drawing.Size(353, 20);
             this.txt_remark.StyleController = this.layoutControl1;
             this.txt_remark.TabIndex = 7;
             // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txt_remark;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem4.MaxSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem4.MinSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(446, 24);
-            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "Remarks";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(84, 13);
-            // 
-            // cmb_role
-            // 
-            this.cmb_role.Location = new System.Drawing.Point(99, 84);
-            this.cmb_role.MenuManager = this.barManager1;
-            this.cmb_role.Name = "cmb_role";
-            this.cmb_role.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_role.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RoleID", "Role ID", 59, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NAME", "NAME", 41, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.cmb_role.Properties.DataSource = this.tblUserRoleBindingSource;
-            this.cmb_role.Properties.DisplayMember = "NAME";
-            this.cmb_role.Properties.ReadOnly = true;
-            this.cmb_role.Properties.UseReadOnlyAppearance = false;
-            this.cmb_role.Properties.ValueMember = "RoleID";
-            this.cmb_role.Size = new System.Drawing.Size(355, 20);
-            this.cmb_role.StyleController = this.layoutControl1;
-            this.cmb_role.TabIndex = 8;
-            // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.cmb_role;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(446, 24);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.Text = "Role";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(84, 13);
-            // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(99, 108);
+            this.txt_password.Location = new System.Drawing.Point(101, 108);
             this.txt_password.MenuManager = this.barManager1;
             this.txt_password.Name = "txt_password";
+            this.txt_password.Properties.PasswordChar = '*';
             this.txt_password.Properties.ReadOnly = true;
             this.txt_password.Properties.UseReadOnlyAppearance = false;
-            this.txt_password.Size = new System.Drawing.Size(355, 20);
+            this.txt_password.Properties.UseSystemPasswordChar = true;
+            this.txt_password.Size = new System.Drawing.Size(353, 20);
             this.txt_password.StyleController = this.layoutControl1;
             this.txt_password.TabIndex = 9;
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.txt_password;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 96);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(446, 24);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(446, 24);
-            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.Text = "Password";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(84, 13);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(446, 0);
-            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(420, 120);
-            this.emptySpaceItem1.MinSize = new System.Drawing.Size(420, 120);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(420, 167);
-            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // tblUserRoleBindingSource
-            // 
-            this.tblUserRoleBindingSource.DataSource = typeof(PropertyManagement.Model.tbl_UserRole);
             // 
             // chk_active
             // 
@@ -484,6 +389,116 @@
             this.chk_active.Size = new System.Drawing.Size(442, 19);
             this.chk_active.StyleController = this.layoutControl1;
             this.chk_active.TabIndex = 10;
+            // 
+            // txt_cPassword
+            // 
+            this.txt_cPassword.Location = new System.Drawing.Point(101, 132);
+            this.txt_cPassword.Name = "txt_cPassword";
+            this.txt_cPassword.Properties.PasswordChar = '*';
+            this.txt_cPassword.Properties.ReadOnly = true;
+            this.txt_cPassword.Properties.UseReadOnlyAppearance = false;
+            this.txt_cPassword.Properties.UseSystemPasswordChar = true;
+            this.txt_cPassword.Size = new System.Drawing.Size(353, 20);
+            this.txt_cPassword.StyleController = this.layoutControl1;
+            this.txt_cPassword.TabIndex = 9;
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem5,
+            this.layoutControlItem6,
+            this.emptySpaceItem1,
+            this.layoutControlItem7,
+            this.layoutControlItem8});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(886, 432);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gridControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 167);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(866, 245);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.txt_userName;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(446, 24);
+            this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem2.Text = "User Name";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txt_name;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(446, 24);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem3.Text = "Name";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txt_remark;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem4.MaxSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem4.MinSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(446, 24);
+            this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem4.Text = "Remarks";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.cmb_role;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(446, 24);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.Text = "Role";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txt_password;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 96);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(446, 24);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(446, 24);
+            this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem6.Text = "Password";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(446, 0);
+            this.emptySpaceItem1.MaxSize = new System.Drawing.Size(420, 120);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(420, 120);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(420, 167);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
             // 
@@ -497,16 +512,6 @@
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // txt_cPassword
-            // 
-            this.txt_cPassword.Location = new System.Drawing.Point(99, 132);
-            this.txt_cPassword.Name = "txt_cPassword";
-            this.txt_cPassword.Properties.ReadOnly = true;
-            this.txt_cPassword.Properties.UseReadOnlyAppearance = false;
-            this.txt_cPassword.Size = new System.Drawing.Size(355, 20);
-            this.txt_cPassword.StyleController = this.layoutControl1;
-            this.txt_cPassword.TabIndex = 9;
-            // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txt_cPassword;
@@ -516,10 +521,11 @@
             this.layoutControlItem8.MinSize = new System.Drawing.Size(446, 24);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.OptionsPrint.AppearanceItemCaption.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.layoutControlItem8.OptionsPrint.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem8.Size = new System.Drawing.Size(446, 24);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.Text = "Confirm Password";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(86, 13);
             // 
             // frmUserCreation
             // 
@@ -537,27 +543,27 @@
             this.Load += new System.EventHandler(this.frmUserCreation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_role.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblUserRoleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewuserwithroleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_userName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_remark.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_cPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_userName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_remark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_role.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblUserRoleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_cPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

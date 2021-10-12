@@ -29,5 +29,6 @@ namespace PropertyManagement.Model
         public int fkFileID { get; set; }
         public long FileBookID { get; set; }
         public Nullable<long> InstRcvID { get; set; }
+        public byte[] CustIMG { get; set; }
     }
 }

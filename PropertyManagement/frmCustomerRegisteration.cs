@@ -22,7 +22,7 @@ namespace PropertyManagement
     public partial class frmCustomerRegisteration : DevExpress.XtraEditors.XtraForm
     {
         PropertyEntities db = new PropertyEntities();
-        //BindingList<kinModel> kinModelBindList = new BindingList<kinModel>();
+        BindingList<kinModel> kinModelBindList = new BindingList<kinModel>();
         List<tbl_Projects> projectList;
         bool isnew = false;
         byte[] customerImage = null, cnicFImage = null, cnicBImage = null;
@@ -31,7 +31,7 @@ namespace PropertyManagement
             InitializeComponent();
             Application.ThreadException += new ThreadExceptionEventHandler(MyCommonExceptionHandlingMethod);
             RefreshSources();
-            //gridControl2.DataSource = kinModelBindList;
+            gridControl2.DataSource = kinModelBindList;
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -78,33 +78,45 @@ namespace PropertyManagement
 
                     ((CheckEdit)cont).Checked = false;
                 }
+                else if (cont is PictureEdit)
+                {
+
+                    ((PictureEdit)cont).Image = null;
+                }
             }
-            //gridControl2.DataSource = null;
+            //int rowcount = gridView_kin.RowCount;
+            //for (int i=0;i< rowcount; i++)
+            //{
+            //    gridView_kin.DeleteRow(i);
+            //}
+            kinModelBindList.Clear();
         }
-        private void makereadonly(bool isActive)
+        private void makereadonly(bool _isActive)
         {
 
             foreach (var cont in layoutControl1.Controls)
             {
                 if (cont is TextEdit)
                 {
-                    ((TextEdit)cont).ReadOnly = isActive;
+                    ((TextEdit)cont).ReadOnly = _isActive;
                 }
                 else if (cont is CheckEdit)
                 {
-                    ((CheckEdit)cont).ReadOnly = isActive;
+                    ((CheckEdit)cont).ReadOnly = _isActive;
+
                 }
                 else if (cont is RadioGroup)
                 {
-                    ((RadioGroup)cont).ReadOnly = isActive;
+                    ((RadioGroup)cont).ReadOnly = _isActive;
                 }
                 else if (cont is SimpleButton)
                 {
-                    ((SimpleButton)cont).Enabled = !isActive;
+                    ((SimpleButton)cont).Enabled = !_isActive;
                 }
 
             }
-            gridControl2.Enabled = !isActive;
+            isActive.Checked = !_isActive;
+            gridView_kin.OptionsBehavior.Editable = !_isActive;
             //layoutControlGroup2.Enabled = !isActive;
         }
         private List<kinModel> getkinListFromGrid()
@@ -123,7 +135,10 @@ namespace PropertyManagement
 
         private void setkinGrid(List<kinModel> _kinmodel)
         {
-            gridControl2.DataSource = _kinmodel;
+            kinModelBindList.Clear();
+            foreach (var item in _kinmodel)
+                kinModelBindList.Add(item);
+            //gridControl2.DataSource = _kinmodel;
         }
         private string getNullOnEmptyString(string str)
         {
@@ -158,7 +173,7 @@ namespace PropertyManagement
         {
 
         }
-        
+
 
         private static void MyCommonExceptionHandlingMethod(object sender, ThreadExceptionEventArgs t)
         {
@@ -196,6 +211,7 @@ namespace PropertyManagement
             {
                 Bitmap myBitmap = new Bitmap(openFileDialog1.FileName);
                 pic_photo.Image = myBitmap;
+                customerImage = File.ReadAllBytes(openFileDialog1.FileName);
             }
         }
 
@@ -213,6 +229,7 @@ namespace PropertyManagement
             {
                 Bitmap myBitmap = new Bitmap(openFileDialog1.FileName);
                 pic_cnicFront.Image = myBitmap;
+                cnicFImage = File.ReadAllBytes(openFileDialog1.FileName);
             }
         }
 
@@ -230,6 +247,7 @@ namespace PropertyManagement
             {
                 Bitmap myBitmap = new Bitmap(openFileDialog1.FileName);
                 pic_cnicBack.Image = myBitmap;
+                cnicBImage = File.ReadAllBytes(openFileDialog1.FileName);
             }
         }
 
@@ -264,7 +282,7 @@ namespace PropertyManagement
                     }
                     ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                     ObjectParameter PARAM_New_CustomerID = new ObjectParameter("PARAM_New_CustomerID", typeof(string));
-                    List<kinModel> kin_list = getkinListFromGrid();
+                    //List<kinModel> kin_list = getkinListFromGrid();
 
 
                     db.Pro_IDU_CustomerRegM("insert", null,
@@ -274,7 +292,7 @@ namespace PropertyManagement
 
                     if (PARAM_New_CustomerID.Value != null)
                     {
-                        foreach (var item in kin_list)
+                        foreach (var item in kinModelBindList)
                         {
                             db.Pro_IDU_CustomerKin("insert", null, Convert.ToInt64(PARAM_New_CustomerID.Value), item.KinName, item.KinCNIC, item.KinMobile,
                                 item.KinRelation, item.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE);
@@ -309,17 +327,22 @@ namespace PropertyManagement
                             proj.ProjectID,
                             proj.ParentID, null, txt_customerName.Text, txt_fatherName.Text, txt_cnic.Text, txt_mobile.Text, memo_presentAddress.Text, memo_permanentAddress.Text, txt_phoneNo.Text
                             , customerImage, cnicFImage, cnicBImage, isDealer.Checked ? "Y" : "N", isActive.Checked ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE, PARAM_New_CustomerID);
-                        List<kinModel> kin_list = getkinListFromGrid();
+                        //List<kinModel> kin_list = getkinListFromGrid();
 
 
-                        
+
 
                         if (pARM_ERROR_MESSAGE.Value.ToString().Contains("success"))
                         {
-                            foreach (var item in kin_list)
+                            foreach (var item in kinModelBindList)
                             {
-                                db.Pro_IDU_CustomerKin("update", item.CustomerKinId,item.fkCustomerId, item.KinName, item.KinCNIC, item.KinMobile,
-                                    item.KinRelation, item.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
+                                if (item.CustomerKinId > 0)
+                                    db.Pro_IDU_CustomerKin("update", item.CustomerKinId, Convert.ToInt64(txt_customerName.Tag), item.KinName, item.KinCNIC, item.KinMobile,
+                                        item.KinRelation, item.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
+                                else
+                                    db.Pro_IDU_CustomerKin("insert", null, Convert.ToInt64(txt_customerName.Tag), item.KinName, item.KinCNIC, item.KinMobile,
+                                        item.KinRelation, item.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE);
+
                             }
                             XtraMessageBox.Show(pARM_ERROR_MESSAGE.Value.ToString());
                         }
@@ -411,8 +434,8 @@ namespace PropertyManagement
                     //tbl_Projects proj = (tbl_Projects)searchLookUpEdit1View.GetRow(searchLookUpEdit1View.FocusedRowHandle);
                     ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
 
-                    db.Pro_IDU_CustomerKin("delete", null, Convert.ToInt64(kinModel.fkCustomerId), kinModel.KinName, kinModel.KinCNIC, kinModel.KinMobile,
-                                       kinModel.KinRelation, kinModel.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE);
+                    db.Pro_IDU_CustomerKin("delete", kinModel.CustomerKinId, Convert.ToInt64(kinModel.fkCustomerId), kinModel.KinName, kinModel.KinCNIC, kinModel.KinMobile,
+                                       kinModel.KinRelation, kinModel.ActiveYN ? "Y" : "N", loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
                     gridView_kin.DeleteRow(gridView_kin.FocusedRowHandle);
 
                 }

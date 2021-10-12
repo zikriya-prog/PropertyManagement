@@ -44,7 +44,7 @@ namespace PropertyManagement
         {
             PropertyEntities db1 = new PropertyEntities();
             //searchLookUpEdit1.Enabled = radioGroup1.EditValue.ToString() == "Main" ? true : false;
-            _View_user_with_role = db.View_user_with_role.ToList();
+            _View_user_with_role = db1.View_user_with_role.ToList();
             //cmb_type.Properties.Items.AddRange(_tbl_List.Select(x => x.Type).Distinct().ToList());
             //cmb_type.Properties.DisplayMember = "Type";
             //cmb_type.Properties.ValueMember = "Type";
@@ -70,7 +70,7 @@ namespace PropertyManagement
             txt_password.EditValue = uwr.PWD;
             txt_cPassword.EditValue = uwr.CPWD;
             chk_active.EditValue = uwr.ActiveYN.Equals("1", StringComparison.OrdinalIgnoreCase) ? true : false;
-
+            txt_remark.EditValue = uwr.RMKS;
         }
         private void clearfields()
         {
@@ -80,6 +80,7 @@ namespace PropertyManagement
             txt_userName.EditValue = "";
             txt_password.EditValue = "";
             txt_cPassword.EditValue = "";
+            txt_remark.EditValue = "";
             chk_active.EditValue = true;
         }
         private void makereadonly(bool isActive)
@@ -235,6 +236,11 @@ namespace PropertyManagement
             }
             RefreshSources();
             isnew = false;
+        }
+
+        private void cmb_role_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

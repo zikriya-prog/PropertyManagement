@@ -22,7 +22,10 @@ namespace PropertyManagement
         public frmIDU()
         {
             InitializeComponent();
-            RefreshSources();
+            _tbl_List = db.tbl_List.ToList();
+            cmb_type.Properties.Items.AddRange(_tbl_List.Select(x => x.Type).Distinct().ToList());
+            cmb_type.SelectedIndex = 0;
+            RefreshSources(cmb_type.Text,true,true);
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -38,25 +41,25 @@ namespace PropertyManagement
 
             }
         }
-        private void RefreshSources()
+        private void RefreshSources(string type,bool _setfields,bool _readonly)
         {
             PropertyEntities db1 = new PropertyEntities();
             //searchLookUpEdit1.Enabled = radioGroup1.EditValue.ToString() == "Main" ? true : false;
-            _tbl_List = db.tbl_List.ToList();
-            cmb_type.Properties.Items.AddRange(_tbl_List.Select(x=>x.Type).Distinct().ToList());
+            
             //cmb_type.Properties.DisplayMember = "Type";
             //cmb_type.Properties.ValueMember = "Type";
 
-            gridControl1.DataSource = _tbl_List;
+            gridControl1.DataSource = db1.tbl_List.Where(x=>x.Type == type).ToList();
             
             if (gridView1.RowCount > 0)
             {
                 tbl_List idu = (tbl_List)gridView1.GetRow(gridView1.FocusedRowHandle);
                 //cmb_type.EditValue = idu.Type;
-                setFields(idu);
+                if (_setfields)
+                    setFields(idu);
             }
-            makereadonly(true);
-
+            if(_readonly)
+              makereadonly(true);
             //searchLookUpEdit2.Properties.DataSource = db.tbl_Projects.Where(x => x.Main_Sub == "Sub").ToList();
         }
         private void setFields(tbl_List list)
@@ -70,31 +73,16 @@ namespace PropertyManagement
         }
         private void clearfields()
         {
-            cmb_type.SelectedIndex = 0;
+            //cmb_type.SelectedIndex = 0;
             txt_name.EditValue = "";
             txt_desc.EditValue = "";
             chk_active.EditValue = true;
         }
         private void makereadonly(bool isActive)
         {
-
-            foreach (var cont in layoutControl1.Controls)
-            {
-                if (cont is TextEdit)
-                {
-                    ((TextEdit)cont).ReadOnly = isActive;
-                }
-                else if (cont is CheckEdit)
-                {
-                    ((CheckEdit)cont).ReadOnly = isActive;
-                }
-                else if (cont is RadioGroup)
-                {
-                    ((RadioGroup)cont).ReadOnly = isActive;
-                }
-
-
-            }
+            cmb_type.ReadOnly = isActive;
+            txt_name.ReadOnly = isActive;
+            txt_desc.ReadOnly = isActive;
 
         }
         private void frmIDU_Load(object sender, EventArgs e)
@@ -140,7 +128,7 @@ namespace PropertyManagement
                     XtraMessageBox.Show(pARM_ERROR_MESSAGE.Value.ToString());
 
 
-                    RefreshSources();
+                    RefreshSources(cmb_type.Text, true, true);
                 }
                 catch (Exception ex)
                 {
@@ -177,7 +165,8 @@ namespace PropertyManagement
                     return;
 
                 }
-                RefreshSources();
+                RefreshSources(cmb_type.Text, true, true);
+
             }
             isnew = false;
         }
@@ -216,13 +205,26 @@ namespace PropertyManagement
                 return;
 
             }
-            RefreshSources();
+            RefreshSources(cmb_type.Text,true,true);
             isnew = false;
         }
 
         private void btn_update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             makereadonly(false);
+        }
+
+        private void cmb_type_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txt_name.Tag != null)
+            {
+                clearfields();
+                RefreshSources(cmb_type.Text, false, false);
+            }
+            else
+            {
+                RefreshSources(cmb_type.Text, false, false);
+            }
         }
     }
 }

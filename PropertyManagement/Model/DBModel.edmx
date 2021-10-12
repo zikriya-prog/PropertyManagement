@@ -313,6 +313,7 @@ warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not ha
           <Property Name="fkFileID" Type="int" Nullable="false" />
           <Property Name="FileBookID" Type="bigint" Nullable="false" />
           <Property Name="InstRcvID" Type="bigint" />
+          <Property Name="CustIMG" Type="image" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -956,7 +957,8 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
     [View_Installment_Receive].[CustomerRegNo] AS [CustomerRegNo], 
     [View_Installment_Receive].[fkFileID] AS [fkFileID], 
     [View_Installment_Receive].[FileBookID] AS [FileBookID], 
-    [View_Installment_Receive].[InstRcvID] AS [InstRcvID]
+    [View_Installment_Receive].[InstRcvID] AS [InstRcvID], 
+    [View_Installment_Receive].[CustIMG] AS [CustIMG]
     FROM [dbo].[View_Installment_Receive] AS [View_Installment_Receive]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_user_with_role" EntityType="Self.View_user_with_role" store:Type="Views" store:Schema="dbo">
@@ -2173,6 +2175,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Property Name="fkFileID" Type="Int32" Nullable="false" />
           <Property Name="FileBookID" Type="Int64" Nullable="false" />
           <Property Name="InstRcvID" Type="Int64" />
+          <Property Name="CustIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="View_user_with_role">
           <Key>
@@ -2517,6 +2520,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <EntitySetMapping Name="View_Installment_Receive">
             <EntityTypeMapping TypeName="PropertyModel.View_Installment_Receive">
               <MappingFragment StoreEntitySet="View_Installment_Receive">
+                <ScalarProperty Name="CustIMG" ColumnName="CustIMG" />
                 <ScalarProperty Name="InstRcvID" ColumnName="InstRcvID" />
                 <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
                 <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />

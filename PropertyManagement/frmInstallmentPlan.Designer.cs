@@ -259,6 +259,7 @@
             this.coltbl_UserLogin1});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsDetail.AllowExpandEmptyDetails = true;
             this.gridView1.OptionsDetail.AllowOnlyOneMasterRowExpanded = true;
             this.gridView1.OptionsDetail.AutoZoomDetail = true;
@@ -633,7 +634,7 @@
             // vGridControl1
             // 
             this.vGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControl1.CustomizationFormBounds = new System.Drawing.Rectangle(873, 225, 216, 262);
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(646, 43);
@@ -839,14 +840,14 @@
             // dateEdit_instDate
             // 
             this.dateEdit_instDate.EditValue = new System.DateTime(2021, 10, 4, 20, 14, 17, 81);
-            this.dateEdit_instDate.Location = new System.Drawing.Point(121, 131);
+            this.dateEdit_instDate.Location = new System.Drawing.Point(124, 131);
             this.dateEdit_instDate.Name = "dateEdit_instDate";
             this.dateEdit_instDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_instDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_instDate.Properties.UseReadOnlyAppearance = false;
-            this.dateEdit_instDate.Size = new System.Drawing.Size(198, 20);
+            this.dateEdit_instDate.Size = new System.Drawing.Size(195, 20);
             this.dateEdit_instDate.StyleController = this.layoutControl1;
             this.dateEdit_instDate.TabIndex = 8;
             // 
@@ -869,7 +870,7 @@
             // 
             // searchLookUpEdit_customerfile
             // 
-            this.searchLookUpEdit_customerfile.Location = new System.Drawing.Point(121, 12);
+            this.searchLookUpEdit_customerfile.Location = new System.Drawing.Point(124, 12);
             this.searchLookUpEdit_customerfile.Name = "searchLookUpEdit_customerfile";
             this.searchLookUpEdit_customerfile.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -877,7 +878,7 @@
             this.searchLookUpEdit_customerfile.Properties.PopupView = this.gridView_customerfile;
             this.searchLookUpEdit_customerfile.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit_customerfile.Properties.ValueMember = "FileBookID";
-            this.searchLookUpEdit_customerfile.Size = new System.Drawing.Size(198, 20);
+            this.searchLookUpEdit_customerfile.Size = new System.Drawing.Size(195, 20);
             this.searchLookUpEdit_customerfile.StyleController = this.layoutControl1;
             this.searchLookUpEdit_customerfile.TabIndex = 4;
             this.searchLookUpEdit_customerfile.EditValueChanged += new System.EventHandler(this.searchLookUpEdit_customerfile_EditValueChanged);
@@ -1012,7 +1013,7 @@
             // cmb_instType
             // 
             this.cmb_instType.EditValue = "";
-            this.cmb_instType.Location = new System.Drawing.Point(432, 107);
+            this.cmb_instType.Location = new System.Drawing.Point(435, 107);
             this.cmb_instType.MenuManager = this.barManager1;
             this.cmb_instType.Name = "cmb_instType";
             this.cmb_instType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1020,7 +1021,7 @@
             this.cmb_instType.Properties.ReadOnly = true;
             this.cmb_instType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_instType.Properties.UseReadOnlyAppearance = false;
-            this.cmb_instType.Size = new System.Drawing.Size(198, 20);
+            this.cmb_instType.Size = new System.Drawing.Size(195, 20);
             this.cmb_instType.StyleController = this.layoutControl1;
             this.cmb_instType.TabIndex = 16;
             // 
@@ -1031,7 +1032,7 @@
             0,
             0,
             0});
-            this.txt_noOfinst.Location = new System.Drawing.Point(121, 82);
+            this.txt_noOfinst.Location = new System.Drawing.Point(124, 82);
             this.txt_noOfinst.Name = "txt_noOfinst";
             this.txt_noOfinst.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.txt_noOfinst.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -1046,7 +1047,7 @@
             this.txt_noOfinst.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_noOfinst.Properties.ShowNullValuePromptWhenFocused = true;
             this.txt_noOfinst.Properties.UseReadOnlyAppearance = false;
-            this.txt_noOfinst.Size = new System.Drawing.Size(198, 20);
+            this.txt_noOfinst.Size = new System.Drawing.Size(195, 20);
             this.txt_noOfinst.StyleController = this.layoutControl1;
             this.txt_noOfinst.TabIndex = 9;
             // 
@@ -1057,7 +1058,7 @@
             0,
             0,
             0});
-            this.txt_customAmount.Location = new System.Drawing.Point(121, 106);
+            this.txt_customAmount.Location = new System.Drawing.Point(124, 106);
             this.txt_customAmount.Name = "txt_customAmount";
             this.txt_customAmount.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.txt_customAmount.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -1070,7 +1071,7 @@
             this.txt_customAmount.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_customAmount.Properties.ShowNullValuePromptWhenFocused = true;
             this.txt_customAmount.Properties.UseReadOnlyAppearance = false;
-            this.txt_customAmount.Size = new System.Drawing.Size(198, 20);
+            this.txt_customAmount.Size = new System.Drawing.Size(195, 20);
             this.txt_customAmount.StyleController = this.layoutControl1;
             this.txt_customAmount.TabIndex = 12;
             this.txt_customAmount.EditValueChanged += new System.EventHandler(this.txt_customAmount_EditValueChanged);
@@ -1082,7 +1083,7 @@
             0,
             0,
             0});
-            this.txt_instAmount.Location = new System.Drawing.Point(432, 82);
+            this.txt_instAmount.Location = new System.Drawing.Point(435, 82);
             this.txt_instAmount.Name = "txt_instAmount";
             this.txt_instAmount.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.txt_instAmount.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -1095,7 +1096,7 @@
             this.txt_instAmount.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_instAmount.Properties.ShowNullValuePromptWhenFocused = true;
             this.txt_instAmount.Properties.UseReadOnlyAppearance = false;
-            this.txt_instAmount.Size = new System.Drawing.Size(198, 20);
+            this.txt_instAmount.Size = new System.Drawing.Size(195, 20);
             this.txt_instAmount.StyleController = this.layoutControl1;
             this.txt_instAmount.TabIndex = 11;
             this.txt_instAmount.EditValueChanged += new System.EventHandler(this.txt_instAmount_EditValueChanged);
@@ -1107,7 +1108,7 @@
             0,
             0,
             0});
-            this.txt_customPeriod.Location = new System.Drawing.Point(121, 156);
+            this.txt_customPeriod.Location = new System.Drawing.Point(124, 156);
             this.txt_customPeriod.Name = "txt_customPeriod";
             this.txt_customPeriod.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.txt_customPeriod.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -1120,7 +1121,7 @@
             this.txt_customPeriod.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_customPeriod.Properties.ShowNullValuePromptWhenFocused = true;
             this.txt_customPeriod.Properties.UseReadOnlyAppearance = false;
-            this.txt_customPeriod.Size = new System.Drawing.Size(509, 20);
+            this.txt_customPeriod.Size = new System.Drawing.Size(506, 20);
             this.txt_customPeriod.StyleController = this.layoutControl1;
             this.txt_customPeriod.TabIndex = 11;
             // 
@@ -1131,7 +1132,7 @@
             0,
             0,
             0});
-            this.txt_customTime.Location = new System.Drawing.Point(432, 131);
+            this.txt_customTime.Location = new System.Drawing.Point(435, 131);
             this.txt_customTime.Name = "txt_customTime";
             this.txt_customTime.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.txt_customTime.Properties.AppearanceDisabled.Options.UseTextOptions = true;
@@ -1144,7 +1145,7 @@
             this.txt_customTime.Properties.NullValuePromptShowForEmptyValue = true;
             this.txt_customTime.Properties.ShowNullValuePromptWhenFocused = true;
             this.txt_customTime.Properties.UseReadOnlyAppearance = false;
-            this.txt_customTime.Size = new System.Drawing.Size(198, 20);
+            this.txt_customTime.Size = new System.Drawing.Size(195, 20);
             this.txt_customTime.StyleController = this.layoutControl1;
             this.txt_customTime.TabIndex = 13;
             // 
@@ -1230,7 +1231,7 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "Customer Files";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem5
             // 
@@ -1242,7 +1243,7 @@
             this.layoutControlItem5.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "Date Of Installment";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem6
             // 
@@ -1251,7 +1252,7 @@
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem6.Text = "Total No of Installment";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem8
             // 
@@ -1262,7 +1263,7 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.Text = "Installment Amount";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem11
             // 
@@ -1273,7 +1274,7 @@
             this.layoutControlItem11.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.Text = "Custom Time";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem7
             // 
@@ -1286,7 +1287,7 @@
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "Nature Of Installment";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(109, 13);
             // 
             // emptySpaceItem1
             // 
@@ -1314,7 +1315,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(311, 24);
             this.layoutControlItem4.Text = "Installment Type";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem10
             // 
@@ -1323,7 +1324,7 @@
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(311, 25);
             this.layoutControlItem10.Text = "Custom Amount";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem9
             // 
@@ -1333,7 +1334,7 @@
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(622, 24);
             this.layoutControlItem9.Text = "Custom Period";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(106, 13);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(109, 13);
             // 
             // layoutControlItem12
             // 

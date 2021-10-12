@@ -23,6 +23,7 @@ namespace PropertyManagement
         {
             InitializeComponent();
             RefreshSources();
+            cmb_plotCategory.Properties.Items.AddRange(db.tbl_List.Where(x => x.Type == "PlotCat").Select(x=>x.Name).ToList());
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -42,10 +43,8 @@ namespace PropertyManagement
         {
             PropertyEntities db1 = new PropertyEntities();
             //searchLookUpEdit1.Enabled = radioGroup1.EditValue.ToString() == "Main" ? true : false;
-            cmb_plotCat.Properties.DataSource = db.tbl_List.Where(x => x.Type == "PlotCat").ToList();
-            cmb_plotCat.Properties.DisplayMember = "Name";
-            cmb_plotCat.Properties.ValueMember = "Description";
-
+            
+            
             gridControl1.DataSource = db1.tbl_Files.ToList();
             projectList = db1.tbl_Projects.ToList();
             if (gridView2.RowCount > 0)
@@ -64,11 +63,10 @@ namespace PropertyManagement
             radioGroup1.EditValue = _tbl_Projects.Main_Sub;
 
             searchLookUpEdit1.EditValue = _tbl_Files.fkProjectId;
-
             txt_fileNumber.Tag = _tbl_Files.FileID;
             txt_fileNumber.Text = _tbl_Files.FileNumber;
             txt_block.Text = _tbl_Files.Block;
-            cmb_plotCat.EditValue = _tbl_Files.PlotCat;
+            cmb_plotCategory.EditValue = _tbl_Files.PlotCat;
             txt_plotFactor.Text = _tbl_Files.Plot_Factor;
             txt_plotno.Text = _tbl_Files.PlotNo;
             txt_plotSize.EditValue = _tbl_Files.PlotSize;
@@ -165,9 +163,9 @@ namespace PropertyManagement
 
 
                     db.Pro_IDU_Files("insert", null,
-                               txt_fileNumber.Text, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCat.Text, txt_plotFactor.Text, txt_plotno.Text,
+                               txt_fileNumber.Text, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCategory.Text, txt_plotFactor.Text, txt_plotno.Text,
                                Convert.ToDouble(txt_plotSize.EditValue), Convert.ToInt64(txt_confimationFees.EditValue), txt_autoPlotNo.Text,
-                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCat.EditValue.ToString(), 
+                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCategory.EditValue.ToString(), 
                                txt_plotStatus.Text, Convert.ToInt64(txt_plotValue.EditValue), Convert.ToInt32(txt_plotExtCharges.EditValue), txt_unitStatus.Text, 
                                loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE);
                                
@@ -194,9 +192,9 @@ namespace PropertyManagement
                         //tbl_Projects proj = projectList.FirstOrDefault(x => x.ProjectID == searchLookUpEdit1.EditValue.ToString());
                         ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                         db.Pro_IDU_Files("update", Convert.ToInt32(txt_fileNumber.Tag),
-                               txt_fileNumber.Text, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCat.Text, txt_plotFactor.Text, txt_plotno.Text,
+                               txt_fileNumber.Text, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCategory.Text, txt_plotFactor.Text, txt_plotno.Text,
                                Convert.ToDouble(txt_plotSize.EditValue), Convert.ToInt64(txt_confimationFees.EditValue), txt_autoPlotNo.Text,
-                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCat.EditValue.ToString(),
+                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCategory.EditValue.ToString(),
                                txt_plotStatus.Text, Convert.ToInt64(txt_plotValue.EditValue), Convert.ToInt32(txt_plotExtCharges.EditValue), txt_unitStatus.Text,
                                loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
 
@@ -238,9 +236,9 @@ namespace PropertyManagement
                     {
                         ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                         db.Pro_IDU_Files("delete", Convert.ToInt32(txt_fileNumber.Tag),
-                               null, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCat.Text, txt_plotFactor.Text, txt_plotno.Text,
+                               null, searchLookUpEdit1.EditValue.ToString(), txt_block.Text, cmb_plotCategory.Text, txt_plotFactor.Text, txt_plotno.Text,
                                Convert.ToDouble(txt_plotSize.EditValue), Convert.ToInt64(txt_confimationFees.EditValue), txt_autoPlotNo.Text,
-                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCat.EditValue.ToString(),
+                               Convert.ToDouble(txt_plotRate.EditValue), Convert.ToInt64(txt_totalPlotValue.EditValue), cmb_plotCategory.EditValue.ToString(),
                                txt_plotStatus.Text, Convert.ToInt64(txt_plotValue.EditValue), Convert.ToInt32(txt_plotExtCharges.EditValue), txt_unitStatus.Text,
                                loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE);
 

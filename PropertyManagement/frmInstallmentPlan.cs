@@ -74,6 +74,7 @@ namespace PropertyManagement
             txt_instAmount.EditValue = _tbl_InstMaster.InstAmount;
             radioGroup_instNature.EditValue = _tbl_InstMaster.Nature;
             txt_noOfinst.EditValue = _tbl_InstMaster.NoOfInst;
+            txt_noOfinst.Tag = _tbl_InstMaster.InstMId;
             
         }
         private void clearfields()
@@ -238,7 +239,13 @@ namespace PropertyManagement
         {
             long filebookId = 0;
             if (Int64.TryParse(searchLookUpEdit_customerfile.EditValue.ToString(), out filebookId))
+            {
                 vGridControl1.DataSource = customerList.Where(x => x.FileBookID == filebookId).ToList();
+                PropertyEntities db1 = new PropertyEntities();
+                var cimg = db1.View_Installment_Receive.FirstOrDefault(x => x.FileBookID == filebookId);
+                if (cimg != null)
+                    pictureEdit1.Image = Image.FromStream(new MemoryStream(cimg.CustIMG));
+            }
         }
 
         private void btn_update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

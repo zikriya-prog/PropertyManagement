@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using PropertyManagement.Model;
 using System.Data.Entity.Core.Objects;
 using PropertyManagement.Model.proModel;
+using System.IO;
 
 namespace PropertyManagement
 {
@@ -137,6 +138,9 @@ namespace PropertyManagement
             {
                 vGridControl1.DataSource = customerList.Where(x => x.FileBookID == filebookId).ToList();
                 PropertyEntities db1 = new PropertyEntities();
+                var cimg = db1.View_Installment_Receive.FirstOrDefault(x => x.FileBookID == filebookId);
+                if (cimg != null)
+                    pictureEdit1.Image = Image.FromStream(new MemoryStream(cimg.CustIMG));
                 gridControl1.DataSource = db1.View_Installment_Receive.Where(x => x.FileBookID == filebookId).ToList();
             }
         }

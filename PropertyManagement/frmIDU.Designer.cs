@@ -143,35 +143,34 @@
             // 
             this.colType.FieldName = "Type";
             this.colType.Name = "colType";
-            this.colType.Visible = true;
-            this.colType.VisibleIndex = 2;
             // 
             // colActiveYN
             // 
             this.colActiveYN.FieldName = "ActiveYN";
             this.colActiveYN.Name = "colActiveYN";
             this.colActiveYN.Visible = true;
-            this.colActiveYN.VisibleIndex = 3;
+            this.colActiveYN.VisibleIndex = 2;
             // 
             // cmb_type
             // 
-            this.cmb_type.Location = new System.Drawing.Point(71, 12);
+            this.cmb_type.Location = new System.Drawing.Point(72, 12);
             this.cmb_type.Name = "cmb_type";
             this.cmb_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_type.Properties.UseReadOnlyAppearance = false;
-            this.cmb_type.Size = new System.Drawing.Size(425, 20);
+            this.cmb_type.Size = new System.Drawing.Size(424, 20);
             this.cmb_type.StyleController = this.layoutControl1;
             this.cmb_type.TabIndex = 4;
+            this.cmb_type.EditValueChanged += new System.EventHandler(this.cmb_type_EditValueChanged);
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(71, 36);
+            this.txt_name.Location = new System.Drawing.Point(72, 36);
             this.txt_name.MenuManager = this.barManager1;
             this.txt_name.Name = "txt_name";
             this.txt_name.Properties.UseReadOnlyAppearance = false;
-            this.txt_name.Size = new System.Drawing.Size(425, 20);
+            this.txt_name.Size = new System.Drawing.Size(424, 20);
             this.txt_name.StyleController = this.layoutControl1;
             this.txt_name.TabIndex = 6;
             // 
@@ -280,11 +279,11 @@
             // 
             // txt_desc
             // 
-            this.txt_desc.Location = new System.Drawing.Point(71, 60);
+            this.txt_desc.Location = new System.Drawing.Point(72, 60);
             this.txt_desc.MenuManager = this.barManager1;
             this.txt_desc.Name = "txt_desc";
             this.txt_desc.Properties.UseReadOnlyAppearance = false;
-            this.txt_desc.Size = new System.Drawing.Size(425, 20);
+            this.txt_desc.Size = new System.Drawing.Size(424, 20);
             this.txt_desc.StyleController = this.layoutControl1;
             this.txt_desc.TabIndex = 7;
             // 
@@ -323,7 +322,7 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "Type";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(57, 13);
             // 
             // layoutControlItem2
             // 
@@ -344,7 +343,7 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "Name";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(57, 13);
             // 
             // layoutControlItem4
             // 
@@ -356,7 +355,7 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(488, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "Desctription";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(57, 13);
             // 
             // layoutControlItem5
             // 
