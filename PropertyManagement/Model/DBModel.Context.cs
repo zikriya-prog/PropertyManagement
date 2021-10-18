@@ -293,63 +293,6 @@ namespace PropertyManagement.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_Files", pARM_IDU_STSParameter, pARAM_FileIDParameter, pARAM_FileNumberParameter, pARAM_fkProjectIdParameter, pARAM_BlockParameter, pARAM_PlotCatParameter, pARAM_Plot_FactorParameter, pARAM_PlotNoParameter, pARAM_PlotSizeParameter, pARAM_ConfirmationFeeParameter, pARAM_AutoPlotNoParameter, pARAM_PlotRateParameter, pARAM_TotalPloValueParameter, pARAM_PlotCatDescParameter, pARAM_FileStatusParameter, pARAM_PlotValueParameter, pARAM_PlotExtChargsParameter, pARAM_UnitStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
         }
     
-        public virtual int Pro_IDU_InstDetail(string pARM_IDU_STS, Nullable<long> pARAM_instDID, Nullable<long> pARAM_fkInstMId, Nullable<int> pARAM_srno, Nullable<int> pARAM_Total, Nullable<int> pARAM_Amount, Nullable<int> pARAM_CustomAmount, Nullable<System.DateTime> pARAM_DueDate, string pARAM_InstType, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_instDID)
-        {
-            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
-                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
-                new ObjectParameter("PARM_IDU_STS", typeof(string));
-    
-            var pARAM_instDIDParameter = pARAM_instDID.HasValue ?
-                new ObjectParameter("PARAM_instDID", pARAM_instDID) :
-                new ObjectParameter("PARAM_instDID", typeof(long));
-    
-            var pARAM_fkInstMIdParameter = pARAM_fkInstMId.HasValue ?
-                new ObjectParameter("PARAM_fkInstMId", pARAM_fkInstMId) :
-                new ObjectParameter("PARAM_fkInstMId", typeof(long));
-    
-            var pARAM_srnoParameter = pARAM_srno.HasValue ?
-                new ObjectParameter("PARAM_srno", pARAM_srno) :
-                new ObjectParameter("PARAM_srno", typeof(int));
-    
-            var pARAM_TotalParameter = pARAM_Total.HasValue ?
-                new ObjectParameter("PARAM_Total", pARAM_Total) :
-                new ObjectParameter("PARAM_Total", typeof(int));
-    
-            var pARAM_AmountParameter = pARAM_Amount.HasValue ?
-                new ObjectParameter("PARAM_Amount", pARAM_Amount) :
-                new ObjectParameter("PARAM_Amount", typeof(int));
-    
-            var pARAM_CustomAmountParameter = pARAM_CustomAmount.HasValue ?
-                new ObjectParameter("PARAM_CustomAmount", pARAM_CustomAmount) :
-                new ObjectParameter("PARAM_CustomAmount", typeof(int));
-    
-            var pARAM_DueDateParameter = pARAM_DueDate.HasValue ?
-                new ObjectParameter("PARAM_DueDate", pARAM_DueDate) :
-                new ObjectParameter("PARAM_DueDate", typeof(System.DateTime));
-    
-            var pARAM_InstTypeParameter = pARAM_InstType != null ?
-                new ObjectParameter("PARAM_InstType", pARAM_InstType) :
-                new ObjectParameter("PARAM_InstType", typeof(string));
-    
-            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
-                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
-                new ObjectParameter("PARAM_CreatedBy", typeof(string));
-    
-            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
-                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
-                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
-    
-            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
-                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
-                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
-    
-            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
-                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
-                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_InstDetail", pARM_IDU_STSParameter, pARAM_instDIDParameter, pARAM_fkInstMIdParameter, pARAM_srnoParameter, pARAM_TotalParameter, pARAM_AmountParameter, pARAM_CustomAmountParameter, pARAM_DueDateParameter, pARAM_InstTypeParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_instDID);
-        }
-    
         public virtual int Pro_IDU_InstMaster(string pARM_IDU_STS, Nullable<long> pARAM_InstMId, Nullable<int> pARAM_fkFileID, string pARAM_Type, Nullable<System.DateTime> pARAM_DateOfInst, string pARAM_Nature, Nullable<int> pARAM_NoOfInst, Nullable<long> pARAM_InstAmount, Nullable<int> pARAM_CustomPeriod, Nullable<long> pARAM_CustomAmount, string pARAM_CustomTime, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_InstMId)
         {
             var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
@@ -813,6 +756,63 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARM_UpdatedDate", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_List", pARM_IDU_STSParameter, pARM_ListIDParameter, pARM_NameParameter, pARM_DescriptionParameter, pARM_TypeParameter, pARM_ActiveYNParameter, pARM_CreatedByParameter, pARM_CreatedDateParameter, pARM_UpdatedByParameter, pARM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
+        }
+    
+        public virtual int Pro_IDU_InstDetail(string pARM_IDU_STS, Nullable<long> pARAM_instDID, Nullable<long> pARAM_fkInstMId, Nullable<int> pARAM_srno, Nullable<long> pARAM_Total, Nullable<long> pARAM_Amount, Nullable<long> pARAM_CustomAmount, Nullable<System.DateTime> pARAM_DueDate, string pARAM_InstType, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_instDID)
+        {
+            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
+                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
+                new ObjectParameter("PARM_IDU_STS", typeof(string));
+    
+            var pARAM_instDIDParameter = pARAM_instDID.HasValue ?
+                new ObjectParameter("PARAM_instDID", pARAM_instDID) :
+                new ObjectParameter("PARAM_instDID", typeof(long));
+    
+            var pARAM_fkInstMIdParameter = pARAM_fkInstMId.HasValue ?
+                new ObjectParameter("PARAM_fkInstMId", pARAM_fkInstMId) :
+                new ObjectParameter("PARAM_fkInstMId", typeof(long));
+    
+            var pARAM_srnoParameter = pARAM_srno.HasValue ?
+                new ObjectParameter("PARAM_srno", pARAM_srno) :
+                new ObjectParameter("PARAM_srno", typeof(int));
+    
+            var pARAM_TotalParameter = pARAM_Total.HasValue ?
+                new ObjectParameter("PARAM_Total", pARAM_Total) :
+                new ObjectParameter("PARAM_Total", typeof(long));
+    
+            var pARAM_AmountParameter = pARAM_Amount.HasValue ?
+                new ObjectParameter("PARAM_Amount", pARAM_Amount) :
+                new ObjectParameter("PARAM_Amount", typeof(long));
+    
+            var pARAM_CustomAmountParameter = pARAM_CustomAmount.HasValue ?
+                new ObjectParameter("PARAM_CustomAmount", pARAM_CustomAmount) :
+                new ObjectParameter("PARAM_CustomAmount", typeof(long));
+    
+            var pARAM_DueDateParameter = pARAM_DueDate.HasValue ?
+                new ObjectParameter("PARAM_DueDate", pARAM_DueDate) :
+                new ObjectParameter("PARAM_DueDate", typeof(System.DateTime));
+    
+            var pARAM_InstTypeParameter = pARAM_InstType != null ?
+                new ObjectParameter("PARAM_InstType", pARAM_InstType) :
+                new ObjectParameter("PARAM_InstType", typeof(string));
+    
+            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
+                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
+                new ObjectParameter("PARAM_CreatedBy", typeof(string));
+    
+            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
+                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
+                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
+    
+            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
+                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
+                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
+    
+            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
+                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
+                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_InstDetail", pARM_IDU_STSParameter, pARAM_instDIDParameter, pARAM_fkInstMIdParameter, pARAM_srnoParameter, pARAM_TotalParameter, pARAM_AmountParameter, pARAM_CustomAmountParameter, pARAM_DueDateParameter, pARAM_InstTypeParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_instDID);
         }
     }
 }

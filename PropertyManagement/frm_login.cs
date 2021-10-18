@@ -39,6 +39,7 @@ namespace PropertyManagement
             {
                 int roleId = Convert.ToInt32(loginModel.PARM_USER_ROLE.Value);
                 loginModel.userMenus = db.tbl_userMenu.Where(x => x.fkRoleID == roleId).ToList();
+                loginModel.Menus = db.tbl_Menu.ToList();
                 frmMain _frmMain = new frmMain(this);
                 _frmMain.Show();
                 this.Hide();

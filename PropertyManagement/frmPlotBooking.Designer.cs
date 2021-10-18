@@ -134,7 +134,6 @@
             this.dateEdit_confirmation = new DevExpress.XtraEditors.DateEdit();
             this.cmb_paymentMethod = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txt_registrationFees = new DevExpress.XtraEditors.TextEdit();
-            this.txt_bookingStatus = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -159,6 +158,7 @@
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.cmb_bookingStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -182,7 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_confirmation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_paymentMethod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_registrationFees.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_bookingStatus.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -207,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -224,7 +224,7 @@
             this.layoutControl1.Controls.Add(this.dateEdit_confirmation);
             this.layoutControl1.Controls.Add(this.cmb_paymentMethod);
             this.layoutControl1.Controls.Add(this.txt_registrationFees);
-            this.layoutControl1.Controls.Add(this.txt_bookingStatus);
+            this.layoutControl1.Controls.Add(this.cmb_bookingStatus);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 27);
             this.layoutControl1.Name = "layoutControl1";
@@ -240,7 +240,7 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(1165, 227);
-            this.gridControl1.TabIndex = 11;
+            this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -410,12 +410,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEdit_file.Properties.DataSource = this.tblFilesBindingSource;
             this.searchLookUpEdit_file.Properties.DisplayMember = "FileNumber";
+            this.searchLookUpEdit_file.Properties.NullText = "Please Select File";
             this.searchLookUpEdit_file.Properties.PopupView = this.searchLookUpEdit2View;
             this.searchLookUpEdit_file.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit_file.Properties.ValueMember = "FileID";
             this.searchLookUpEdit_file.Size = new System.Drawing.Size(235, 20);
             this.searchLookUpEdit_file.StyleController = this.layoutControl1;
-            this.searchLookUpEdit_file.TabIndex = 5;
+            this.searchLookUpEdit_file.TabIndex = 0;
             this.searchLookUpEdit_file.EditValueChanged += new System.EventHandler(this.searchLookUpEdit_file_EditValueChanged);
             // 
             // tblFilesBindingSource
@@ -461,113 +462,99 @@
             // 
             this.colFileID.FieldName = "FileID";
             this.colFileID.Name = "colFileID";
-            this.colFileID.Visible = true;
-            this.colFileID.VisibleIndex = 0;
             // 
             // colFileNumber
             // 
             this.colFileNumber.FieldName = "FileNumber";
             this.colFileNumber.Name = "colFileNumber";
             this.colFileNumber.Visible = true;
-            this.colFileNumber.VisibleIndex = 1;
+            this.colFileNumber.VisibleIndex = 0;
             // 
             // colfkProjectId
             // 
             this.colfkProjectId.FieldName = "fkProjectId";
             this.colfkProjectId.Name = "colfkProjectId";
-            this.colfkProjectId.Visible = true;
-            this.colfkProjectId.VisibleIndex = 2;
             // 
             // colBlock
             // 
             this.colBlock.FieldName = "Block";
             this.colBlock.Name = "colBlock";
             this.colBlock.Visible = true;
-            this.colBlock.VisibleIndex = 3;
+            this.colBlock.VisibleIndex = 1;
             // 
             // colPlotCat
             // 
             this.colPlotCat.FieldName = "PlotCat";
             this.colPlotCat.Name = "colPlotCat";
             this.colPlotCat.Visible = true;
-            this.colPlotCat.VisibleIndex = 4;
+            this.colPlotCat.VisibleIndex = 2;
             // 
             // colPlot_Factor
             // 
             this.colPlot_Factor.FieldName = "Plot_Factor";
             this.colPlot_Factor.Name = "colPlot_Factor";
             this.colPlot_Factor.Visible = true;
-            this.colPlot_Factor.VisibleIndex = 5;
+            this.colPlot_Factor.VisibleIndex = 3;
             // 
             // colPlotNo
             // 
             this.colPlotNo.FieldName = "PlotNo";
             this.colPlotNo.Name = "colPlotNo";
-            this.colPlotNo.Visible = true;
-            this.colPlotNo.VisibleIndex = 6;
             // 
             // colPlotSize
             // 
             this.colPlotSize.FieldName = "PlotSize";
             this.colPlotSize.Name = "colPlotSize";
             this.colPlotSize.Visible = true;
-            this.colPlotSize.VisibleIndex = 7;
+            this.colPlotSize.VisibleIndex = 4;
             // 
             // colConfirmationFee
             // 
             this.colConfirmationFee.FieldName = "ConfirmationFee";
             this.colConfirmationFee.Name = "colConfirmationFee";
-            this.colConfirmationFee.Visible = true;
-            this.colConfirmationFee.VisibleIndex = 8;
             // 
             // colAutoPlotNo
             // 
             this.colAutoPlotNo.FieldName = "AutoPlotNo";
             this.colAutoPlotNo.Name = "colAutoPlotNo";
             this.colAutoPlotNo.Visible = true;
-            this.colAutoPlotNo.VisibleIndex = 9;
+            this.colAutoPlotNo.VisibleIndex = 5;
             // 
             // colPlotRate
             // 
             this.colPlotRate.FieldName = "PlotRate";
             this.colPlotRate.Name = "colPlotRate";
             this.colPlotRate.Visible = true;
-            this.colPlotRate.VisibleIndex = 10;
+            this.colPlotRate.VisibleIndex = 6;
             // 
             // colTotalPloValue
             // 
             this.colTotalPloValue.FieldName = "TotalPloValue";
             this.colTotalPloValue.Name = "colTotalPloValue";
             this.colTotalPloValue.Visible = true;
-            this.colTotalPloValue.VisibleIndex = 11;
+            this.colTotalPloValue.VisibleIndex = 7;
             // 
             // colPlotCatDesc
             // 
             this.colPlotCatDesc.FieldName = "PlotCatDesc";
             this.colPlotCatDesc.Name = "colPlotCatDesc";
-            this.colPlotCatDesc.Visible = true;
-            this.colPlotCatDesc.VisibleIndex = 12;
             // 
             // colFileStatus
             // 
             this.colFileStatus.FieldName = "FileStatus";
             this.colFileStatus.Name = "colFileStatus";
-            this.colFileStatus.Visible = true;
-            this.colFileStatus.VisibleIndex = 13;
             // 
             // colPlotValue
             // 
             this.colPlotValue.FieldName = "PlotValue";
             this.colPlotValue.Name = "colPlotValue";
             this.colPlotValue.Visible = true;
-            this.colPlotValue.VisibleIndex = 14;
+            this.colPlotValue.VisibleIndex = 8;
             // 
             // colPlotExtChargs
             // 
             this.colPlotExtChargs.FieldName = "PlotExtChargs";
             this.colPlotExtChargs.Name = "colPlotExtChargs";
-            this.colPlotExtChargs.Visible = true;
-            this.colPlotExtChargs.VisibleIndex = 15;
             // 
             // colUnitStatus
             // 
@@ -632,12 +619,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchLookUpEdit_customer.Properties.DataSource = this.tblCustomerRegMBindingSource;
             this.searchLookUpEdit_customer.Properties.DisplayMember = "CustomerName";
+            this.searchLookUpEdit_customer.Properties.NullText = "Please Select Customer";
             this.searchLookUpEdit_customer.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEdit_customer.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit_customer.Properties.ValueMember = "CustomerID";
             this.searchLookUpEdit_customer.Size = new System.Drawing.Size(234, 20);
             this.searchLookUpEdit_customer.StyleController = this.layoutControl1;
-            this.searchLookUpEdit_customer.TabIndex = 4;
+            this.searchLookUpEdit_customer.TabIndex = 1;
             this.searchLookUpEdit_customer.EditValueChanged += new System.EventHandler(this.searchLookUpEdit_customer_EditValueChanged);
             // 
             // tblCustomerRegMBindingSource
@@ -681,113 +669,93 @@
             // 
             this.colCustomerID.FieldName = "CustomerID";
             this.colCustomerID.Name = "colCustomerID";
-            this.colCustomerID.Visible = true;
-            this.colCustomerID.VisibleIndex = 0;
             // 
             // gridColumn1
             // 
             this.gridColumn1.FieldName = "fkProjectID";
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 1;
             // 
             // colSubProjID
             // 
             this.colSubProjID.FieldName = "SubProjID";
             this.colSubProjID.Name = "colSubProjID";
-            this.colSubProjID.Visible = true;
-            this.colSubProjID.VisibleIndex = 2;
             // 
             // colCustomerRegNo
             // 
             this.colCustomerRegNo.FieldName = "CustomerRegNo";
             this.colCustomerRegNo.Name = "colCustomerRegNo";
             this.colCustomerRegNo.Visible = true;
-            this.colCustomerRegNo.VisibleIndex = 3;
+            this.colCustomerRegNo.VisibleIndex = 0;
             // 
             // colCustomerName
             // 
             this.colCustomerName.FieldName = "CustomerName";
             this.colCustomerName.Name = "colCustomerName";
             this.colCustomerName.Visible = true;
-            this.colCustomerName.VisibleIndex = 4;
+            this.colCustomerName.VisibleIndex = 1;
             // 
             // colFatherName
             // 
             this.colFatherName.FieldName = "FatherName";
             this.colFatherName.Name = "colFatherName";
             this.colFatherName.Visible = true;
-            this.colFatherName.VisibleIndex = 5;
+            this.colFatherName.VisibleIndex = 2;
             // 
             // colCNIC
             // 
             this.colCNIC.FieldName = "CNIC";
             this.colCNIC.Name = "colCNIC";
             this.colCNIC.Visible = true;
-            this.colCNIC.VisibleIndex = 6;
+            this.colCNIC.VisibleIndex = 3;
             // 
             // colMobile
             // 
             this.colMobile.FieldName = "Mobile";
             this.colMobile.Name = "colMobile";
             this.colMobile.Visible = true;
-            this.colMobile.VisibleIndex = 7;
+            this.colMobile.VisibleIndex = 4;
             // 
             // colPresentAddress
             // 
             this.colPresentAddress.FieldName = "PresentAddress";
             this.colPresentAddress.Name = "colPresentAddress";
-            this.colPresentAddress.Visible = true;
-            this.colPresentAddress.VisibleIndex = 8;
             // 
             // colPermAddress
             // 
             this.colPermAddress.FieldName = "PermAddress";
             this.colPermAddress.Name = "colPermAddress";
-            this.colPermAddress.Visible = true;
-            this.colPermAddress.VisibleIndex = 9;
             // 
             // colOfficeNumber
             // 
             this.colOfficeNumber.FieldName = "OfficeNumber";
             this.colOfficeNumber.Name = "colOfficeNumber";
-            this.colOfficeNumber.Visible = true;
-            this.colOfficeNumber.VisibleIndex = 10;
             // 
             // colCustIMG
             // 
             this.colCustIMG.FieldName = "CustIMG";
             this.colCustIMG.Name = "colCustIMG";
-            this.colCustIMG.Visible = true;
-            this.colCustIMG.VisibleIndex = 11;
             // 
             // colCNICFrontIMG
             // 
             this.colCNICFrontIMG.FieldName = "CNICFrontIMG";
             this.colCNICFrontIMG.Name = "colCNICFrontIMG";
-            this.colCNICFrontIMG.Visible = true;
-            this.colCNICFrontIMG.VisibleIndex = 12;
             // 
             // colCNICBackIMG
             // 
             this.colCNICBackIMG.FieldName = "CNICBackIMG";
             this.colCNICBackIMG.Name = "colCNICBackIMG";
-            this.colCNICBackIMG.Visible = true;
-            this.colCNICBackIMG.VisibleIndex = 13;
             // 
             // colDealerYN
             // 
             this.colDealerYN.FieldName = "DealerYN";
             this.colDealerYN.Name = "colDealerYN";
             this.colDealerYN.Visible = true;
-            this.colDealerYN.VisibleIndex = 14;
+            this.colDealerYN.VisibleIndex = 5;
             // 
             // colActiveYN
             // 
             this.colActiveYN.FieldName = "ActiveYN";
             this.colActiveYN.Name = "colActiveYN";
-            this.colActiveYN.Visible = true;
-            this.colActiveYN.VisibleIndex = 15;
             // 
             // gridColumn2
             // 
@@ -838,28 +806,37 @@
             // 
             this.txt_areaSize.Location = new System.Drawing.Point(109, 36);
             this.txt_areaSize.Name = "txt_areaSize";
+            this.txt_areaSize.Properties.Mask.EditMask = "f0";
+            this.txt_areaSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_areaSize.Properties.NullText = "0";
             this.txt_areaSize.Properties.UseReadOnlyAppearance = false;
             this.txt_areaSize.Size = new System.Drawing.Size(235, 20);
             this.txt_areaSize.StyleController = this.layoutControl1;
-            this.txt_areaSize.TabIndex = 8;
+            this.txt_areaSize.TabIndex = 2;
             // 
             // txt_price
             // 
             this.txt_price.Location = new System.Drawing.Point(445, 60);
             this.txt_price.Name = "txt_price";
+            this.txt_price.Properties.Mask.EditMask = "f0";
+            this.txt_price.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_price.Properties.NullText = "0";
             this.txt_price.Properties.UseReadOnlyAppearance = false;
             this.txt_price.Size = new System.Drawing.Size(234, 20);
             this.txt_price.StyleController = this.layoutControl1;
-            this.txt_price.TabIndex = 9;
+            this.txt_price.TabIndex = 5;
             // 
             // txt_downPayment
             // 
             this.txt_downPayment.Location = new System.Drawing.Point(445, 84);
             this.txt_downPayment.Name = "txt_downPayment";
+            this.txt_downPayment.Properties.Mask.EditMask = "f0";
+            this.txt_downPayment.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_downPayment.Properties.NullText = "0";
             this.txt_downPayment.Properties.UseReadOnlyAppearance = false;
             this.txt_downPayment.Size = new System.Drawing.Size(234, 20);
             this.txt_downPayment.StyleController = this.layoutControl1;
-            this.txt_downPayment.TabIndex = 10;
+            this.txt_downPayment.TabIndex = 7;
             // 
             // pic_profileImage
             // 
@@ -868,7 +845,7 @@
             this.pic_profileImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pic_profileImage.Size = new System.Drawing.Size(110, 121);
             this.pic_profileImage.StyleController = this.layoutControl1;
-            this.pic_profileImage.TabIndex = 12;
+            this.pic_profileImage.TabIndex = 13;
             // 
             // txt_membershipNo
             // 
@@ -878,7 +855,7 @@
             this.txt_membershipNo.Properties.UseReadOnlyAppearance = false;
             this.txt_membershipNo.Size = new System.Drawing.Size(235, 20);
             this.txt_membershipNo.StyleController = this.layoutControl1;
-            this.txt_membershipNo.TabIndex = 13;
+            this.txt_membershipNo.TabIndex = 4;
             // 
             // barManager1
             // 
@@ -994,30 +971,30 @@
             // 
             // cmb_areaType
             // 
-            this.cmb_areaType.EditValue = "Kanal";
+            this.cmb_areaType.EditValue = "";
             this.cmb_areaType.Location = new System.Drawing.Point(445, 36);
             this.cmb_areaType.Name = "cmb_areaType";
             this.cmb_areaType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_areaType.Properties.Items.AddRange(new object[] {
-            "Kanal",
-            "Marla"});
             this.cmb_areaType.Properties.PopupSizeable = true;
             this.cmb_areaType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_areaType.Properties.UseReadOnlyAppearance = false;
             this.cmb_areaType.Size = new System.Drawing.Size(234, 20);
             this.cmb_areaType.StyleController = this.layoutControl1;
-            this.cmb_areaType.TabIndex = 6;
+            this.cmb_areaType.TabIndex = 3;
             // 
             // txt_confirmationFees
             // 
             this.txt_confirmationFees.Location = new System.Drawing.Point(445, 108);
             this.txt_confirmationFees.MenuManager = this.barManager1;
             this.txt_confirmationFees.Name = "txt_confirmationFees";
+            this.txt_confirmationFees.Properties.Mask.EditMask = "f0";
+            this.txt_confirmationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_confirmationFees.Properties.NullText = "0";
             this.txt_confirmationFees.Properties.UseReadOnlyAppearance = false;
             this.txt_confirmationFees.Size = new System.Drawing.Size(234, 20);
             this.txt_confirmationFees.StyleController = this.layoutControl1;
-            this.txt_confirmationFees.TabIndex = 14;
+            this.txt_confirmationFees.TabIndex = 9;
             // 
             // dateEdit_confirmation
             // 
@@ -1032,7 +1009,7 @@
             this.dateEdit_confirmation.Properties.UseReadOnlyAppearance = false;
             this.dateEdit_confirmation.Size = new System.Drawing.Size(235, 20);
             this.dateEdit_confirmation.StyleController = this.layoutControl1;
-            this.dateEdit_confirmation.TabIndex = 15;
+            this.dateEdit_confirmation.TabIndex = 8;
             // 
             // cmb_paymentMethod
             // 
@@ -1045,27 +1022,20 @@
             this.cmb_paymentMethod.Properties.UseReadOnlyAppearance = false;
             this.cmb_paymentMethod.Size = new System.Drawing.Size(235, 20);
             this.cmb_paymentMethod.StyleController = this.layoutControl1;
-            this.cmb_paymentMethod.TabIndex = 16;
+            this.cmb_paymentMethod.TabIndex = 6;
             // 
             // txt_registrationFees
             // 
             this.txt_registrationFees.Location = new System.Drawing.Point(445, 132);
             this.txt_registrationFees.MenuManager = this.barManager1;
             this.txt_registrationFees.Name = "txt_registrationFees";
+            this.txt_registrationFees.Properties.Mask.EditMask = "f0";
+            this.txt_registrationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_registrationFees.Properties.NullText = "0";
             this.txt_registrationFees.Properties.UseReadOnlyAppearance = false;
             this.txt_registrationFees.Size = new System.Drawing.Size(234, 20);
             this.txt_registrationFees.StyleController = this.layoutControl1;
-            this.txt_registrationFees.TabIndex = 17;
-            // 
-            // txt_bookingStatus
-            // 
-            this.txt_bookingStatus.Location = new System.Drawing.Point(109, 132);
-            this.txt_bookingStatus.MenuManager = this.barManager1;
-            this.txt_bookingStatus.Name = "txt_bookingStatus";
-            this.txt_bookingStatus.Properties.UseReadOnlyAppearance = false;
-            this.txt_bookingStatus.Size = new System.Drawing.Size(235, 20);
-            this.txt_bookingStatus.StyleController = this.layoutControl1;
-            this.txt_bookingStatus.TabIndex = 18;
+            this.txt_registrationFees.TabIndex = 11;
             // 
             // Root
             // 
@@ -1313,7 +1283,7 @@
             // 
             // layoutControlItem16
             // 
-            this.layoutControlItem16.Control = this.txt_bookingStatus;
+            this.layoutControlItem16.Control = this.cmb_bookingStatus;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(336, 24);
@@ -1327,6 +1297,19 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(671, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // cmb_bookingStatus
+            // 
+            this.cmb_bookingStatus.Location = new System.Drawing.Point(109, 132);
+            this.cmb_bookingStatus.MenuManager = this.barManager1;
+            this.cmb_bookingStatus.Name = "cmb_bookingStatus";
+            this.cmb_bookingStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_bookingStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmb_bookingStatus.Properties.UseReadOnlyAppearance = false;
+            this.cmb_bookingStatus.Size = new System.Drawing.Size(235, 20);
+            this.cmb_bookingStatus.StyleController = this.layoutControl1;
+            this.cmb_bookingStatus.TabIndex = 10;
             // 
             // frmPlotBooking
             // 
@@ -1365,7 +1348,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_confirmation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_paymentMethod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_registrationFees.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_bookingStatus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
@@ -1390,6 +1372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1447,7 +1430,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmb_paymentMethod;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraEditors.TextEdit txt_registrationFees;
-        private DevExpress.XtraEditors.TextEdit txt_bookingStatus;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
@@ -1527,5 +1509,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_Files;
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_UserLogin2;
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_UserLogin11;
+        private DevExpress.XtraEditors.ComboBoxEdit cmb_bookingStatus;
     }
 }

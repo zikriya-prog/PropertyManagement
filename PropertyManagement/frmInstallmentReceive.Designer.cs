@@ -650,64 +650,58 @@
             // 
             this.gridColumn8.FieldName = "FatherName";
             this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 2;
             // 
             // gridColumn9
             // 
             this.gridColumn9.FieldName = "CustomerName";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 3;
+            this.gridColumn9.VisibleIndex = 2;
             // 
             // gridColumn10
             // 
             this.gridColumn10.FieldName = "CNIC";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 4;
+            this.gridColumn10.VisibleIndex = 3;
             // 
             // gridColumn11
             // 
             this.gridColumn11.FieldName = "Mobile";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 5;
+            this.gridColumn11.VisibleIndex = 4;
             // 
             // gridColumn12
             // 
             this.gridColumn12.FieldName = "PresentAddress";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 6;
+            this.gridColumn12.VisibleIndex = 5;
             // 
             // gridColumn13
             // 
             this.gridColumn13.FieldName = "PermAddress";
             this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 7;
             // 
             // gridColumn14
             // 
             this.gridColumn14.FieldName = "OfficeNumber";
             this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 8;
             // 
             // gridColumn15
             // 
             this.gridColumn15.FieldName = "DealerYN";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 9;
+            this.gridColumn15.VisibleIndex = 6;
             // 
             // gridColumn16
             // 
             this.gridColumn16.FieldName = "ActiveYN";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 10;
+            this.gridColumn16.VisibleIndex = 7;
             // 
             // txt_total
             // 
@@ -751,7 +745,6 @@
             // 
             // cmb_paymentMethod
             // 
-            this.cmb_paymentMethod.EditValue = "";
             this.cmb_paymentMethod.Location = new System.Drawing.Point(106, 94);
             this.cmb_paymentMethod.MenuManager = this.barManager1;
             this.cmb_paymentMethod.Name = "cmb_paymentMethod";

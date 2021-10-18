@@ -284,6 +284,8 @@ warning 6002: The table/view 'Property.dbo.View_CustomerFileBooking' does not ha
           <Property Name="OfficeNumber" Type="nvarchar" MaxLength="10" />
           <Property Name="DealerYN" Type="nvarchar" MaxLength="1" Nullable="false" />
           <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="DownPayment" Type="bigint" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -782,9 +784,9 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Parameter Name="PARAM_instDID" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_fkInstMId" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_srno" Type="int" Mode="In" />
-          <Parameter Name="PARAM_Total" Type="int" Mode="In" />
-          <Parameter Name="PARAM_Amount" Type="int" Mode="In" />
-          <Parameter Name="PARAM_CustomAmount" Type="int" Mode="In" />
+          <Parameter Name="PARAM_Total" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_Amount" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_CustomAmount" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_DueDate" Type="date" Mode="In" />
           <Parameter Name="PARAM_InstType" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
@@ -938,7 +940,9 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
     [View_CustomerFileBooking].[PermAddress] AS [PermAddress], 
     [View_CustomerFileBooking].[OfficeNumber] AS [OfficeNumber], 
     [View_CustomerFileBooking].[DealerYN] AS [DealerYN], 
-    [View_CustomerFileBooking].[ActiveYN] AS [ActiveYN]
+    [View_CustomerFileBooking].[ActiveYN] AS [ActiveYN], 
+    [View_CustomerFileBooking].[Price] AS [Price], 
+    [View_CustomerFileBooking].[DownPayment] AS [DownPayment]
     FROM [dbo].[View_CustomerFileBooking] AS [View_CustomerFileBooking]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Installment_Receive" EntityType="Self.View_Installment_Receive" store:Type="Views" store:Schema="dbo">
@@ -1863,23 +1867,6 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Pro_IDU_InstDetail">
-            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
-            <Parameter Name="PARAM_instDID" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_fkInstMId" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_Total" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_Amount" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_DueDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_InstType" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
-            <Parameter Name="PARAM_New_instDID" Mode="InOut" Type="Int64" />
-          </FunctionImport>
           <FunctionImport Name="Pro_IDU_InstMaster">
             <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
             <Parameter Name="PARAM_InstMId" Mode="In" Type="Int64" />
@@ -2034,6 +2021,23 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
           </FunctionImport>
           <EntitySet Name="View_user_with_role" EntityType="PropertyModel.View_user_with_role" />
+          <FunctionImport Name="Pro_IDU_InstDetail">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_instDID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkInstMId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Total" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_Amount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_InstType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_instDID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -2148,6 +2152,8 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Property Name="OfficeNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="DealerYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
           <Property Name="ActiveYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="DownPayment" Type="Int64" />
         </EntityType>
         <EntityType Name="View_Installment_Receive">
           <Key>
@@ -2442,7 +2448,6 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerKin" FunctionName="PropertyModel.Store.Pro_IDU_CustomerKin" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerRegM" FunctionName="PropertyModel.Store.Pro_IDU_CustomerRegM" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_Files" FunctionName="PropertyModel.Store.Pro_IDU_Files" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_InstDetail" FunctionName="PropertyModel.Store.Pro_IDU_InstDetail" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_InstMaster" FunctionName="PropertyModel.Store.Pro_IDU_InstMaster" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_InstReceived" FunctionName="PropertyModel.Store.Pro_IDU_InstReceived" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_Projects" FunctionName="PropertyModel.Store.Pro_IDU_Projects" />
@@ -2498,6 +2503,8 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <EntitySetMapping Name="View_CustomerFileBooking">
             <EntityTypeMapping TypeName="PropertyModel.View_CustomerFileBooking">
               <MappingFragment StoreEntitySet="View_CustomerFileBooking">
+                <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
                 <ScalarProperty Name="DealerYN" ColumnName="DealerYN" />
                 <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
@@ -2555,6 +2562,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstDetail" FunctionName="PropertyModel.Store.Pro_IDU_InstDetail" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

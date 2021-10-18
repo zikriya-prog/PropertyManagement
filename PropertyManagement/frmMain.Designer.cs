@@ -48,6 +48,7 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
@@ -71,16 +72,17 @@
             this.accordionControlElement2,
             this.accordionControlElement8,
             this.accordionControlElement3,
+            this.accordionControlElement_files,
             this.customerRegistration_accordionControlElement,
             this.customerPlotBooking_accordionControlElement,
-            this.accordionControlElement7,
             this.installmentPlan_accordionControlElement,
             this.installmentReceive_accordionControlElement,
             this.accordionControlElement5,
+            this.accordionControlElement4,
             this.accordionControlElement6,
-            this.accordionControlElement10,
-            this.accordionControlElement_files,
-            this.accordionControlElement_idu});
+            this.accordionControlElement_idu,
+            this.accordionControlElement7,
+            this.accordionControlElement10});
             this.accordionControl1.Location = new System.Drawing.Point(0, 30);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
@@ -193,7 +195,7 @@
             // 
             this.accordionControlElement_files.Name = "accordionControlElement_files";
             this.accordionControlElement_files.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement_files.Tag = "11";
+            this.accordionControlElement_files.Tag = "05";
             this.accordionControlElement_files.Text = "Inventory (Files)";
             this.accordionControlElement_files.Visible = false;
             this.accordionControlElement_files.Click += new System.EventHandler(this.accordionControlElement_files_Click);
@@ -221,6 +223,13 @@
             this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
+            // 
+            // accordionControlElement4
+            // 
+            this.accordionControlElement4.Name = "accordionControlElement4";
+            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement4.Tag = "11";
+            this.accordionControlElement4.Text = "File Transfer";
             // 
             // frmMain
             // 
@@ -265,5 +274,6 @@
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement_idu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
     }
 }

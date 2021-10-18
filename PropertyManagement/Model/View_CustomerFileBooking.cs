@@ -30,5 +30,7 @@ namespace PropertyManagement.Model
         public string OfficeNumber { get; set; }
         public string DealerYN { get; set; }
         public string ActiveYN { get; set; }
+        public Nullable<long> Price { get; set; }
+        public Nullable<long> DownPayment { get; set; }
     }
 }

@@ -14,5 +14,12 @@ namespace PropertyManagement.Model.proModel
         public static ObjectParameter PARM_USER_ROLE = new ObjectParameter("PARM_USER_ROLE", typeof(string));
         public static ObjectParameter PARM_ERROR_MESSAGE = new ObjectParameter("PARM_ERROR_MESSAGE", typeof(string));
         public static List<tbl_userMenu> userMenus;
+        public static List<tbl_Menu> Menus;
+
+        public static string GetFormNameByTag(string tag)
+        {
+            tbl_Menu menu = Menus.FirstOrDefault(x => x.MenuId == tag);
+            return menu!=null?menu.NAME:"";
+        }
     }
 }

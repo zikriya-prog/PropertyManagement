@@ -31,6 +31,7 @@ namespace PropertyManagement
             //if(File.Exists("mylayout"))
             //layoutControl1.RestoreLayoutFromXml("mylayout");
             cmb_paymentMethod.Properties.Items.AddRange(_tbl_list.Where(x => x.Type == "PayMode").Select(x => x.Name).ToList());
+            cmb_paymentMethod.SelectedIndex = 0;
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)

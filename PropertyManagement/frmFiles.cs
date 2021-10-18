@@ -75,7 +75,7 @@ namespace PropertyManagement
             txt_autoPlotNo.Text = _tbl_Files.AutoPlotNo;
             txt_plotRate.EditValue = _tbl_Files.PlotRate;
             txt_totalPlotValue.EditValue = _tbl_Files.TotalPloValue;
-            txt_plotStatus.EditValue = _tbl_Files.FileStatus;
+            //txt_plotStatus.EditValue = _tbl_Files.FileStatus;
             txt_plotValue.Text = _tbl_Files.PlotValue;
             txt_plotExtCharges.EditValue = _tbl_Files.PlotExtChargs;
             txt_unitStatus.Text = _tbl_Files.UnitStatus;
@@ -87,7 +87,7 @@ namespace PropertyManagement
                 if (cont is TextEdit)
                 {
 
-                    ((TextEdit)cont).ResetText();
+                    ((TextEdit)cont).EditValue = null;
                 }
                 else if (cont is CheckEdit)
                 {

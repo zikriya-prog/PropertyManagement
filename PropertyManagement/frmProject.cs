@@ -64,11 +64,6 @@ namespace PropertyManagement
 
                     ((TextEdit)cont).ResetText();
                 }
-                else if (cont is CheckEdit)
-                {
-
-                    ((CheckEdit)cont).Checked = false;
-                }
                 else if (cont is PictureEdit)
                 {
 

@@ -25,6 +25,15 @@ namespace PropertyManagement
         {
             InitializeComponent();
             RefreshSources();
+            cmb_paymentMethod.Properties.Items.AddRange(db.tbl_List.Where(x => x.Type == "PayMode" && x.ActiveYN.Equals("Y",StringComparison.OrdinalIgnoreCase)).Select(x => x.Name).ToList());
+            cmb_paymentMethod.SelectedIndex = 0;
+
+            cmb_areaType.Properties.Items.AddRange(db.tbl_List.Where(x => x.Type == "AreaType" && x.ActiveYN.Equals("Y", StringComparison.OrdinalIgnoreCase)).Select(x => x.Name).ToList());
+            cmb_areaType.SelectedIndex = 0;
+
+            cmb_bookingStatus.Properties.Items.AddRange(db.tbl_List.Where(x => x.Type == "BookStatus" && x.ActiveYN.Equals("Y", StringComparison.OrdinalIgnoreCase)).Select(x => x.Name).ToList());
+            cmb_bookingStatus.SelectedIndex = 0;
+
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -49,7 +58,8 @@ namespace PropertyManagement
 
             gridControl1.DataSource = db1.tbl_CustomerFileBook.ToList();
             searchLookUpEdit_file.Properties.DataSource = fileList = db1.tbl_Files.ToList();
-            searchLookUpEdit_customer.Properties.DataSource = customerList = db1.tbl_CustomerRegM.ToList();
+            searchLookUpEdit_customer.Properties.DataSource = customerList = db1.tbl_CustomerRegM.Where(x=>x.ActiveYN.Equals("Y",StringComparison.OrdinalIgnoreCase)).ToList();
+            
             if(gridView1.RowCount>0)
             {
                 tbl_CustomerFileBook FileBook = (tbl_CustomerFileBook)gridView1.GetRow(gridView1.FocusedRowHandle);
@@ -64,7 +74,7 @@ namespace PropertyManagement
                 if (cont is TextEdit)
                 {
 
-                    ((TextEdit)cont).ResetText();
+                    ((TextEdit)cont).EditValue = null;
                 }
                 else if (cont is CheckEdit)
                 {
@@ -77,7 +87,9 @@ namespace PropertyManagement
                     ((PictureEdit)cont).Image = null;
                 }
             }
-
+            cmb_paymentMethod.SelectedIndex = 0;
+            cmb_areaType.SelectedIndex = 0;
+            cmb_bookingStatus.SelectedIndex = 0;
         }
         private void makereadonly(bool isActive)
         {
@@ -117,7 +129,8 @@ namespace PropertyManagement
             dateEdit_confirmation.EditValue = _tbl_CustomerFileBook.ConfirmationFeeDate;
             txt_confirmationFees.EditValue = _tbl_CustomerFileBook.ConfirmationFee;
             txt_registrationFees.EditValue = _tbl_CustomerFileBook.RegistrationFee;
-            txt_bookingStatus.EditValue = _tbl_CustomerFileBook.BookingStatus;
+            cmb_bookingStatus.EditValue = _tbl_CustomerFileBook.BookingStatus;
+            pic_profileImage.Image = Image.FromStream(new MemoryStream(_tbl_CustomerFileBook.tbl_CustomerRegM.CustIMG));
         }
         private void searchLookUpEdit3_EditValueChanged(object sender, EventArgs e)
         {
@@ -161,8 +174,8 @@ namespace PropertyManagement
                     ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                     ObjectParameter pARAM_New_FileBookID = new ObjectParameter("pARAM_New_FileBookID", typeof(string));
                     db.Pro_IDU_CustomerFileBook("insert",null,Convert.ToInt64(searchLookUpEdit_customer.EditValue),file.FileID,
-                        txt_membershipNo.Text,cmb_areaType.EditValue.ToString(), Convert.ToDouble(txt_areaSize.Text),Convert.ToInt64(txt_price.Text), Convert.ToInt64(txt_price.Text),
-                        Convert.ToInt64(txt_price.Text),dateEdit_confirmation.DateTime,cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text),txt_bookingStatus.Text,
+                        txt_membershipNo.Text,cmb_areaType.EditValue.ToString(), Convert.ToDouble(txt_areaSize.Text),Convert.ToInt64(txt_price.Text), Convert.ToInt64(txt_downPayment.Text),
+                        Convert.ToInt64(txt_confirmationFees.Text),dateEdit_confirmation.DateTime,cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text),cmb_bookingStatus.Text,
                         loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
 
 
@@ -202,8 +215,8 @@ namespace PropertyManagement
                         ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                         ObjectParameter pARAM_New_FileBookID = new ObjectParameter("pARAM_New_FileBookID", typeof(string));
                         db.Pro_IDU_CustomerFileBook("update", Convert.ToInt32(txt_membershipNo.Tag), Convert.ToInt64(searchLookUpEdit_customer.EditValue), file.FileID,
-                            txt_membershipNo.Text, cmb_areaType.EditValue.ToString(), Convert.ToDouble(txt_areaSize.Text), Convert.ToInt64(txt_price.Text), Convert.ToInt64(txt_price.Text),
-                            Convert.ToInt64(txt_price.Text), dateEdit_confirmation.DateTime, cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text), txt_bookingStatus.Text,
+                            txt_membershipNo.Text, cmb_areaType.EditValue.ToString(), Convert.ToDouble(txt_areaSize.Text), Convert.ToInt64(txt_price.Text), Convert.ToInt64(txt_downPayment.Text),
+                            Convert.ToInt64(txt_confirmationFees.Text), dateEdit_confirmation.DateTime, cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text), cmb_bookingStatus.Text,
                             loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
 
 
@@ -229,13 +242,16 @@ namespace PropertyManagement
 
         private void searchLookUpEdit_customer_EditValueChanged(object sender, EventArgs e)
         {
-            tbl_CustomerRegM customer = customerList.FirstOrDefault(x=>x.CustomerID == (searchLookUpEdit_customer.EditValue.ToString() != ""?Convert.ToInt64(searchLookUpEdit_customer.EditValue):0));
-            if (customer != null)
+            if (searchLookUpEdit_customer.EditValue != null)
             {
-                lbl_customerName.Text = customer.CustomerName;
-                lbl_fatherName.Text = customer.FatherName;
-                lbl_mobile.Text = customer.Mobile;
-                pic_profileImage.Image = customer.CustIMG == null ? null : Image.FromStream(new MemoryStream(customer.CustIMG));
+                tbl_CustomerRegM customer = customerList.FirstOrDefault(x => x.CustomerID == (searchLookUpEdit_customer.EditValue.ToString() != "" ? Convert.ToInt64(searchLookUpEdit_customer.EditValue) : 0));
+                if (customer != null)
+                {
+                    lbl_customerName.Text = customer.CustomerName;
+                    lbl_fatherName.Text = customer.FatherName;
+                    lbl_mobile.Text = customer.Mobile;
+                    pic_profileImage.Image = customer.CustIMG == null ? null : Image.FromStream(new MemoryStream(customer.CustIMG));
+                } 
             }
 
         }
@@ -265,7 +281,7 @@ namespace PropertyManagement
                     ObjectParameter pARAM_New_FileBookID = new ObjectParameter("pARAM_New_FileBookID", typeof(string));
                     db.Pro_IDU_CustomerFileBook("delete", Convert.ToInt32(txt_membershipNo.Tag), Convert.ToInt64(searchLookUpEdit_customer.EditValue), file.FileID,
                         txt_membershipNo.Text, cmb_areaType.EditValue.ToString(), Convert.ToDouble(txt_areaSize.Text), Convert.ToInt64(txt_price.Text), Convert.ToInt64(txt_price.Text),
-                        Convert.ToInt64(txt_price.Text), dateEdit_confirmation.DateTime, cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text), txt_bookingStatus.Text,
+                        Convert.ToInt64(txt_price.Text), dateEdit_confirmation.DateTime, cmb_paymentMethod.EditValue.ToString(), Convert.ToInt64(txt_registrationFees.Text), cmb_bookingStatus.Text,
                         loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
 
 
@@ -302,7 +318,14 @@ namespace PropertyManagement
 
         private void searchLookUpEdit_file_EditValueChanged(object sender, EventArgs e)
         {
-
+            if (searchLookUpEdit_file.EditValue != null)
+            {
+                tbl_Files fl = fileList.FirstOrDefault(x => x.FileID == (searchLookUpEdit_file.EditValue.ToString() != "" ? Convert.ToInt64(searchLookUpEdit_file.EditValue) : 0));
+                if (fl != null)
+                {
+                    txt_price.EditValue = fl.TotalPloValue;
+                } 
+            }
         }
 
         private void btn_update_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

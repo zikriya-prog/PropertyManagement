@@ -28,8 +28,12 @@ namespace PropertyManagement
             _tbl_list = db.tbl_List.ToList();
             //"G:\\FreeLance\\PropertyManagement\\PropertyManagement\\bin\\Debug\\mylayout"
             //if(File.Exists("mylayout"))
-            //layoutControl1.RestoreLayoutFromXml("mylayout");
-            cmb_instType.Properties.Items.AddRange(_tbl_list.Where(x => x.Type == "Instalment Type").Select(x => x.Name).ToList());
+            //layoutControl1.RestoreLayoutFromXml("mylayout");Custom Time
+            
+            cmb_instType.Properties.DataSource = _tbl_list.Where(x => x.Type == "Instalment Type").ToList();
+            
+            cmb_customTime.Properties.DataSource = _tbl_list.Where(x => x.Type == "Instalment Type").ToList();
+            
             loadUserRights(this.Tag.ToString());
         }
         private void loadUserRights(string tag)
@@ -69,7 +73,8 @@ namespace PropertyManagement
             searchLookUpEdit_customerfile.EditValue = _tbl_InstMaster.fkFileID;
             txt_customAmount.EditValue = _tbl_InstMaster.CustomAmount;
             txt_customPeriod.EditValue = _tbl_InstMaster.CustomPeriod;
-            txt_customTime.Text = _tbl_InstMaster.CustomTime;
+            cmb_customTime.EditValue = _tbl_InstMaster.CustomTime;
+            cmb_instType.EditValue = _tbl_InstMaster.Type;
             dateEdit_instDate.EditValue = _tbl_InstMaster.DateOfInst;
             txt_instAmount.EditValue = _tbl_InstMaster.InstAmount;
             radioGroup_instNature.EditValue = _tbl_InstMaster.Nature;
@@ -84,7 +89,7 @@ namespace PropertyManagement
                 if (cont is TextEdit)
                 {
 
-                    ((TextEdit)cont).ResetText();
+                    ((TextEdit)cont).EditValue = null;
                 }
                 else if (cont is CheckEdit)
                 {
@@ -127,6 +132,8 @@ namespace PropertyManagement
             //txt_fileNumber.Tag = null;
             clearfields();
             makereadonly(false);
+            radioGroup_instNature.EditValue = "Duration";
+            radioselection(true);
         }
 
         private void btn_save_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -135,8 +142,13 @@ namespace PropertyManagement
             {
                 try
                 {
+                   // Convert.ToInt32(txt_noOfinst.EditValue)
 
-                     View_CustomerFileBooking cfb = (View_CustomerFileBooking)gridView_customerfile.GetRow(gridView_customerfile.FocusedRowHandle);
+                    View_CustomerFileBooking cfb = (View_CustomerFileBooking)gridView_customerfile.GetRow(gridView_customerfile.FocusedRowHandle);
+
+                   
+
+
                     if (cfb == null)
                     {
                         XtraMessageBox.Show("Please Select Customer File");
@@ -148,6 +160,19 @@ namespace PropertyManagement
                         XtraMessageBox.Show("Please Select Valid Date");
                         return;
                     }
+                    if (cmb_customTime.EditValue == null)
+                    {
+                        XtraMessageBox.Show("Please Select Custom Time");
+                        return;
+                    }
+                    if (cmb_instType.EditValue == null)
+                    {
+                        XtraMessageBox.Show("Please Select Installment Type");
+                        return;
+                    }
+                    long plotvalue = cfb.Price.Value - cfb.DownPayment.Value;
+                    long instprice = plotvalue - ((Convert.ToInt32(txt_noOfinst.Text) / Convert.ToInt32(cmb_customTime.EditValue)) * Convert.ToInt64(txt_customAmount.Text));
+                    instprice = instprice / Convert.ToInt32(txt_noOfinst.Text);
 
                     ObjectParameter pARM_ERROR_MESSAGE = new ObjectParameter("pARM_ERROR_MESSAGE", typeof(string));
                     ObjectParameter pARAM_New_InstMId = new ObjectParameter("pARAM_New_InstMId", typeof(string));
@@ -156,18 +181,24 @@ namespace PropertyManagement
 
 
                     db.Pro_IDU_InstMaster("insert", null, cfb.fkFileID, cmb_instType.Text, dateEdit_instDate.DateTime, radioGroup_instNature.EditValue.ToString(),
-                        Convert.ToInt32(txt_noOfinst.EditValue), Convert.ToInt64(txt_instAmount.EditValue), Convert.ToInt32(txt_customPeriod.EditValue),
-                        Convert.ToInt64(txt_customAmount.EditValue), txt_customTime.Text,
+                        Convert.ToInt32(txt_noOfinst.EditValue), instprice, Convert.ToInt32(txt_customPeriod.EditValue),
+                        Convert.ToInt64(txt_customAmount.EditValue), cmb_customTime.Text,
                                loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE, pARAM_New_InstMId);
                     if (pARAM_New_InstMId.Value != null)
                     {
                         DateTime dueDate = dateEdit_instDate.DateTime;
                         int noofinst = 0;
                         Int32.TryParse(txt_noOfinst.EditValue.ToString(), out noofinst);
+                        int customamount = 0;
                         for (int i = 1; i <= noofinst; i++)
                         {
-                            db.Pro_IDU_InstDetail("insert", null, Convert.ToInt64(pARAM_New_InstMId.Value), i,Convert.ToInt32(txt_instAmount.EditValue)+ Convert.ToInt32(txt_customAmount.EditValue),
-                                Convert.ToInt32(txt_instAmount.EditValue), Convert.ToInt32(txt_customAmount.EditValue),dueDate, cmb_instType.Text,
+                            if (i % Convert.ToInt32(cmb_customTime.EditValue) == 0)
+                                customamount = Convert.ToInt32(txt_customAmount.EditValue);
+                            else
+                                customamount = 0;
+
+                            db.Pro_IDU_InstDetail("insert", null, Convert.ToInt64(pARAM_New_InstMId.Value), i, instprice + customamount,
+                                instprice, customamount, dueDate, cmb_instType.Text,
                                    loginModel.PARM_USER_ID.Value.ToString(), DateTime.Now, null, null, pARM_ERROR_MESSAGE, pARAM_New_instDID);
                             dueDate = dueDate.AddMonths(1);
                         }
@@ -238,13 +269,16 @@ namespace PropertyManagement
         private void searchLookUpEdit_customerfile_EditValueChanged(object sender, EventArgs e)
         {
             long filebookId = 0;
-            if (Int64.TryParse(searchLookUpEdit_customerfile.EditValue.ToString(), out filebookId))
+            if (searchLookUpEdit_customerfile.EditValue != null)
             {
-                vGridControl1.DataSource = customerList.Where(x => x.FileBookID == filebookId).ToList();
-                PropertyEntities db1 = new PropertyEntities();
-                var cimg = db1.View_Installment_Receive.FirstOrDefault(x => x.FileBookID == filebookId);
-                if (cimg != null)
-                    pictureEdit1.Image = Image.FromStream(new MemoryStream(cimg.CustIMG));
+                if (Int64.TryParse(searchLookUpEdit_customerfile.EditValue.ToString(), out filebookId))
+                {
+                    vGridControl1.DataSource = customerList.Where(x => x.FileBookID == filebookId).ToList();
+                    PropertyEntities db1 = new PropertyEntities();
+                    var cimg = db1.View_Installment_Receive.FirstOrDefault(x => x.FileBookID == filebookId);
+                    if (cimg != null)
+                        pictureEdit1.Image = Image.FromStream(new MemoryStream(cimg.CustIMG));
+                } 
             }
         }
 
@@ -286,6 +320,22 @@ namespace PropertyManagement
         private void btn_receive_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+        private void radioselection(bool enable)
+        {
+            txt_noOfinst.Enabled = enable;
+            txt_instAmount.Enabled = !enable;
+        }
+        private void radioGroup_instNature_EditValueChanged(object sender, EventArgs e)
+        {
+            if(radioGroup_instNature.EditValue.ToString().Equals("Amount"))
+            {
+                radioselection(false);
+            }
+            else
+            {
+                radioselection(true);
+            }
         }
     }
 }
