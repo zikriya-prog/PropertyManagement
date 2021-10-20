@@ -277,5 +277,10 @@ namespace PropertyManagement
         {
 
         }
+
+        private void barButtonItem3_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

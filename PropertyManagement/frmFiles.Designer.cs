@@ -103,11 +103,18 @@
             this.btn_delete = new DevExpress.XtraBars.BarButtonItem();
             this.btn_save = new DevExpress.XtraBars.BarButtonItem();
             this.btn_cancel = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barToolbarsListItem1 = new DevExpress.XtraBars.BarToolbarsListItem();
+            this.barToolbarsListItem2 = new DevExpress.XtraBars.BarToolbarsListItem();
             this.cmb_plotCategory = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txt_plotStatus = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -755,8 +762,15 @@
             this.btn_update,
             this.btn_delete,
             this.btn_save,
-            this.btn_cancel});
-            this.barManager1.MaxItemId = 5;
+            this.btn_cancel,
+            this.barButtonItem1,
+            this.barButtonItem2,
+            this.barToolbarsListItem1,
+            this.barSubItem1,
+            this.barToolbarsListItem2,
+            this.barButtonItem3,
+            this.barButtonItem4});
+            this.barManager1.MaxItemId = 12;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -770,7 +784,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_update),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_delete),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_save),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_cancel)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_cancel),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1)});
             this.bar1.Text = "Tools";
             // 
             // btn_create
@@ -807,6 +822,28 @@
             this.btn_cancel.Id = 4;
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Excel Upload";
+            this.barSubItem1.Id = 8;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem3
+            // 
+            this.barButtonItem3.Caption = "Download Template";
+            this.barButtonItem3.Id = 10;
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick_1);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "Upload File";
+            this.barButtonItem4.Id = 11;
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // bar3
             // 
@@ -851,6 +888,29 @@
             this.barDockControlRight.Location = new System.Drawing.Point(1168, 27);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 366);
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Download Excel Template";
+            this.barButtonItem1.Id = 5;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // barButtonItem2
+            // 
+            this.barButtonItem2.Caption = "Upload ";
+            this.barButtonItem2.Id = 6;
+            this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barToolbarsListItem1
+            // 
+            this.barToolbarsListItem1.Id = 7;
+            this.barToolbarsListItem1.Name = "barToolbarsListItem1";
+            // 
+            // barToolbarsListItem2
+            // 
+            this.barToolbarsListItem2.Caption = "barToolbarsListItem2";
+            this.barToolbarsListItem2.Id = 9;
+            this.barToolbarsListItem2.Name = "barToolbarsListItem2";
             // 
             // cmb_plotCategory
             // 
@@ -1278,5 +1338,12 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraEditors.TextEdit txt_plotStatus;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem1;
+        private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem2;
     }
 }

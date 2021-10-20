@@ -114,6 +114,7 @@ namespace PropertyManagement
 
 
             }
+            //txt_amount.ReadOnly = false;
 
         }
         private void frmInstallmentReceive_Load(object sender, EventArgs e)
@@ -168,10 +169,12 @@ namespace PropertyManagement
                 if (_View_Installment_Receive.InstRcvID != null)
                 {
                     XtraMessageBox.Show("Installment Already Received!");
+                    txt_amount.ReadOnly = true;
                 }
                 else
                 {
                     setFields(_View_Installment_Receive);
+                    txt_amount.ReadOnly = false;
                 }
                 // setFields(_View_Installment_Receive);
                 // makereadonly(true);

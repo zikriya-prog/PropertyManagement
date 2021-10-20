@@ -343,8 +343,8 @@
             this.txt_amount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txt_amount.Properties.EditFormat.FormatString = "d";
             this.txt_amount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txt_amount.Properties.Mask.EditMask = "\\d+";
-            this.txt_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txt_amount.Properties.Mask.EditMask = "f0";
+            this.txt_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_amount.Properties.NullText = "0";
             this.txt_amount.Properties.ReadOnly = true;
             this.txt_amount.Properties.Tag = "n";
@@ -373,7 +373,7 @@
             // vGridControl1
             // 
             this.vGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControl1.CustomizationFormBounds = new System.Drawing.Rectangle(873, 225, 216, 262);
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(700, 53);
@@ -712,8 +712,8 @@
             this.txt_total.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txt_total.Properties.EditFormat.FormatString = "d";
             this.txt_total.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txt_total.Properties.Mask.EditMask = "\\d+";
-            this.txt_total.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txt_total.Properties.Mask.EditMask = "f0";
+            this.txt_total.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_total.Properties.NullText = "0";
             this.txt_total.Properties.ReadOnly = true;
             this.txt_total.Properties.Tag = "n";
@@ -731,8 +731,8 @@
             this.txt_discAmount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txt_discAmount.Properties.EditFormat.FormatString = "d";
             this.txt_discAmount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txt_discAmount.Properties.Mask.EditMask = "\\d+";
-            this.txt_discAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txt_discAmount.Properties.Mask.EditMask = "f0";
+            this.txt_discAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_discAmount.Properties.NullText = "0";
             this.txt_discAmount.Properties.ReadOnly = true;
             this.txt_discAmount.Properties.Tag = "n";
