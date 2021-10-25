@@ -844,6 +844,7 @@
             this.barButtonItem4.Caption = "Upload File";
             this.barButtonItem4.Id = 11;
             this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // bar3
             // 
@@ -1143,7 +1144,7 @@
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 149);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem15.Text = "Plot Ext Chargs";
+            this.layoutControlItem15.Text = "Plot Ext Charges";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(82, 13);
             // 
             // layoutControlItem5

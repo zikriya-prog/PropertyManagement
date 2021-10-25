@@ -30,6 +30,7 @@ namespace PropertyManagement
 
         private void XtraForm1_Load(object sender, EventArgs e)
         {
+            var str = Application.StartupPath;
             //SpreadsheetControl workbook = new SpreadsheetControl();
             ////sp.LoadDocument("",)
             //workbook.LoadDocument(@"G:\FreeLance\PropertyManagement\PropertyManagement\bin\Debug\TestBook.xlsx", DocumentFormat.Xlsx);
@@ -43,6 +44,7 @@ namespace PropertyManagement
             //var dt = ExcelToDataTableByDevExpress(@"G:\FreeLance\PropertyManagement\PropertyManagement\bin\Debug\TestBook.xlsx");
 
 
+
         }
         public static DataTable ExcelToDataTableByDevExpress(string fullFilePath)
         {
@@ -50,7 +52,7 @@ namespace PropertyManagement
             workbook.LoadDocument(fullFilePath, DocumentFormat.Xlsx);
 
             Worksheet workSheet = workbook.Worksheets[0];
-            
+            workbook.SaveDocument("",DocumentFormat.Xlsx);
             Range usedRange = workSheet.GetUsedRange();
             DataTable dataTable = workSheet.CreateDataTable(usedRange.CurrentRegion, true, true);
             //DataTable dataTable = workSheet.CreateDataTable(usedRange, true, true);

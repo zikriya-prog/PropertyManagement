@@ -177,6 +177,7 @@
     <Compile Include="frm_login.Designer.cs">
       <DependentUpon>frm_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CustomModels\ExcelPlotFile.cs" />
     <Compile Include="Model\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +193,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Helper\Datatable_Helper.cs" />
     <Compile Include="Model\proModel\loginModel.cs" />
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
