@@ -85,7 +85,6 @@
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
-            this.txt_plotFactor = new DevExpress.XtraEditors.TextEdit();
             this.txt_plotno = new DevExpress.XtraEditors.TextEdit();
             this.txt_plotSize = new DevExpress.XtraEditors.TextEdit();
             this.txt_confimationFees = new DevExpress.XtraEditors.TextEdit();
@@ -116,7 +115,9 @@
             this.barToolbarsListItem1 = new DevExpress.XtraBars.BarToolbarsListItem();
             this.barToolbarsListItem2 = new DevExpress.XtraBars.BarToolbarsListItem();
             this.cmb_plotCategory = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txt_plotStatus = new DevExpress.XtraEditors.TextEdit();
+            this.cmb_areaType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmb_plotstatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmb_plotFactor = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -137,8 +138,9 @@
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tblListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -149,7 +151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_plotFactor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotSize.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_confimationFees.Properties)).BeginInit();
@@ -162,7 +163,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_fileNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_plotCategory.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_plotStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_areaType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_plotstatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_plotFactor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -183,8 +186,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,7 +198,6 @@
             this.layoutControl1.Controls.Add(this.txt_block);
             this.layoutControl1.Controls.Add(this.searchLookUpEdit1);
             this.layoutControl1.Controls.Add(this.radioGroup1);
-            this.layoutControl1.Controls.Add(this.txt_plotFactor);
             this.layoutControl1.Controls.Add(this.txt_plotno);
             this.layoutControl1.Controls.Add(this.txt_plotSize);
             this.layoutControl1.Controls.Add(this.txt_confimationFees);
@@ -206,12 +209,14 @@
             this.layoutControl1.Controls.Add(this.txt_unitStatus);
             this.layoutControl1.Controls.Add(this.txt_fileNumber);
             this.layoutControl1.Controls.Add(this.cmb_plotCategory);
-            this.layoutControl1.Controls.Add(this.txt_plotStatus);
+            this.layoutControl1.Controls.Add(this.cmb_areaType);
+            this.layoutControl1.Controls.Add(this.cmb_plotstatus);
+            this.layoutControl1.Controls.Add(this.cmb_plotFactor);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 27);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1168, 366);
+            this.layoutControl1.Size = new System.Drawing.Size(1193, 429);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -221,7 +226,7 @@
             this.gridControl1.Location = new System.Drawing.Point(12, 209);
             this.gridControl1.MainView = this.gridView2;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1144, 145);
+            this.gridControl1.Size = new System.Drawing.Size(1169, 208);
             this.gridControl1.TabIndex = 29;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -368,6 +373,7 @@
             // 
             // colPlotExtChargs
             // 
+            this.colPlotExtChargs.Caption = "Development Charges";
             this.colPlotExtChargs.FieldName = "PlotExtChargs";
             this.colPlotExtChargs.Name = "colPlotExtChargs";
             this.colPlotExtChargs.Visible = true;
@@ -432,16 +438,16 @@
             // 
             // txt_block
             // 
-            this.txt_block.Location = new System.Drawing.Point(97, 89);
+            this.txt_block.Location = new System.Drawing.Point(121, 89);
             this.txt_block.Name = "txt_block";
             this.txt_block.Properties.UseReadOnlyAppearance = false;
-            this.txt_block.Size = new System.Drawing.Size(286, 20);
+            this.txt_block.Size = new System.Drawing.Size(262, 20);
             this.txt_block.StyleController = this.layoutControl1;
             this.txt_block.TabIndex = 6;
             // 
             // searchLookUpEdit1
             // 
-            this.searchLookUpEdit1.Location = new System.Drawing.Point(97, 41);
+            this.searchLookUpEdit1.Location = new System.Drawing.Point(121, 41);
             this.searchLookUpEdit1.Name = "searchLookUpEdit1";
             this.searchLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -450,7 +456,7 @@
             this.searchLookUpEdit1.Properties.PopupView = this.gridView1;
             this.searchLookUpEdit1.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit1.Properties.ValueMember = "ProjectID";
-            this.searchLookUpEdit1.Size = new System.Drawing.Size(286, 20);
+            this.searchLookUpEdit1.Size = new System.Drawing.Size(262, 20);
             this.searchLookUpEdit1.StyleController = this.layoutControl1;
             this.searchLookUpEdit1.TabIndex = 4;
             // 
@@ -616,134 +622,125 @@
             // radioGroup1
             // 
             this.radioGroup1.EditValue = "Main";
-            this.radioGroup1.Location = new System.Drawing.Point(97, 12);
+            this.radioGroup1.Location = new System.Drawing.Point(121, 12);
             this.radioGroup1.Name = "radioGroup1";
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
             this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Main", "Main"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("Sub", "Sub")});
-            this.radioGroup1.Size = new System.Drawing.Size(203, 25);
+            this.radioGroup1.Size = new System.Drawing.Size(179, 25);
             this.radioGroup1.StyleController = this.layoutControl1;
             this.radioGroup1.TabIndex = 15;
             this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             this.radioGroup1.EditValueChanged += new System.EventHandler(this.radioGroup1_EditValueChanged);
             // 
-            // txt_plotFactor
-            // 
-            this.txt_plotFactor.Location = new System.Drawing.Point(852, 89);
-            this.txt_plotFactor.Name = "txt_plotFactor";
-            this.txt_plotFactor.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotFactor.Size = new System.Drawing.Size(304, 20);
-            this.txt_plotFactor.StyleController = this.layoutControl1;
-            this.txt_plotFactor.TabIndex = 17;
-            // 
             // txt_plotno
             // 
-            this.txt_plotno.Location = new System.Drawing.Point(97, 113);
+            this.txt_plotno.Location = new System.Drawing.Point(121, 113);
             this.txt_plotno.Name = "txt_plotno";
             this.txt_plotno.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotno.Size = new System.Drawing.Size(286, 20);
+            this.txt_plotno.Size = new System.Drawing.Size(262, 20);
             this.txt_plotno.StyleController = this.layoutControl1;
             this.txt_plotno.TabIndex = 18;
             // 
             // txt_plotSize
             // 
-            this.txt_plotSize.Location = new System.Drawing.Point(472, 113);
+            this.txt_plotSize.Location = new System.Drawing.Point(496, 113);
             this.txt_plotSize.Name = "txt_plotSize";
             this.txt_plotSize.Properties.Mask.EditMask = "f2";
             this.txt_plotSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_plotSize.Properties.NullText = "0";
             this.txt_plotSize.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotSize.Size = new System.Drawing.Size(291, 20);
+            this.txt_plotSize.Size = new System.Drawing.Size(279, 20);
             this.txt_plotSize.StyleController = this.layoutControl1;
             this.txt_plotSize.TabIndex = 19;
             // 
             // txt_confimationFees
             // 
-            this.txt_confimationFees.Location = new System.Drawing.Point(852, 113);
+            this.txt_confimationFees.Location = new System.Drawing.Point(888, 113);
             this.txt_confimationFees.Name = "txt_confimationFees";
             this.txt_confimationFees.Properties.Mask.EditMask = "\\d+";
             this.txt_confimationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_confimationFees.Properties.NullText = "0";
             this.txt_confimationFees.Properties.UseReadOnlyAppearance = false;
-            this.txt_confimationFees.Size = new System.Drawing.Size(304, 20);
+            this.txt_confimationFees.Size = new System.Drawing.Size(293, 20);
             this.txt_confimationFees.StyleController = this.layoutControl1;
             this.txt_confimationFees.TabIndex = 20;
             // 
             // txt_autoPlotNo
             // 
-            this.txt_autoPlotNo.Location = new System.Drawing.Point(472, 137);
+            this.txt_autoPlotNo.Location = new System.Drawing.Point(496, 137);
             this.txt_autoPlotNo.Name = "txt_autoPlotNo";
             this.txt_autoPlotNo.Properties.UseReadOnlyAppearance = false;
-            this.txt_autoPlotNo.Size = new System.Drawing.Size(291, 20);
+            this.txt_autoPlotNo.Size = new System.Drawing.Size(279, 20);
             this.txt_autoPlotNo.StyleController = this.layoutControl1;
             this.txt_autoPlotNo.TabIndex = 21;
             // 
             // txt_plotRate
             // 
-            this.txt_plotRate.Location = new System.Drawing.Point(97, 137);
+            this.txt_plotRate.Location = new System.Drawing.Point(121, 137);
             this.txt_plotRate.Name = "txt_plotRate";
             this.txt_plotRate.Properties.Mask.EditMask = "\\d+";
             this.txt_plotRate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotRate.Properties.NullText = "0";
             this.txt_plotRate.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotRate.Size = new System.Drawing.Size(286, 20);
+            this.txt_plotRate.Size = new System.Drawing.Size(262, 20);
             this.txt_plotRate.StyleController = this.layoutControl1;
             this.txt_plotRate.TabIndex = 22;
             // 
             // txt_totalPlotValue
             // 
-            this.txt_totalPlotValue.Location = new System.Drawing.Point(852, 137);
+            this.txt_totalPlotValue.Location = new System.Drawing.Point(888, 137);
             this.txt_totalPlotValue.Name = "txt_totalPlotValue";
             this.txt_totalPlotValue.Properties.Mask.EditMask = "\\d+";
             this.txt_totalPlotValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_totalPlotValue.Properties.NullText = "0";
             this.txt_totalPlotValue.Properties.UseReadOnlyAppearance = false;
-            this.txt_totalPlotValue.Size = new System.Drawing.Size(304, 20);
+            this.txt_totalPlotValue.Size = new System.Drawing.Size(293, 20);
             this.txt_totalPlotValue.StyleController = this.layoutControl1;
             this.txt_totalPlotValue.TabIndex = 23;
             // 
             // txt_plotValue
             // 
-            this.txt_plotValue.Location = new System.Drawing.Point(852, 161);
+            this.txt_plotValue.Location = new System.Drawing.Point(888, 161);
             this.txt_plotValue.Name = "txt_plotValue";
             this.txt_plotValue.Properties.Mask.EditMask = "\\d+";
             this.txt_plotValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotValue.Properties.NullText = "0";
             this.txt_plotValue.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotValue.Size = new System.Drawing.Size(304, 20);
+            this.txt_plotValue.Size = new System.Drawing.Size(293, 20);
             this.txt_plotValue.StyleController = this.layoutControl1;
             this.txt_plotValue.TabIndex = 26;
             // 
             // txt_plotExtCharges
             // 
-            this.txt_plotExtCharges.Location = new System.Drawing.Point(97, 161);
+            this.txt_plotExtCharges.Location = new System.Drawing.Point(121, 161);
             this.txt_plotExtCharges.Name = "txt_plotExtCharges";
             this.txt_plotExtCharges.Properties.Mask.EditMask = "\\d+";
             this.txt_plotExtCharges.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txt_plotExtCharges.Properties.NullText = "0";
             this.txt_plotExtCharges.Properties.UseReadOnlyAppearance = false;
-            this.txt_plotExtCharges.Size = new System.Drawing.Size(286, 20);
+            this.txt_plotExtCharges.Size = new System.Drawing.Size(262, 20);
             this.txt_plotExtCharges.StyleController = this.layoutControl1;
             this.txt_plotExtCharges.TabIndex = 27;
             // 
             // txt_unitStatus
             // 
-            this.txt_unitStatus.Location = new System.Drawing.Point(472, 161);
+            this.txt_unitStatus.Location = new System.Drawing.Point(496, 161);
             this.txt_unitStatus.Name = "txt_unitStatus";
             this.txt_unitStatus.Properties.UseReadOnlyAppearance = false;
-            this.txt_unitStatus.Size = new System.Drawing.Size(291, 20);
+            this.txt_unitStatus.Size = new System.Drawing.Size(279, 20);
             this.txt_unitStatus.StyleController = this.layoutControl1;
             this.txt_unitStatus.TabIndex = 28;
             // 
             // txt_fileNumber
             // 
-            this.txt_fileNumber.Location = new System.Drawing.Point(97, 65);
+            this.txt_fileNumber.Location = new System.Drawing.Point(121, 65);
             this.txt_fileNumber.MenuManager = this.barManager1;
             this.txt_fileNumber.Name = "txt_fileNumber";
             this.txt_fileNumber.Properties.UseReadOnlyAppearance = false;
-            this.txt_fileNumber.Size = new System.Drawing.Size(286, 20);
+            this.txt_fileNumber.Size = new System.Drawing.Size(262, 20);
             this.txt_fileNumber.StyleController = this.layoutControl1;
             this.txt_fileNumber.TabIndex = 30;
             // 
@@ -864,15 +861,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1168, 27);
+            this.barDockControlTop.Size = new System.Drawing.Size(1193, 27);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 393);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 456);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1168, 21);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1193, 21);
             // 
             // barDockControlLeft
             // 
@@ -880,15 +877,15 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 366);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 429);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1168, 27);
+            this.barDockControlRight.Location = new System.Drawing.Point(1193, 27);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 366);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 429);
             // 
             // barButtonItem1
             // 
@@ -915,24 +912,55 @@
             // 
             // cmb_plotCategory
             // 
-            this.cmb_plotCategory.Location = new System.Drawing.Point(472, 89);
+            this.cmb_plotCategory.Location = new System.Drawing.Point(496, 89);
             this.cmb_plotCategory.Name = "cmb_plotCategory";
             this.cmb_plotCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_plotCategory.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_plotCategory.Properties.UseReadOnlyAppearance = false;
-            this.cmb_plotCategory.Size = new System.Drawing.Size(291, 20);
+            this.cmb_plotCategory.Size = new System.Drawing.Size(279, 20);
             this.cmb_plotCategory.StyleController = this.layoutControl1;
             this.cmb_plotCategory.TabIndex = 4;
             // 
-            // txt_plotStatus
+            // cmb_areaType
             // 
-            this.txt_plotStatus.Location = new System.Drawing.Point(97, 185);
-            this.txt_plotStatus.MenuManager = this.barManager1;
-            this.txt_plotStatus.Name = "txt_plotStatus";
-            this.txt_plotStatus.Size = new System.Drawing.Size(286, 20);
-            this.txt_plotStatus.StyleController = this.layoutControl1;
-            this.txt_plotStatus.TabIndex = 31;
+            this.cmb_areaType.Location = new System.Drawing.Point(121, 185);
+            this.cmb_areaType.MenuManager = this.barManager1;
+            this.cmb_areaType.Name = "cmb_areaType";
+            this.cmb_areaType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_areaType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmb_areaType.Properties.UseReadOnlyAppearance = false;
+            this.cmb_areaType.Size = new System.Drawing.Size(262, 20);
+            this.cmb_areaType.StyleController = this.layoutControl1;
+            this.cmb_areaType.TabIndex = 32;
+            // 
+            // cmb_plotstatus
+            // 
+            this.cmb_plotstatus.Location = new System.Drawing.Point(496, 185);
+            this.cmb_plotstatus.MenuManager = this.barManager1;
+            this.cmb_plotstatus.Name = "cmb_plotstatus";
+            this.cmb_plotstatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_plotstatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmb_plotstatus.Properties.UseReadOnlyAppearance = false;
+            this.cmb_plotstatus.Size = new System.Drawing.Size(279, 20);
+            this.cmb_plotstatus.StyleController = this.layoutControl1;
+            this.cmb_plotstatus.TabIndex = 33;
+            this.cmb_plotstatus.SelectedIndexChanged += new System.EventHandler(this.cmb_plotstatus_SelectedIndexChanged);
+            // 
+            // cmb_plotFactor
+            // 
+            this.cmb_plotFactor.Location = new System.Drawing.Point(888, 89);
+            this.cmb_plotFactor.Name = "cmb_plotFactor";
+            this.cmb_plotFactor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_plotFactor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmb_plotFactor.Properties.UseReadOnlyAppearance = false;
+            this.cmb_plotFactor.Size = new System.Drawing.Size(293, 20);
+            this.cmb_plotFactor.StyleController = this.layoutControl1;
+            this.cmb_plotFactor.TabIndex = 17;
+            this.cmb_plotFactor.SelectedIndexChanged += new System.EventHandler(this.cmb_plotFactor_SelectedIndexChanged);
             // 
             // Root
             // 
@@ -958,10 +986,11 @@
             this.emptySpaceItem2,
             this.emptySpaceItem4,
             this.layoutControlItem15,
-            this.layoutControlItem5,
-            this.emptySpaceItem3});
+            this.layoutControlItem12,
+            this.emptySpaceItem3,
+            this.layoutControlItem5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1168, 366);
+            this.Root.Size = new System.Drawing.Size(1193, 429);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem3
@@ -971,7 +1000,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(375, 24);
             this.layoutControlItem3.Text = "Block";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem7
             // 
@@ -984,7 +1013,7 @@
             this.layoutControlItem7.Size = new System.Drawing.Size(292, 29);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "Main/Sub";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem4
             // 
@@ -997,34 +1026,34 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(375, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "Project";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txt_plotSize;
             this.layoutControlItem9.Location = new System.Drawing.Point(375, 101);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(380, 24);
-            this.layoutControlItem9.Text = "Plot Size";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem9.Size = new System.Drawing.Size(392, 24);
+            this.layoutControlItem9.Text = "Area Size";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txt_autoPlotNo;
             this.layoutControlItem2.Location = new System.Drawing.Point(375, 125);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(380, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(392, 24);
             this.layoutControlItem2.Text = "Auto Plot No";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.txt_plotFactor;
-            this.layoutControlItem6.Location = new System.Drawing.Point(755, 77);
+            this.layoutControlItem6.Control = this.cmb_plotFactor;
+            this.layoutControlItem6.Location = new System.Drawing.Point(767, 77);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(393, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(406, 24);
             this.layoutControlItem6.Text = "Plot Factor";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem8
             // 
@@ -1033,16 +1062,16 @@
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(375, 24);
             this.layoutControlItem8.Text = "Plot No.";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.txt_confimationFees;
-            this.layoutControlItem1.Location = new System.Drawing.Point(755, 101);
+            this.layoutControlItem1.Location = new System.Drawing.Point(767, 101);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(393, 24);
-            this.layoutControlItem1.Text = "Confirmation Fee";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem1.Size = new System.Drawing.Size(406, 24);
+            this.layoutControlItem1.Text = "Confirmation Amount";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem10
             // 
@@ -1050,33 +1079,33 @@
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 125);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem10.Text = "Plot Rate";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem10.Text = "Plot Rate/Marla";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.txt_totalPlotValue;
-            this.layoutControlItem11.Location = new System.Drawing.Point(755, 125);
+            this.layoutControlItem11.Location = new System.Drawing.Point(767, 125);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(393, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(406, 24);
             this.layoutControlItem11.Text = "Total Plot Value";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.txt_plotValue;
-            this.layoutControlItem14.Location = new System.Drawing.Point(755, 149);
+            this.layoutControlItem14.Location = new System.Drawing.Point(767, 149);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(393, 24);
-            this.layoutControlItem14.Text = "Plot Value";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem14.Size = new System.Drawing.Size(406, 24);
+            this.layoutControlItem14.Text = "Booking Amount";
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gridControl1;
             this.layoutControlItem17.Location = new System.Drawing.Point(0, 197);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(1148, 149);
+            this.layoutControlItem17.Size = new System.Drawing.Size(1173, 212);
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
             // 
@@ -1087,7 +1116,7 @@
             this.emptySpaceItem1.MaxSize = new System.Drawing.Size(660, 29);
             this.emptySpaceItem1.MinSize = new System.Drawing.Size(660, 29);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(856, 29);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(881, 29);
             this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -1101,16 +1130,16 @@
             this.layoutControlItem18.Size = new System.Drawing.Size(375, 24);
             this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem18.Text = "File Number";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.txt_unitStatus;
             this.layoutControlItem16.Location = new System.Drawing.Point(375, 149);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(380, 24);
+            this.layoutControlItem16.Size = new System.Drawing.Size(392, 24);
             this.layoutControlItem16.Text = "Unit Status";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(106, 13);
             // 
             // cmb
             // 
@@ -1118,16 +1147,16 @@
             this.cmb.CustomizationFormText = "Type";
             this.cmb.Location = new System.Drawing.Point(375, 77);
             this.cmb.Name = "cmb";
-            this.cmb.Size = new System.Drawing.Size(380, 24);
+            this.cmb.Size = new System.Drawing.Size(392, 24);
             this.cmb.Text = "Plot Category";
-            this.cmb.TextSize = new System.Drawing.Size(82, 13);
+            this.cmb.TextSize = new System.Drawing.Size(106, 13);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(375, 53);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(773, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(798, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -1135,7 +1164,7 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(375, 29);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(773, 24);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(798, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem15
@@ -1144,25 +1173,34 @@
             this.layoutControlItem15.Location = new System.Drawing.Point(0, 149);
             this.layoutControlItem15.Name = "layoutControlItem15";
             this.layoutControlItem15.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem15.Text = "Plot Ext Charges";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem15.Text = "Development Charges";
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(106, 13);
             // 
-            // layoutControlItem5
+            // layoutControlItem12
             // 
-            this.layoutControlItem5.Control = this.txt_plotStatus;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 173);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(375, 24);
-            this.layoutControlItem5.Text = "Plot Status";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(82, 13);
+            this.layoutControlItem12.Control = this.cmb_areaType;
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 173);
+            this.layoutControlItem12.Name = "layoutControlItem12";
+            this.layoutControlItem12.Size = new System.Drawing.Size(375, 24);
+            this.layoutControlItem12.Text = "Area Type";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(106, 13);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(375, 173);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(767, 173);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(773, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(406, 24);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.cmb_plotstatus;
+            this.layoutControlItem5.Location = new System.Drawing.Point(375, 173);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(392, 24);
+            this.layoutControlItem5.Text = "Plot Status";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(106, 13);
             // 
             // tblListBindingSource
             // 
@@ -1172,7 +1210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 414);
+            this.ClientSize = new System.Drawing.Size(1193, 477);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -1191,7 +1229,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_plotFactor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_plotSize.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_confimationFees.Properties)).EndInit();
@@ -1204,7 +1241,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_fileNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_plotCategory.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_plotStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_areaType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_plotstatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_plotFactor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -1225,8 +1264,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1265,7 +1305,6 @@
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
-        private DevExpress.XtraEditors.TextEdit txt_plotFactor;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraEditors.TextEdit txt_plotno;
         private DevExpress.XtraEditors.TextEdit txt_plotSize;
@@ -1337,8 +1376,6 @@
         private DevExpress.XtraLayout.LayoutControlItem cmb;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraEditors.TextEdit txt_plotStatus;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraBars.BarSubItem barSubItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
@@ -1346,5 +1383,10 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem1;
         private DevExpress.XtraBars.BarToolbarsListItem barToolbarsListItem2;
+        private DevExpress.XtraEditors.ComboBoxEdit cmb_areaType;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
+        private DevExpress.XtraEditors.ComboBoxEdit cmb_plotstatus;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
+        private DevExpress.XtraEditors.ComboBoxEdit cmb_plotFactor;
     }
 }

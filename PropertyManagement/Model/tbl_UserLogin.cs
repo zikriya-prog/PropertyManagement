@@ -17,6 +17,8 @@ namespace PropertyManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_UserLogin()
         {
+            this.tbl_CustomerFileBook = new HashSet<tbl_CustomerFileBook>();
+            this.tbl_CustomerFileBook1 = new HashSet<tbl_CustomerFileBook>();
             this.tbl_CustomerKin = new HashSet<tbl_CustomerKin>();
             this.tbl_CustomerKin1 = new HashSet<tbl_CustomerKin>();
             this.tbl_CustomerRegM = new HashSet<tbl_CustomerRegM>();
@@ -31,8 +33,6 @@ namespace PropertyManagement.Model
             this.tbl_InstReceived1 = new HashSet<tbl_InstReceived>();
             this.tbl_Projects = new HashSet<tbl_Projects>();
             this.tbl_Projects1 = new HashSet<tbl_Projects>();
-            this.tbl_CustomerFileBook = new HashSet<tbl_CustomerFileBook>();
-            this.tbl_CustomerFileBook1 = new HashSet<tbl_CustomerFileBook>();
         }
     
         public string UserID { get; set; }
@@ -44,6 +44,10 @@ namespace PropertyManagement.Model
         public string CPWD { get; set; }
         public string ActiveYN { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_CustomerKin> tbl_CustomerKin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -73,9 +77,5 @@ namespace PropertyManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_Projects> tbl_Projects1 { get; set; }
         public virtual tbl_UserRole tbl_UserRole { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook1 { get; set; }
     }
 }

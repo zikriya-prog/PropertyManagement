@@ -27,7 +27,7 @@ namespace PropertyManagement.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
         public virtual DbSet<tbl_CustomerKin> tbl_CustomerKin { get; set; }
         public virtual DbSet<tbl_CustomerRegM> tbl_CustomerRegM { get; set; }
         public virtual DbSet<tbl_Files> tbl_Files { get; set; }
@@ -40,7 +40,6 @@ namespace PropertyManagement.Model
         public virtual DbSet<tbl_UserLogin> tbl_UserLogin { get; set; }
         public virtual DbSet<tbl_userMenu> tbl_userMenu { get; set; }
         public virtual DbSet<tbl_UserRole> tbl_UserRole { get; set; }
-        public virtual DbSet<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
         public virtual DbSet<View_CustomerFileBooking> View_CustomerFileBooking { get; set; }
         public virtual DbSet<View_Installment_Receive> View_Installment_Receive { get; set; }
         public virtual DbSet<View_user_with_role> View_user_with_role { get; set; }
@@ -56,6 +55,87 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARM_PASSWORD", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_CheckLogin", pARM_USER_NAMEParameter, pARM_PASSWORDParameter, pARM_USER_ID, pARM_FULL_USER_NAME, pARM_USER_ROLE, pARM_ERROR_MESSAGE);
+        }
+    
+        public virtual int Pro_IDU_CustomerFileBook(string pARM_IDU_STS, Nullable<long> pARAM_FileBookID, Nullable<long> pARAM_fkCustomerID, Nullable<int> pARAM_fkFileID, string pARAM_MemberShipNo, string pARAM_AreaType, Nullable<double> pARAM_Area, Nullable<long> pARAM_Price, Nullable<long> pARAM_DownPayment, Nullable<long> pARAM_ConfirmationFee, Nullable<System.DateTime> pARAM_ConfirmationFeeDate, string pARAM_PayMethod, Nullable<long> pARAM_RegistrationAmount, Nullable<long> pARAM_DiscountAmount, string pARAM_BookingStatus, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_FileBookID)
+        {
+            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
+                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
+                new ObjectParameter("PARM_IDU_STS", typeof(string));
+    
+            var pARAM_FileBookIDParameter = pARAM_FileBookID.HasValue ?
+                new ObjectParameter("PARAM_FileBookID", pARAM_FileBookID) :
+                new ObjectParameter("PARAM_FileBookID", typeof(long));
+    
+            var pARAM_fkCustomerIDParameter = pARAM_fkCustomerID.HasValue ?
+                new ObjectParameter("PARAM_fkCustomerID", pARAM_fkCustomerID) :
+                new ObjectParameter("PARAM_fkCustomerID", typeof(long));
+    
+            var pARAM_fkFileIDParameter = pARAM_fkFileID.HasValue ?
+                new ObjectParameter("PARAM_fkFileID", pARAM_fkFileID) :
+                new ObjectParameter("PARAM_fkFileID", typeof(int));
+    
+            var pARAM_MemberShipNoParameter = pARAM_MemberShipNo != null ?
+                new ObjectParameter("PARAM_MemberShipNo", pARAM_MemberShipNo) :
+                new ObjectParameter("PARAM_MemberShipNo", typeof(string));
+    
+            var pARAM_AreaTypeParameter = pARAM_AreaType != null ?
+                new ObjectParameter("PARAM_AreaType", pARAM_AreaType) :
+                new ObjectParameter("PARAM_AreaType", typeof(string));
+    
+            var pARAM_AreaParameter = pARAM_Area.HasValue ?
+                new ObjectParameter("PARAM_Area", pARAM_Area) :
+                new ObjectParameter("PARAM_Area", typeof(double));
+    
+            var pARAM_PriceParameter = pARAM_Price.HasValue ?
+                new ObjectParameter("PARAM_Price", pARAM_Price) :
+                new ObjectParameter("PARAM_Price", typeof(long));
+    
+            var pARAM_DownPaymentParameter = pARAM_DownPayment.HasValue ?
+                new ObjectParameter("PARAM_DownPayment", pARAM_DownPayment) :
+                new ObjectParameter("PARAM_DownPayment", typeof(long));
+    
+            var pARAM_ConfirmationFeeParameter = pARAM_ConfirmationFee.HasValue ?
+                new ObjectParameter("PARAM_ConfirmationFee", pARAM_ConfirmationFee) :
+                new ObjectParameter("PARAM_ConfirmationFee", typeof(long));
+    
+            var pARAM_ConfirmationFeeDateParameter = pARAM_ConfirmationFeeDate.HasValue ?
+                new ObjectParameter("PARAM_ConfirmationFeeDate", pARAM_ConfirmationFeeDate) :
+                new ObjectParameter("PARAM_ConfirmationFeeDate", typeof(System.DateTime));
+    
+            var pARAM_PayMethodParameter = pARAM_PayMethod != null ?
+                new ObjectParameter("PARAM_PayMethod", pARAM_PayMethod) :
+                new ObjectParameter("PARAM_PayMethod", typeof(string));
+    
+            var pARAM_RegistrationAmountParameter = pARAM_RegistrationAmount.HasValue ?
+                new ObjectParameter("PARAM_RegistrationAmount", pARAM_RegistrationAmount) :
+                new ObjectParameter("PARAM_RegistrationAmount", typeof(long));
+    
+            var pARAM_DiscountAmountParameter = pARAM_DiscountAmount.HasValue ?
+                new ObjectParameter("PARAM_DiscountAmount", pARAM_DiscountAmount) :
+                new ObjectParameter("PARAM_DiscountAmount", typeof(long));
+    
+            var pARAM_BookingStatusParameter = pARAM_BookingStatus != null ?
+                new ObjectParameter("PARAM_BookingStatus", pARAM_BookingStatus) :
+                new ObjectParameter("PARAM_BookingStatus", typeof(string));
+    
+            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
+                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
+                new ObjectParameter("PARAM_CreatedBy", typeof(string));
+    
+            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
+                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
+                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
+    
+            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
+                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
+                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
+    
+            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
+                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
+                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_CustomerFileBook", pARM_IDU_STSParameter, pARAM_FileBookIDParameter, pARAM_fkCustomerIDParameter, pARAM_fkFileIDParameter, pARAM_MemberShipNoParameter, pARAM_AreaTypeParameter, pARAM_AreaParameter, pARAM_PriceParameter, pARAM_DownPaymentParameter, pARAM_ConfirmationFeeParameter, pARAM_ConfirmationFeeDateParameter, pARAM_PayMethodParameter, pARAM_RegistrationAmountParameter, pARAM_DiscountAmountParameter, pARAM_BookingStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
         }
     
         public virtual int Pro_IDU_CustomerKin(string pARM_IDU_STS, Nullable<long> pARAM_CustomerKinId, Nullable<long> pARAM_fkCustomerId, string pARAM_KinName, string pARAM_KinCNIC, string pARAM_KinMobile, string pARAM_KinRelation, string pARAM_ActiveYN, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
@@ -200,7 +280,7 @@ namespace PropertyManagement.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_CustomerRegM", pARM_IDU_STSParameter, pARAM_CustomerIDParameter, pARAM_fkProjectIDParameter, pARAM_SubProjIDParameter, pARAM_CustomerRegNoParameter, pARAM_CustomerNameParameter, pARAM_FatherNameParameter, pARAM_CNICParameter, pARAM_MobileParameter, pARAM_PresentAddressParameter, pARAM_PermAddressParameter, pARAM_OfficeNumberParameter, pARAM_CustIMGParameter, pARAM_CNICFrontIMGParameter, pARAM_CNICBackIMGParameter, pARAM_DealerYNParameter, pARAM_ActiveYNParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_CustomerID);
         }
     
-        public virtual int Pro_IDU_Files(string pARM_IDU_STS, Nullable<int> pARAM_FileID, string pARAM_FileNumber, string pARAM_fkProjectId, string pARAM_Block, string pARAM_PlotCat, string pARAM_Plot_Factor, string pARAM_PlotNo, Nullable<double> pARAM_PlotSize, Nullable<long> pARAM_ConfirmationFee, string pARAM_AutoPlotNo, Nullable<double> pARAM_PlotRate, Nullable<long> pARAM_TotalPloValue, string pARAM_PlotCatDesc, string pARAM_FileStatus, Nullable<long> pARAM_PlotValue, Nullable<int> pARAM_PlotExtChargs, string pARAM_UnitStatus, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
+        public virtual int Pro_IDU_Files(string pARM_IDU_STS, Nullable<int> pARAM_FileID, string pARAM_FileNumber, string pARAM_fkProjectId, string pARAM_Block, string pARAM_PlotCat, string pARAM_Plot_Factor, string pARAM_PlotNo, Nullable<double> pARAM_AreaSize, string pARAM_AreaType, Nullable<long> pARAM_ConfirmationAmount, string pARAM_AutoPlotNo, Nullable<double> pARAM_PlotRate, Nullable<long> pARAM_TotalPloValue, string pARAM_PlotCatDesc, string pARAM_FileStatus, Nullable<long> pARAM_BookingAmount, Nullable<int> pARAM_DevelopmentCharges, string pARAM_UnitStatus, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
         {
             var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
                 new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
@@ -234,13 +314,17 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARAM_PlotNo", pARAM_PlotNo) :
                 new ObjectParameter("PARAM_PlotNo", typeof(string));
     
-            var pARAM_PlotSizeParameter = pARAM_PlotSize.HasValue ?
-                new ObjectParameter("PARAM_PlotSize", pARAM_PlotSize) :
-                new ObjectParameter("PARAM_PlotSize", typeof(double));
+            var pARAM_AreaSizeParameter = pARAM_AreaSize.HasValue ?
+                new ObjectParameter("PARAM_AreaSize", pARAM_AreaSize) :
+                new ObjectParameter("PARAM_AreaSize", typeof(double));
     
-            var pARAM_ConfirmationFeeParameter = pARAM_ConfirmationFee.HasValue ?
-                new ObjectParameter("PARAM_ConfirmationFee", pARAM_ConfirmationFee) :
-                new ObjectParameter("PARAM_ConfirmationFee", typeof(long));
+            var pARAM_AreaTypeParameter = pARAM_AreaType != null ?
+                new ObjectParameter("PARAM_AreaType", pARAM_AreaType) :
+                new ObjectParameter("PARAM_AreaType", typeof(string));
+    
+            var pARAM_ConfirmationAmountParameter = pARAM_ConfirmationAmount.HasValue ?
+                new ObjectParameter("PARAM_ConfirmationAmount", pARAM_ConfirmationAmount) :
+                new ObjectParameter("PARAM_ConfirmationAmount", typeof(long));
     
             var pARAM_AutoPlotNoParameter = pARAM_AutoPlotNo != null ?
                 new ObjectParameter("PARAM_AutoPlotNo", pARAM_AutoPlotNo) :
@@ -262,13 +346,13 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARAM_FileStatus", pARAM_FileStatus) :
                 new ObjectParameter("PARAM_FileStatus", typeof(string));
     
-            var pARAM_PlotValueParameter = pARAM_PlotValue.HasValue ?
-                new ObjectParameter("PARAM_PlotValue", pARAM_PlotValue) :
-                new ObjectParameter("PARAM_PlotValue", typeof(long));
+            var pARAM_BookingAmountParameter = pARAM_BookingAmount.HasValue ?
+                new ObjectParameter("PARAM_BookingAmount", pARAM_BookingAmount) :
+                new ObjectParameter("PARAM_BookingAmount", typeof(long));
     
-            var pARAM_PlotExtChargsParameter = pARAM_PlotExtChargs.HasValue ?
-                new ObjectParameter("PARAM_PlotExtChargs", pARAM_PlotExtChargs) :
-                new ObjectParameter("PARAM_PlotExtChargs", typeof(int));
+            var pARAM_DevelopmentChargesParameter = pARAM_DevelopmentCharges.HasValue ?
+                new ObjectParameter("PARAM_DevelopmentCharges", pARAM_DevelopmentCharges) :
+                new ObjectParameter("PARAM_DevelopmentCharges", typeof(int));
     
             var pARAM_UnitStatusParameter = pARAM_UnitStatus != null ?
                 new ObjectParameter("PARAM_UnitStatus", pARAM_UnitStatus) :
@@ -290,7 +374,64 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
                 new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_Files", pARM_IDU_STSParameter, pARAM_FileIDParameter, pARAM_FileNumberParameter, pARAM_fkProjectIdParameter, pARAM_BlockParameter, pARAM_PlotCatParameter, pARAM_Plot_FactorParameter, pARAM_PlotNoParameter, pARAM_PlotSizeParameter, pARAM_ConfirmationFeeParameter, pARAM_AutoPlotNoParameter, pARAM_PlotRateParameter, pARAM_TotalPloValueParameter, pARAM_PlotCatDescParameter, pARAM_FileStatusParameter, pARAM_PlotValueParameter, pARAM_PlotExtChargsParameter, pARAM_UnitStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_Files", pARM_IDU_STSParameter, pARAM_FileIDParameter, pARAM_FileNumberParameter, pARAM_fkProjectIdParameter, pARAM_BlockParameter, pARAM_PlotCatParameter, pARAM_Plot_FactorParameter, pARAM_PlotNoParameter, pARAM_AreaSizeParameter, pARAM_AreaTypeParameter, pARAM_ConfirmationAmountParameter, pARAM_AutoPlotNoParameter, pARAM_PlotRateParameter, pARAM_TotalPloValueParameter, pARAM_PlotCatDescParameter, pARAM_FileStatusParameter, pARAM_BookingAmountParameter, pARAM_DevelopmentChargesParameter, pARAM_UnitStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
+        }
+    
+        public virtual int Pro_IDU_InstDetail(string pARM_IDU_STS, Nullable<long> pARAM_instDID, Nullable<long> pARAM_fkInstMId, Nullable<int> pARAM_srno, Nullable<long> pARAM_Total, Nullable<long> pARAM_Amount, Nullable<long> pARAM_CustomAmount, Nullable<System.DateTime> pARAM_DueDate, string pARAM_InstType, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_instDID)
+        {
+            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
+                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
+                new ObjectParameter("PARM_IDU_STS", typeof(string));
+    
+            var pARAM_instDIDParameter = pARAM_instDID.HasValue ?
+                new ObjectParameter("PARAM_instDID", pARAM_instDID) :
+                new ObjectParameter("PARAM_instDID", typeof(long));
+    
+            var pARAM_fkInstMIdParameter = pARAM_fkInstMId.HasValue ?
+                new ObjectParameter("PARAM_fkInstMId", pARAM_fkInstMId) :
+                new ObjectParameter("PARAM_fkInstMId", typeof(long));
+    
+            var pARAM_srnoParameter = pARAM_srno.HasValue ?
+                new ObjectParameter("PARAM_srno", pARAM_srno) :
+                new ObjectParameter("PARAM_srno", typeof(int));
+    
+            var pARAM_TotalParameter = pARAM_Total.HasValue ?
+                new ObjectParameter("PARAM_Total", pARAM_Total) :
+                new ObjectParameter("PARAM_Total", typeof(long));
+    
+            var pARAM_AmountParameter = pARAM_Amount.HasValue ?
+                new ObjectParameter("PARAM_Amount", pARAM_Amount) :
+                new ObjectParameter("PARAM_Amount", typeof(long));
+    
+            var pARAM_CustomAmountParameter = pARAM_CustomAmount.HasValue ?
+                new ObjectParameter("PARAM_CustomAmount", pARAM_CustomAmount) :
+                new ObjectParameter("PARAM_CustomAmount", typeof(long));
+    
+            var pARAM_DueDateParameter = pARAM_DueDate.HasValue ?
+                new ObjectParameter("PARAM_DueDate", pARAM_DueDate) :
+                new ObjectParameter("PARAM_DueDate", typeof(System.DateTime));
+    
+            var pARAM_InstTypeParameter = pARAM_InstType != null ?
+                new ObjectParameter("PARAM_InstType", pARAM_InstType) :
+                new ObjectParameter("PARAM_InstType", typeof(string));
+    
+            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
+                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
+                new ObjectParameter("PARAM_CreatedBy", typeof(string));
+    
+            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
+                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
+                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
+    
+            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
+                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
+                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
+    
+            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
+                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
+                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_InstDetail", pARM_IDU_STSParameter, pARAM_instDIDParameter, pARAM_fkInstMIdParameter, pARAM_srnoParameter, pARAM_TotalParameter, pARAM_AmountParameter, pARAM_CustomAmountParameter, pARAM_DueDateParameter, pARAM_InstTypeParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_instDID);
         }
     
         public virtual int Pro_IDU_InstMaster(string pARM_IDU_STS, Nullable<long> pARAM_InstMId, Nullable<int> pARAM_fkFileID, string pARAM_Type, Nullable<System.DateTime> pARAM_DateOfInst, string pARAM_Nature, Nullable<int> pARAM_NoOfInst, Nullable<long> pARAM_InstAmount, Nullable<int> pARAM_CustomPeriod, Nullable<long> pARAM_CustomAmount, string pARAM_CustomTime, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_InstMId)
@@ -427,6 +568,51 @@ namespace PropertyManagement.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_InstReceived", pARM_IDU_STSParameter, pARAM_InstRcvIDParameter, pARAM_fkFileIDParameter, pARAM_fkinstDIDParameter, pARAM_srnoParameter, pARAM_TotalParameter, pARAM_InstAmountParameter, pARAM_CustomAmountParameter, pARAM_DiscPercentParameter, pARAM_DiscAmountParameter, pARAM_instTypeParameter, pARAM_paymentMethodParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_instRcvID);
         }
     
+        public virtual int Pro_IDU_List(string pARM_IDU_STS, Nullable<int> pARM_ListID, string pARM_Name, string pARM_Description, string pARM_Type, string pARM_ActiveYN, string pARM_CreatedBy, Nullable<System.DateTime> pARM_CreatedDate, string pARM_UpdatedBy, Nullable<System.DateTime> pARM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
+        {
+            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
+                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
+                new ObjectParameter("PARM_IDU_STS", typeof(string));
+    
+            var pARM_ListIDParameter = pARM_ListID.HasValue ?
+                new ObjectParameter("PARM_ListID", pARM_ListID) :
+                new ObjectParameter("PARM_ListID", typeof(int));
+    
+            var pARM_NameParameter = pARM_Name != null ?
+                new ObjectParameter("PARM_Name", pARM_Name) :
+                new ObjectParameter("PARM_Name", typeof(string));
+    
+            var pARM_DescriptionParameter = pARM_Description != null ?
+                new ObjectParameter("PARM_Description", pARM_Description) :
+                new ObjectParameter("PARM_Description", typeof(string));
+    
+            var pARM_TypeParameter = pARM_Type != null ?
+                new ObjectParameter("PARM_Type", pARM_Type) :
+                new ObjectParameter("PARM_Type", typeof(string));
+    
+            var pARM_ActiveYNParameter = pARM_ActiveYN != null ?
+                new ObjectParameter("PARM_ActiveYN", pARM_ActiveYN) :
+                new ObjectParameter("PARM_ActiveYN", typeof(string));
+    
+            var pARM_CreatedByParameter = pARM_CreatedBy != null ?
+                new ObjectParameter("PARM_CreatedBy", pARM_CreatedBy) :
+                new ObjectParameter("PARM_CreatedBy", typeof(string));
+    
+            var pARM_CreatedDateParameter = pARM_CreatedDate.HasValue ?
+                new ObjectParameter("PARM_CreatedDate", pARM_CreatedDate) :
+                new ObjectParameter("PARM_CreatedDate", typeof(System.DateTime));
+    
+            var pARM_UpdatedByParameter = pARM_UpdatedBy != null ?
+                new ObjectParameter("PARM_UpdatedBy", pARM_UpdatedBy) :
+                new ObjectParameter("PARM_UpdatedBy", typeof(string));
+    
+            var pARM_UpdatedDateParameter = pARM_UpdatedDate.HasValue ?
+                new ObjectParameter("PARM_UpdatedDate", pARM_UpdatedDate) :
+                new ObjectParameter("PARM_UpdatedDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_List", pARM_IDU_STSParameter, pARM_ListIDParameter, pARM_NameParameter, pARM_DescriptionParameter, pARM_TypeParameter, pARM_ActiveYNParameter, pARM_CreatedByParameter, pARM_CreatedDateParameter, pARM_UpdatedByParameter, pARM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
+        }
+    
         public virtual int Pro_IDU_Projects(string pARM_IDU_STS, string pARM_ProjectID, string pARM_ParentID, string pARM_ProjectName, string pARM_ProjectAddress, string pARM_AreaType, string pARM_TotalArea, byte[] pARM_MapIMG, string pARM_ProjectType, string pARM_Main_Sub, string pARM_ActiveYN, string pARM_CreatedBy, Nullable<System.DateTime> pARM_CreatedDate, string pARM_UpdatedBy, Nullable<System.DateTime> pARM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
         {
             var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
@@ -531,288 +717,6 @@ namespace PropertyManagement.Model
                 new ObjectParameter("PARM_ACTIVEYN", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_UserLogin", pARM_IDU_STSParameter, pARM_USER_IDParameter, pARM_ROLE_IDParameter, pARM_NAMEParameter, pARM_RMKSParameter, pARM_USER_NAMEParameter, pARM_PWDParameter, pARM_CPWDParameter, pARM_ACTIVEYNParameter, pARM_ERROR_MESSAGE);
-        }
-    
-        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var new_diagramnameParameter = new_diagramname != null ?
-                new ObjectParameter("new_diagramname", new_diagramname) :
-                new ObjectParameter("new_diagramname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
-    
-        public virtual int Pro_IDU_CustomerFileBook(string pARM_IDU_STS, Nullable<long> pARAM_FileBookID, Nullable<long> pARAM_fkCustomerID, Nullable<int> pARAM_fkFileID, string pARAM_MemberShipNo, string pARAM_AreaType, Nullable<double> pARAM_Area, Nullable<long> pARAM_Price, Nullable<long> pARAM_DownPayment, Nullable<long> pARAM_ConfirmationFee, Nullable<System.DateTime> pARAM_ConfirmationFeeDate, string pARAM_PayMethod, Nullable<long> pARAM_RegistrationFee, string pARAM_BookingStatus, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_FileBookID)
-        {
-            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
-                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
-                new ObjectParameter("PARM_IDU_STS", typeof(string));
-    
-            var pARAM_FileBookIDParameter = pARAM_FileBookID.HasValue ?
-                new ObjectParameter("PARAM_FileBookID", pARAM_FileBookID) :
-                new ObjectParameter("PARAM_FileBookID", typeof(long));
-    
-            var pARAM_fkCustomerIDParameter = pARAM_fkCustomerID.HasValue ?
-                new ObjectParameter("PARAM_fkCustomerID", pARAM_fkCustomerID) :
-                new ObjectParameter("PARAM_fkCustomerID", typeof(long));
-    
-            var pARAM_fkFileIDParameter = pARAM_fkFileID.HasValue ?
-                new ObjectParameter("PARAM_fkFileID", pARAM_fkFileID) :
-                new ObjectParameter("PARAM_fkFileID", typeof(int));
-    
-            var pARAM_MemberShipNoParameter = pARAM_MemberShipNo != null ?
-                new ObjectParameter("PARAM_MemberShipNo", pARAM_MemberShipNo) :
-                new ObjectParameter("PARAM_MemberShipNo", typeof(string));
-    
-            var pARAM_AreaTypeParameter = pARAM_AreaType != null ?
-                new ObjectParameter("PARAM_AreaType", pARAM_AreaType) :
-                new ObjectParameter("PARAM_AreaType", typeof(string));
-    
-            var pARAM_AreaParameter = pARAM_Area.HasValue ?
-                new ObjectParameter("PARAM_Area", pARAM_Area) :
-                new ObjectParameter("PARAM_Area", typeof(double));
-    
-            var pARAM_PriceParameter = pARAM_Price.HasValue ?
-                new ObjectParameter("PARAM_Price", pARAM_Price) :
-                new ObjectParameter("PARAM_Price", typeof(long));
-    
-            var pARAM_DownPaymentParameter = pARAM_DownPayment.HasValue ?
-                new ObjectParameter("PARAM_DownPayment", pARAM_DownPayment) :
-                new ObjectParameter("PARAM_DownPayment", typeof(long));
-    
-            var pARAM_ConfirmationFeeParameter = pARAM_ConfirmationFee.HasValue ?
-                new ObjectParameter("PARAM_ConfirmationFee", pARAM_ConfirmationFee) :
-                new ObjectParameter("PARAM_ConfirmationFee", typeof(long));
-    
-            var pARAM_ConfirmationFeeDateParameter = pARAM_ConfirmationFeeDate.HasValue ?
-                new ObjectParameter("PARAM_ConfirmationFeeDate", pARAM_ConfirmationFeeDate) :
-                new ObjectParameter("PARAM_ConfirmationFeeDate", typeof(System.DateTime));
-    
-            var pARAM_PayMethodParameter = pARAM_PayMethod != null ?
-                new ObjectParameter("PARAM_PayMethod", pARAM_PayMethod) :
-                new ObjectParameter("PARAM_PayMethod", typeof(string));
-    
-            var pARAM_RegistrationFeeParameter = pARAM_RegistrationFee.HasValue ?
-                new ObjectParameter("PARAM_RegistrationFee", pARAM_RegistrationFee) :
-                new ObjectParameter("PARAM_RegistrationFee", typeof(long));
-    
-            var pARAM_BookingStatusParameter = pARAM_BookingStatus != null ?
-                new ObjectParameter("PARAM_BookingStatus", pARAM_BookingStatus) :
-                new ObjectParameter("PARAM_BookingStatus", typeof(string));
-    
-            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
-                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
-                new ObjectParameter("PARAM_CreatedBy", typeof(string));
-    
-            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
-                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
-                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
-    
-            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
-                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
-                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
-    
-            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
-                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
-                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_CustomerFileBook", pARM_IDU_STSParameter, pARAM_FileBookIDParameter, pARAM_fkCustomerIDParameter, pARAM_fkFileIDParameter, pARAM_MemberShipNoParameter, pARAM_AreaTypeParameter, pARAM_AreaParameter, pARAM_PriceParameter, pARAM_DownPaymentParameter, pARAM_ConfirmationFeeParameter, pARAM_ConfirmationFeeDateParameter, pARAM_PayMethodParameter, pARAM_RegistrationFeeParameter, pARAM_BookingStatusParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_FileBookID);
-        }
-    
-        public virtual int Pro_IDU_List(string pARM_IDU_STS, Nullable<int> pARM_ListID, string pARM_Name, string pARM_Description, string pARM_Type, string pARM_ActiveYN, string pARM_CreatedBy, Nullable<System.DateTime> pARM_CreatedDate, string pARM_UpdatedBy, Nullable<System.DateTime> pARM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE)
-        {
-            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
-                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
-                new ObjectParameter("PARM_IDU_STS", typeof(string));
-    
-            var pARM_ListIDParameter = pARM_ListID.HasValue ?
-                new ObjectParameter("PARM_ListID", pARM_ListID) :
-                new ObjectParameter("PARM_ListID", typeof(int));
-    
-            var pARM_NameParameter = pARM_Name != null ?
-                new ObjectParameter("PARM_Name", pARM_Name) :
-                new ObjectParameter("PARM_Name", typeof(string));
-    
-            var pARM_DescriptionParameter = pARM_Description != null ?
-                new ObjectParameter("PARM_Description", pARM_Description) :
-                new ObjectParameter("PARM_Description", typeof(string));
-    
-            var pARM_TypeParameter = pARM_Type != null ?
-                new ObjectParameter("PARM_Type", pARM_Type) :
-                new ObjectParameter("PARM_Type", typeof(string));
-    
-            var pARM_ActiveYNParameter = pARM_ActiveYN != null ?
-                new ObjectParameter("PARM_ActiveYN", pARM_ActiveYN) :
-                new ObjectParameter("PARM_ActiveYN", typeof(string));
-    
-            var pARM_CreatedByParameter = pARM_CreatedBy != null ?
-                new ObjectParameter("PARM_CreatedBy", pARM_CreatedBy) :
-                new ObjectParameter("PARM_CreatedBy", typeof(string));
-    
-            var pARM_CreatedDateParameter = pARM_CreatedDate.HasValue ?
-                new ObjectParameter("PARM_CreatedDate", pARM_CreatedDate) :
-                new ObjectParameter("PARM_CreatedDate", typeof(System.DateTime));
-    
-            var pARM_UpdatedByParameter = pARM_UpdatedBy != null ?
-                new ObjectParameter("PARM_UpdatedBy", pARM_UpdatedBy) :
-                new ObjectParameter("PARM_UpdatedBy", typeof(string));
-    
-            var pARM_UpdatedDateParameter = pARM_UpdatedDate.HasValue ?
-                new ObjectParameter("PARM_UpdatedDate", pARM_UpdatedDate) :
-                new ObjectParameter("PARM_UpdatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_List", pARM_IDU_STSParameter, pARM_ListIDParameter, pARM_NameParameter, pARM_DescriptionParameter, pARM_TypeParameter, pARM_ActiveYNParameter, pARM_CreatedByParameter, pARM_CreatedDateParameter, pARM_UpdatedByParameter, pARM_UpdatedDateParameter, pARM_ERROR_MESSAGE);
-        }
-    
-        public virtual int Pro_IDU_InstDetail(string pARM_IDU_STS, Nullable<long> pARAM_instDID, Nullable<long> pARAM_fkInstMId, Nullable<int> pARAM_srno, Nullable<long> pARAM_Total, Nullable<long> pARAM_Amount, Nullable<long> pARAM_CustomAmount, Nullable<System.DateTime> pARAM_DueDate, string pARAM_InstType, string pARAM_CreatedBy, Nullable<System.DateTime> pARAM_CreatedDate, string pARAM_UpdatedBy, Nullable<System.DateTime> pARAM_UpdatedDate, ObjectParameter pARM_ERROR_MESSAGE, ObjectParameter pARAM_New_instDID)
-        {
-            var pARM_IDU_STSParameter = pARM_IDU_STS != null ?
-                new ObjectParameter("PARM_IDU_STS", pARM_IDU_STS) :
-                new ObjectParameter("PARM_IDU_STS", typeof(string));
-    
-            var pARAM_instDIDParameter = pARAM_instDID.HasValue ?
-                new ObjectParameter("PARAM_instDID", pARAM_instDID) :
-                new ObjectParameter("PARAM_instDID", typeof(long));
-    
-            var pARAM_fkInstMIdParameter = pARAM_fkInstMId.HasValue ?
-                new ObjectParameter("PARAM_fkInstMId", pARAM_fkInstMId) :
-                new ObjectParameter("PARAM_fkInstMId", typeof(long));
-    
-            var pARAM_srnoParameter = pARAM_srno.HasValue ?
-                new ObjectParameter("PARAM_srno", pARAM_srno) :
-                new ObjectParameter("PARAM_srno", typeof(int));
-    
-            var pARAM_TotalParameter = pARAM_Total.HasValue ?
-                new ObjectParameter("PARAM_Total", pARAM_Total) :
-                new ObjectParameter("PARAM_Total", typeof(long));
-    
-            var pARAM_AmountParameter = pARAM_Amount.HasValue ?
-                new ObjectParameter("PARAM_Amount", pARAM_Amount) :
-                new ObjectParameter("PARAM_Amount", typeof(long));
-    
-            var pARAM_CustomAmountParameter = pARAM_CustomAmount.HasValue ?
-                new ObjectParameter("PARAM_CustomAmount", pARAM_CustomAmount) :
-                new ObjectParameter("PARAM_CustomAmount", typeof(long));
-    
-            var pARAM_DueDateParameter = pARAM_DueDate.HasValue ?
-                new ObjectParameter("PARAM_DueDate", pARAM_DueDate) :
-                new ObjectParameter("PARAM_DueDate", typeof(System.DateTime));
-    
-            var pARAM_InstTypeParameter = pARAM_InstType != null ?
-                new ObjectParameter("PARAM_InstType", pARAM_InstType) :
-                new ObjectParameter("PARAM_InstType", typeof(string));
-    
-            var pARAM_CreatedByParameter = pARAM_CreatedBy != null ?
-                new ObjectParameter("PARAM_CreatedBy", pARAM_CreatedBy) :
-                new ObjectParameter("PARAM_CreatedBy", typeof(string));
-    
-            var pARAM_CreatedDateParameter = pARAM_CreatedDate.HasValue ?
-                new ObjectParameter("PARAM_CreatedDate", pARAM_CreatedDate) :
-                new ObjectParameter("PARAM_CreatedDate", typeof(System.DateTime));
-    
-            var pARAM_UpdatedByParameter = pARAM_UpdatedBy != null ?
-                new ObjectParameter("PARAM_UpdatedBy", pARAM_UpdatedBy) :
-                new ObjectParameter("PARAM_UpdatedBy", typeof(string));
-    
-            var pARAM_UpdatedDateParameter = pARAM_UpdatedDate.HasValue ?
-                new ObjectParameter("PARAM_UpdatedDate", pARAM_UpdatedDate) :
-                new ObjectParameter("PARAM_UpdatedDate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("Pro_IDU_InstDetail", pARM_IDU_STSParameter, pARAM_instDIDParameter, pARAM_fkInstMIdParameter, pARAM_srnoParameter, pARAM_TotalParameter, pARAM_AmountParameter, pARAM_CustomAmountParameter, pARAM_DueDateParameter, pARAM_InstTypeParameter, pARAM_CreatedByParameter, pARAM_CreatedDateParameter, pARAM_UpdatedByParameter, pARAM_UpdatedDateParameter, pARM_ERROR_MESSAGE, pARAM_New_instDID);
         }
     }
 }

@@ -41,10 +41,11 @@
             this.colArea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDownPayment = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colConfirmationFee1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colConfirmationAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colConfirmationFeeDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPayMethod = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRegistrationFee = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRegistrationAmount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDiscountAmount = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBookingStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedBy1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCreatedDate1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,6 +135,8 @@
             this.dateEdit_confirmation = new DevExpress.XtraEditors.DateEdit();
             this.cmb_paymentMethod = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txt_registrationFees = new DevExpress.XtraEditors.TextEdit();
+            this.cmb_bookingStatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txt_disc_price = new DevExpress.XtraEditors.TextEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -158,7 +161,11 @@
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.cmb_bookingStatus = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_Certificate = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -182,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_confirmation.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_paymentMethod.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_registrationFees.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_disc_price.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
@@ -206,7 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -225,6 +235,8 @@
             this.layoutControl1.Controls.Add(this.cmb_paymentMethod);
             this.layoutControl1.Controls.Add(this.txt_registrationFees);
             this.layoutControl1.Controls.Add(this.cmb_bookingStatus);
+            this.layoutControl1.Controls.Add(this.txt_disc_price);
+            this.layoutControl1.Controls.Add(this.btn_Certificate);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 27);
             this.layoutControl1.Name = "layoutControl1";
@@ -236,10 +248,10 @@
             // gridControl1
             // 
             this.gridControl1.DataSource = this.tblCustomerFileBookBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(12, 180);
+            this.gridControl1.Location = new System.Drawing.Point(12, 182);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1165, 227);
+            this.gridControl1.Size = new System.Drawing.Size(1165, 225);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -259,10 +271,11 @@
             this.colArea,
             this.colPrice,
             this.colDownPayment,
-            this.colConfirmationFee1,
+            this.colConfirmationAmount,
             this.colConfirmationFeeDate,
             this.colPayMethod,
-            this.colRegistrationFee,
+            this.colRegistrationAmount,
+            this.colDiscountAmount,
             this.colBookingStatus,
             this.colCreatedBy1,
             this.colCreatedDate1,
@@ -275,6 +288,8 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRegistrationAmount, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView1_RowClick);
             // 
             // colFileBookID
@@ -327,12 +342,12 @@
             this.colDownPayment.Visible = true;
             this.colDownPayment.VisibleIndex = 4;
             // 
-            // colConfirmationFee1
+            // colConfirmationAmount
             // 
-            this.colConfirmationFee1.FieldName = "ConfirmationFee";
-            this.colConfirmationFee1.Name = "colConfirmationFee1";
-            this.colConfirmationFee1.Visible = true;
-            this.colConfirmationFee1.VisibleIndex = 5;
+            this.colConfirmationAmount.FieldName = "ConfirmationAmount";
+            this.colConfirmationAmount.Name = "colConfirmationAmount";
+            this.colConfirmationAmount.Visible = true;
+            this.colConfirmationAmount.VisibleIndex = 5;
             // 
             // colConfirmationFeeDate
             // 
@@ -348,19 +363,27 @@
             this.colPayMethod.Visible = true;
             this.colPayMethod.VisibleIndex = 7;
             // 
-            // colRegistrationFee
+            // colRegistrationAmount
             // 
-            this.colRegistrationFee.FieldName = "RegistrationFee";
-            this.colRegistrationFee.Name = "colRegistrationFee";
-            this.colRegistrationFee.Visible = true;
-            this.colRegistrationFee.VisibleIndex = 8;
+            this.colRegistrationAmount.Caption = "Development Charges ";
+            this.colRegistrationAmount.FieldName = "RegistrationAmount";
+            this.colRegistrationAmount.Name = "colRegistrationAmount";
+            this.colRegistrationAmount.Visible = true;
+            this.colRegistrationAmount.VisibleIndex = 8;
+            // 
+            // colDiscountAmount
+            // 
+            this.colDiscountAmount.FieldName = "DiscountAmount";
+            this.colDiscountAmount.Name = "colDiscountAmount";
+            this.colDiscountAmount.Visible = true;
+            this.colDiscountAmount.VisibleIndex = 9;
             // 
             // colBookingStatus
             // 
             this.colBookingStatus.FieldName = "BookingStatus";
             this.colBookingStatus.Name = "colBookingStatus";
             this.colBookingStatus.Visible = true;
-            this.colBookingStatus.VisibleIndex = 9;
+            this.colBookingStatus.VisibleIndex = 10;
             // 
             // colCreatedBy1
             // 
@@ -404,7 +427,7 @@
             // 
             // searchLookUpEdit_file
             // 
-            this.searchLookUpEdit_file.Location = new System.Drawing.Point(109, 12);
+            this.searchLookUpEdit_file.Location = new System.Drawing.Point(121, 12);
             this.searchLookUpEdit_file.Name = "searchLookUpEdit_file";
             this.searchLookUpEdit_file.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -414,7 +437,7 @@
             this.searchLookUpEdit_file.Properties.PopupView = this.searchLookUpEdit2View;
             this.searchLookUpEdit_file.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit_file.Properties.ValueMember = "FileID";
-            this.searchLookUpEdit_file.Size = new System.Drawing.Size(235, 20);
+            this.searchLookUpEdit_file.Size = new System.Drawing.Size(208, 20);
             this.searchLookUpEdit_file.StyleController = this.layoutControl1;
             this.searchLookUpEdit_file.TabIndex = 0;
             this.searchLookUpEdit_file.EditValueChanged += new System.EventHandler(this.searchLookUpEdit_file_EditValueChanged);
@@ -613,7 +636,7 @@
             // 
             // searchLookUpEdit_customer
             // 
-            this.searchLookUpEdit_customer.Location = new System.Drawing.Point(445, 12);
+            this.searchLookUpEdit_customer.Location = new System.Drawing.Point(442, 12);
             this.searchLookUpEdit_customer.Name = "searchLookUpEdit_customer";
             this.searchLookUpEdit_customer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -623,7 +646,7 @@
             this.searchLookUpEdit_customer.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchLookUpEdit_customer.Properties.UseReadOnlyAppearance = false;
             this.searchLookUpEdit_customer.Properties.ValueMember = "CustomerID";
-            this.searchLookUpEdit_customer.Size = new System.Drawing.Size(234, 20);
+            this.searchLookUpEdit_customer.Size = new System.Drawing.Size(209, 20);
             this.searchLookUpEdit_customer.StyleController = this.layoutControl1;
             this.searchLookUpEdit_customer.TabIndex = 1;
             this.searchLookUpEdit_customer.EditValueChanged += new System.EventHandler(this.searchLookUpEdit_customer_EditValueChanged);
@@ -804,56 +827,57 @@
             // 
             // txt_areaSize
             // 
-            this.txt_areaSize.Location = new System.Drawing.Point(109, 36);
+            this.txt_areaSize.Location = new System.Drawing.Point(121, 36);
             this.txt_areaSize.Name = "txt_areaSize";
             this.txt_areaSize.Properties.Mask.EditMask = "f0";
             this.txt_areaSize.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_areaSize.Properties.NullText = "0";
             this.txt_areaSize.Properties.UseReadOnlyAppearance = false;
-            this.txt_areaSize.Size = new System.Drawing.Size(235, 20);
+            this.txt_areaSize.Size = new System.Drawing.Size(208, 20);
             this.txt_areaSize.StyleController = this.layoutControl1;
             this.txt_areaSize.TabIndex = 2;
             // 
             // txt_price
             // 
-            this.txt_price.Location = new System.Drawing.Point(445, 60);
+            this.txt_price.Location = new System.Drawing.Point(442, 60);
             this.txt_price.Name = "txt_price";
             this.txt_price.Properties.Mask.EditMask = "f0";
             this.txt_price.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_price.Properties.NullText = "0";
             this.txt_price.Properties.UseReadOnlyAppearance = false;
-            this.txt_price.Size = new System.Drawing.Size(234, 20);
+            this.txt_price.Size = new System.Drawing.Size(209, 20);
             this.txt_price.StyleController = this.layoutControl1;
             this.txt_price.TabIndex = 5;
             // 
             // txt_downPayment
             // 
-            this.txt_downPayment.Location = new System.Drawing.Point(445, 84);
+            this.txt_downPayment.Location = new System.Drawing.Point(442, 84);
             this.txt_downPayment.Name = "txt_downPayment";
             this.txt_downPayment.Properties.Mask.EditMask = "f0";
             this.txt_downPayment.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_downPayment.Properties.NullText = "0";
             this.txt_downPayment.Properties.UseReadOnlyAppearance = false;
-            this.txt_downPayment.Size = new System.Drawing.Size(234, 20);
+            this.txt_downPayment.Size = new System.Drawing.Size(209, 20);
             this.txt_downPayment.StyleController = this.layoutControl1;
             this.txt_downPayment.TabIndex = 7;
             // 
             // pic_profileImage
             // 
-            this.pic_profileImage.Location = new System.Drawing.Point(695, 43);
+            this.pic_profileImage.Location = new System.Drawing.Point(667, 43);
             this.pic_profileImage.Name = "pic_profileImage";
             this.pic_profileImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pic_profileImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pic_profileImage.Size = new System.Drawing.Size(110, 121);
             this.pic_profileImage.StyleController = this.layoutControl1;
             this.pic_profileImage.TabIndex = 13;
             // 
             // txt_membershipNo
             // 
-            this.txt_membershipNo.Location = new System.Drawing.Point(109, 60);
+            this.txt_membershipNo.Location = new System.Drawing.Point(121, 60);
             this.txt_membershipNo.MenuManager = this.barManager1;
             this.txt_membershipNo.Name = "txt_membershipNo";
             this.txt_membershipNo.Properties.UseReadOnlyAppearance = false;
-            this.txt_membershipNo.Size = new System.Drawing.Size(235, 20);
+            this.txt_membershipNo.Size = new System.Drawing.Size(208, 20);
             this.txt_membershipNo.StyleController = this.layoutControl1;
             this.txt_membershipNo.TabIndex = 4;
             // 
@@ -872,8 +896,10 @@
             this.btn_update,
             this.btn_delete,
             this.btn_save,
-            this.btn_cancel});
-            this.barManager1.MaxItemId = 5;
+            this.btn_cancel,
+            this.barSubItem1,
+            this.barButtonItem1});
+            this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -972,34 +998,34 @@
             // cmb_areaType
             // 
             this.cmb_areaType.EditValue = "";
-            this.cmb_areaType.Location = new System.Drawing.Point(445, 36);
+            this.cmb_areaType.Location = new System.Drawing.Point(442, 36);
             this.cmb_areaType.Name = "cmb_areaType";
             this.cmb_areaType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_areaType.Properties.PopupSizeable = true;
             this.cmb_areaType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_areaType.Properties.UseReadOnlyAppearance = false;
-            this.cmb_areaType.Size = new System.Drawing.Size(234, 20);
+            this.cmb_areaType.Size = new System.Drawing.Size(209, 20);
             this.cmb_areaType.StyleController = this.layoutControl1;
             this.cmb_areaType.TabIndex = 3;
             // 
             // txt_confirmationFees
             // 
-            this.txt_confirmationFees.Location = new System.Drawing.Point(445, 108);
+            this.txt_confirmationFees.Location = new System.Drawing.Point(442, 108);
             this.txt_confirmationFees.MenuManager = this.barManager1;
             this.txt_confirmationFees.Name = "txt_confirmationFees";
             this.txt_confirmationFees.Properties.Mask.EditMask = "f0";
             this.txt_confirmationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_confirmationFees.Properties.NullText = "0";
             this.txt_confirmationFees.Properties.UseReadOnlyAppearance = false;
-            this.txt_confirmationFees.Size = new System.Drawing.Size(234, 20);
+            this.txt_confirmationFees.Size = new System.Drawing.Size(209, 20);
             this.txt_confirmationFees.StyleController = this.layoutControl1;
             this.txt_confirmationFees.TabIndex = 9;
             // 
             // dateEdit_confirmation
             // 
             this.dateEdit_confirmation.EditValue = null;
-            this.dateEdit_confirmation.Location = new System.Drawing.Point(109, 108);
+            this.dateEdit_confirmation.Location = new System.Drawing.Point(121, 108);
             this.dateEdit_confirmation.MenuManager = this.barManager1;
             this.dateEdit_confirmation.Name = "dateEdit_confirmation";
             this.dateEdit_confirmation.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1007,35 +1033,60 @@
             this.dateEdit_confirmation.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEdit_confirmation.Properties.UseReadOnlyAppearance = false;
-            this.dateEdit_confirmation.Size = new System.Drawing.Size(235, 20);
+            this.dateEdit_confirmation.Size = new System.Drawing.Size(208, 20);
             this.dateEdit_confirmation.StyleController = this.layoutControl1;
             this.dateEdit_confirmation.TabIndex = 8;
             // 
             // cmb_paymentMethod
             // 
-            this.cmb_paymentMethod.Location = new System.Drawing.Point(109, 84);
+            this.cmb_paymentMethod.Location = new System.Drawing.Point(121, 84);
             this.cmb_paymentMethod.MenuManager = this.barManager1;
             this.cmb_paymentMethod.Name = "cmb_paymentMethod";
             this.cmb_paymentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_paymentMethod.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmb_paymentMethod.Properties.UseReadOnlyAppearance = false;
-            this.cmb_paymentMethod.Size = new System.Drawing.Size(235, 20);
+            this.cmb_paymentMethod.Size = new System.Drawing.Size(208, 20);
             this.cmb_paymentMethod.StyleController = this.layoutControl1;
             this.cmb_paymentMethod.TabIndex = 6;
             // 
             // txt_registrationFees
             // 
-            this.txt_registrationFees.Location = new System.Drawing.Point(445, 132);
+            this.txt_registrationFees.Location = new System.Drawing.Point(442, 132);
             this.txt_registrationFees.MenuManager = this.barManager1;
             this.txt_registrationFees.Name = "txt_registrationFees";
             this.txt_registrationFees.Properties.Mask.EditMask = "f0";
             this.txt_registrationFees.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_registrationFees.Properties.NullText = "0";
             this.txt_registrationFees.Properties.UseReadOnlyAppearance = false;
-            this.txt_registrationFees.Size = new System.Drawing.Size(234, 20);
+            this.txt_registrationFees.Size = new System.Drawing.Size(209, 20);
             this.txt_registrationFees.StyleController = this.layoutControl1;
             this.txt_registrationFees.TabIndex = 11;
+            // 
+            // cmb_bookingStatus
+            // 
+            this.cmb_bookingStatus.Location = new System.Drawing.Point(121, 132);
+            this.cmb_bookingStatus.MenuManager = this.barManager1;
+            this.cmb_bookingStatus.Name = "cmb_bookingStatus";
+            this.cmb_bookingStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmb_bookingStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmb_bookingStatus.Properties.UseReadOnlyAppearance = false;
+            this.cmb_bookingStatus.Size = new System.Drawing.Size(208, 20);
+            this.cmb_bookingStatus.StyleController = this.layoutControl1;
+            this.cmb_bookingStatus.TabIndex = 10;
+            // 
+            // txt_disc_price
+            // 
+            this.txt_disc_price.Location = new System.Drawing.Point(121, 156);
+            this.txt_disc_price.Name = "txt_disc_price";
+            this.txt_disc_price.Properties.Mask.EditMask = "f0";
+            this.txt_disc_price.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_disc_price.Properties.NullText = "0";
+            this.txt_disc_price.Properties.UseReadOnlyAppearance = false;
+            this.txt_disc_price.Size = new System.Drawing.Size(207, 20);
+            this.txt_disc_price.StyleController = this.layoutControl1;
+            this.txt_disc_price.TabIndex = 7;
             // 
             // Root
             // 
@@ -1056,7 +1107,9 @@
             this.layoutControlItem13,
             this.layoutControlItem14,
             this.layoutControlItem16,
-            this.emptySpaceItem2});
+            this.layoutControlItem3,
+            this.emptySpaceItem2,
+            this.layoutControlItem4});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1189, 419);
             this.Root.TextVisible = false;
@@ -1064,36 +1117,36 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.searchLookUpEdit_customer;
-            this.layoutControlItem1.Location = new System.Drawing.Point(336, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(321, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(335, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(322, 24);
             this.layoutControlItem1.Text = "Customer";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txt_price;
-            this.layoutControlItem6.Location = new System.Drawing.Point(336, 48);
+            this.layoutControlItem6.Location = new System.Drawing.Point(321, 48);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(335, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(322, 24);
             this.layoutControlItem6.Text = "Price";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txt_downPayment;
-            this.layoutControlItem7.Location = new System.Drawing.Point(336, 72);
+            this.layoutControlItem7.Location = new System.Drawing.Point(321, 72);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(335, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(322, 24);
             this.layoutControlItem7.Text = "Down Payment";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.gridControl1;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 168);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 170);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(1169, 231);
+            this.layoutControlItem8.Size = new System.Drawing.Size(1169, 229);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -1108,9 +1161,9 @@
             this.lbl_customerName,
             this.lbl_fatherName,
             this.lbl_mobile});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(671, 0);
+            this.layoutControlGroup1.Location = new System.Drawing.Point(643, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(498, 168);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(526, 170);
             this.layoutControlGroup1.Text = "Customer";
             // 
             // layoutControlItem9
@@ -1120,7 +1173,7 @@
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(114, 125);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(114, 125);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(114, 125);
+            this.layoutControlItem9.Size = new System.Drawing.Size(114, 127);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
@@ -1137,7 +1190,7 @@
             this.simpleLabelItem1.Size = new System.Drawing.Size(150, 20);
             this.simpleLabelItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem1.Text = "Name";
-            this.simpleLabelItem1.TextSize = new System.Drawing.Size(94, 16);
+            this.simpleLabelItem1.TextSize = new System.Drawing.Size(106, 16);
             // 
             // simpleLabelItem2
             // 
@@ -1151,7 +1204,7 @@
             this.simpleLabelItem2.Size = new System.Drawing.Size(150, 20);
             this.simpleLabelItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem2.Text = "Father Name";
-            this.simpleLabelItem2.TextSize = new System.Drawing.Size(94, 16);
+            this.simpleLabelItem2.TextSize = new System.Drawing.Size(106, 16);
             // 
             // simpleLabelItem3
             // 
@@ -1165,14 +1218,14 @@
             this.simpleLabelItem3.Size = new System.Drawing.Size(150, 20);
             this.simpleLabelItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.simpleLabelItem3.Text = "Mobile Number";
-            this.simpleLabelItem3.TextSize = new System.Drawing.Size(94, 16);
+            this.simpleLabelItem3.TextSize = new System.Drawing.Size(106, 16);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(114, 60);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(360, 65);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(388, 67);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // lbl_customerName
@@ -1182,9 +1235,9 @@
             this.lbl_customerName.AppearanceItemCaption.Options.UseFont = true;
             this.lbl_customerName.Location = new System.Drawing.Point(264, 0);
             this.lbl_customerName.Name = "lbl_customerName";
-            this.lbl_customerName.Size = new System.Drawing.Size(210, 20);
+            this.lbl_customerName.Size = new System.Drawing.Size(238, 20);
             this.lbl_customerName.Text = "XYZ";
-            this.lbl_customerName.TextSize = new System.Drawing.Size(94, 16);
+            this.lbl_customerName.TextSize = new System.Drawing.Size(106, 16);
             // 
             // lbl_fatherName
             // 
@@ -1193,9 +1246,9 @@
             this.lbl_fatherName.AppearanceItemCaption.Options.UseFont = true;
             this.lbl_fatherName.Location = new System.Drawing.Point(264, 20);
             this.lbl_fatherName.Name = "lbl_fatherName";
-            this.lbl_fatherName.Size = new System.Drawing.Size(210, 20);
+            this.lbl_fatherName.Size = new System.Drawing.Size(238, 20);
             this.lbl_fatherName.Text = "Ahmad Shafi";
-            this.lbl_fatherName.TextSize = new System.Drawing.Size(94, 14);
+            this.lbl_fatherName.TextSize = new System.Drawing.Size(106, 14);
             // 
             // lbl_mobile
             // 
@@ -1204,112 +1257,142 @@
             this.lbl_mobile.AppearanceItemCaption.Options.UseFont = true;
             this.lbl_mobile.Location = new System.Drawing.Point(264, 40);
             this.lbl_mobile.Name = "lbl_mobile";
-            this.lbl_mobile.Size = new System.Drawing.Size(210, 20);
+            this.lbl_mobile.Size = new System.Drawing.Size(238, 20);
             this.lbl_mobile.Text = "03061234567";
-            this.lbl_mobile.TextSize = new System.Drawing.Size(94, 14);
+            this.lbl_mobile.TextSize = new System.Drawing.Size(106, 14);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.txt_confirmationFees;
-            this.layoutControlItem12.Location = new System.Drawing.Point(336, 96);
+            this.layoutControlItem12.Location = new System.Drawing.Point(321, 96);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(335, 24);
+            this.layoutControlItem12.Size = new System.Drawing.Size(322, 24);
             this.layoutControlItem12.Text = "Confirmation Fees";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.txt_registrationFees;
-            this.layoutControlItem15.Location = new System.Drawing.Point(336, 120);
+            this.layoutControlItem15.Location = new System.Drawing.Point(321, 120);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(335, 24);
-            this.layoutControlItem15.Text = "Registration Fees";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem15.Size = new System.Drawing.Size(322, 24);
+            this.layoutControlItem15.Text = "Development Charges";
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.searchLookUpEdit_file;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(336, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(321, 24);
             this.layoutControlItem2.Text = "File";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.cmb_areaType;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem11.Location = new System.Drawing.Point(336, 24);
+            this.layoutControlItem11.Location = new System.Drawing.Point(321, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(335, 24);
+            this.layoutControlItem11.Size = new System.Drawing.Size(322, 24);
             this.layoutControlItem11.Text = "Area Type";
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.txt_areaSize;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(336, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(321, 24);
             this.layoutControlItem5.Text = "Area Size";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txt_membershipNo;
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(336, 24);
-            this.layoutControlItem10.Text = "Membership No.";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem10.Size = new System.Drawing.Size(321, 24);
+            this.layoutControlItem10.Text = "File Number";
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.dateEdit_confirmation;
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(336, 24);
+            this.layoutControlItem13.Size = new System.Drawing.Size(321, 24);
             this.layoutControlItem13.Text = "Confirmation Date";
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.cmb_paymentMethod;
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(336, 24);
+            this.layoutControlItem14.Size = new System.Drawing.Size(321, 24);
             this.layoutControlItem14.Text = "Payment Method";
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(106, 13);
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.cmb_bookingStatus;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(336, 24);
+            this.layoutControlItem16.Size = new System.Drawing.Size(321, 24);
             this.layoutControlItem16.Text = "Booking Status";
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(94, 13);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(106, 13);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 144);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(400, 144);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(671, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(243, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // cmb_bookingStatus
+            // layoutControlItem3
             // 
-            this.cmb_bookingStatus.Location = new System.Drawing.Point(109, 132);
-            this.cmb_bookingStatus.MenuManager = this.barManager1;
-            this.cmb_bookingStatus.Name = "cmb_bookingStatus";
-            this.cmb_bookingStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmb_bookingStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmb_bookingStatus.Properties.UseReadOnlyAppearance = false;
-            this.cmb_bookingStatus.Size = new System.Drawing.Size(235, 20);
-            this.cmb_bookingStatus.StyleController = this.layoutControl1;
-            this.cmb_bookingStatus.TabIndex = 10;
+            this.layoutControlItem3.Control = this.txt_disc_price;
+            this.layoutControlItem3.CustomizationFormText = "Down Payment";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 144);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(320, 26);
+            this.layoutControlItem3.Text = "Discounted Price";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(106, 13);
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Reports";
+            this.barSubItem1.Id = 5;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // btn_Certificate
+            // 
+            this.btn_Certificate.Location = new System.Drawing.Point(332, 156);
+            this.btn_Certificate.Name = "btn_Certificate";
+            this.btn_Certificate.Size = new System.Drawing.Size(76, 22);
+            this.btn_Certificate.StyleController = this.layoutControl1;
+            this.btn_Certificate.TabIndex = 14;
+            this.btn_Certificate.Text = "Certificate";
+            this.btn_Certificate.Click += new System.EventHandler(this.btn_Certificate_Click);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.btn_Certificate;
+            this.layoutControlItem4.Location = new System.Drawing.Point(320, 144);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // frmPlotBooking
             // 
@@ -1348,6 +1431,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_confirmation.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmb_paymentMethod.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_registrationFees.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_disc_price.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
@@ -1372,7 +1457,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmb_bookingStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1488,6 +1574,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private System.Windows.Forms.BindingSource tblCustomerFileBookBindingSource;
+        private DevExpress.XtraEditors.ComboBoxEdit cmb_bookingStatus;
+        private DevExpress.XtraEditors.TextEdit txt_disc_price;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraGrid.Columns.GridColumn colFileBookID;
         private DevExpress.XtraGrid.Columns.GridColumn colfkCustomerID;
         private DevExpress.XtraGrid.Columns.GridColumn colfkFileID;
@@ -1496,10 +1585,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colArea;
         private DevExpress.XtraGrid.Columns.GridColumn colPrice;
         private DevExpress.XtraGrid.Columns.GridColumn colDownPayment;
-        private DevExpress.XtraGrid.Columns.GridColumn colConfirmationFee1;
+        private DevExpress.XtraGrid.Columns.GridColumn colConfirmationAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colConfirmationFeeDate;
         private DevExpress.XtraGrid.Columns.GridColumn colPayMethod;
-        private DevExpress.XtraGrid.Columns.GridColumn colRegistrationFee;
+        private DevExpress.XtraGrid.Columns.GridColumn colRegistrationAmount;
+        private DevExpress.XtraGrid.Columns.GridColumn colDiscountAmount;
         private DevExpress.XtraGrid.Columns.GridColumn colBookingStatus;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedBy1;
         private DevExpress.XtraGrid.Columns.GridColumn colCreatedDate1;
@@ -1509,6 +1599,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_Files;
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_UserLogin2;
         private DevExpress.XtraGrid.Columns.GridColumn coltbl_UserLogin11;
-        private DevExpress.XtraEditors.ComboBoxEdit cmb_bookingStatus;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraEditors.SimpleButton btn_Certificate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

@@ -17,9 +17,9 @@ namespace PropertyManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_Files()
         {
+            this.tbl_CustomerFileBook = new HashSet<tbl_CustomerFileBook>();
             this.tbl_InstMaster = new HashSet<tbl_InstMaster>();
             this.tbl_InstReceived = new HashSet<tbl_InstReceived>();
-            this.tbl_CustomerFileBook = new HashSet<tbl_CustomerFileBook>();
         }
     
         public int FileID { get; set; }
@@ -29,21 +29,24 @@ namespace PropertyManagement.Model
         public string PlotCat { get; set; }
         public string Plot_Factor { get; set; }
         public string PlotNo { get; set; }
-        public Nullable<double> PlotSize { get; set; }
-        public Nullable<long> ConfirmationFee { get; set; }
+        public Nullable<double> AreaSize { get; set; }
+        public string AreaType { get; set; }
+        public Nullable<long> ConfirmationAmount { get; set; }
         public string AutoPlotNo { get; set; }
         public Nullable<double> PlotRate { get; set; }
         public Nullable<long> TotalPloValue { get; set; }
         public string PlotCatDesc { get; set; }
-        public Nullable<long> FileStatus { get; set; }
-        public string PlotValue { get; set; }
-        public Nullable<int> PlotExtChargs { get; set; }
+        public string FileStatus { get; set; }
+        public Nullable<long> BookingAmount { get; set; }
+        public Nullable<long> DevelopmentCharges { get; set; }
         public string UnitStatus { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
         public virtual tbl_Projects tbl_Projects { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_InstMaster> tbl_InstMaster { get; set; }
@@ -51,7 +54,5 @@ namespace PropertyManagement.Model
         public virtual ICollection<tbl_InstReceived> tbl_InstReceived { get; set; }
         public virtual tbl_UserLogin tbl_UserLogin { get; set; }
         public virtual tbl_UserLogin tbl_UserLogin1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
     }
 }

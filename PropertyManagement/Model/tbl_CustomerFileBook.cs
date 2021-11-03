@@ -22,10 +22,11 @@ namespace PropertyManagement.Model
         public Nullable<double> Area { get; set; }
         public Nullable<long> Price { get; set; }
         public Nullable<long> DownPayment { get; set; }
-        public Nullable<long> ConfirmationFee { get; set; }
+        public Nullable<long> ConfirmationAmount { get; set; }
         public Nullable<System.DateTime> ConfirmationFeeDate { get; set; }
         public string PayMethod { get; set; }
-        public Nullable<long> RegistrationFee { get; set; }
+        public Nullable<long> RegistrationAmount { get; set; }
+        public Nullable<long> DiscountAmount { get; set; }
         public string BookingStatus { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }

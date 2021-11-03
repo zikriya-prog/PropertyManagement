@@ -839,6 +839,7 @@
             this.pictureEdit1.Location = new System.Drawing.Point(1096, 43);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             this.pictureEdit1.Size = new System.Drawing.Size(121, 115);
             this.pictureEdit1.StyleController = this.layoutControl1;
             this.pictureEdit1.TabIndex = 5;

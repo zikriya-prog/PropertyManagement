@@ -17,8 +17,8 @@ namespace PropertyManagement.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tbl_CustomerRegM()
         {
-            this.tbl_CustomerKin = new HashSet<tbl_CustomerKin>();
             this.tbl_CustomerFileBook = new HashSet<tbl_CustomerFileBook>();
+            this.tbl_CustomerKin = new HashSet<tbl_CustomerKin>();
         }
     
         public long CustomerID { get; set; }
@@ -43,11 +43,11 @@ namespace PropertyManagement.Model
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_CustomerKin> tbl_CustomerKin { get; set; }
         public virtual tbl_Projects tbl_Projects { get; set; }
         public virtual tbl_UserLogin tbl_UserLogin { get; set; }
         public virtual tbl_UserLogin tbl_UserLogin1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tbl_CustomerFileBook> tbl_CustomerFileBook { get; set; }
     }
 }

@@ -17,11 +17,11 @@ namespace PropertyManagement.Model
         public string UserID { get; set; }
         public int fkRoleID { get; set; }
         public string NAME { get; set; }
+        public string LoginName { get; set; }
         public string RMKS { get; set; }
         public string UserName { get; set; }
         public string PWD { get; set; }
         public string CPWD { get; set; }
         public string ActiveYN { get; set; }
-        public string LoginName { get; set; }
     }
 }

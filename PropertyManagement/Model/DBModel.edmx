@@ -5,16 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PropertyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="tbl_CustomerFileBook">
           <Key>
             <PropertyRef Name="FileBookID" />
@@ -27,10 +17,11 @@
           <Property Name="Area" Type="float" />
           <Property Name="Price" Type="bigint" />
           <Property Name="DownPayment" Type="bigint" />
-          <Property Name="ConfirmationFee" Type="bigint" />
+          <Property Name="ConfirmationAmount" Type="bigint" />
           <Property Name="ConfirmationFeeDate" Type="date" />
           <Property Name="PayMethod" Type="nvarchar" MaxLength="50" />
-          <Property Name="RegistrationFee" Type="bigint" />
+          <Property Name="RegistrationAmount" Type="bigint" />
+          <Property Name="DiscountAmount" Type="bigint" />
           <Property Name="BookingStatus" Type="nvarchar" MaxLength="100" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
           <Property Name="CreatedDate" Type="datetime" />
@@ -89,15 +80,16 @@
           <Property Name="PlotCat" Type="nvarchar" MaxLength="20" />
           <Property Name="Plot_Factor" Type="nvarchar" MaxLength="50" />
           <Property Name="PlotNo" Type="nvarchar" MaxLength="20" />
-          <Property Name="PlotSize" Type="float" />
-          <Property Name="ConfirmationFee" Type="bigint" />
+          <Property Name="AreaSize" Type="float" />
+          <Property Name="AreaType" Type="nvarchar" MaxLength="60" />
+          <Property Name="ConfirmationAmount" Type="bigint" />
           <Property Name="AutoPlotNo" Type="nvarchar" MaxLength="20" />
           <Property Name="PlotRate" Type="float" />
           <Property Name="TotalPloValue" Type="bigint" />
           <Property Name="PlotCatDesc" Type="nvarchar" MaxLength="150" />
-          <Property Name="FileStatus" Type="bigint" />
-          <Property Name="PlotValue" Type="nvarchar" MaxLength="60" />
-          <Property Name="PlotExtChargs" Type="int" />
+          <Property Name="FileStatus" Type="nvarchar" MaxLength="60" />
+          <Property Name="BookingAmount" Type="bigint" />
+          <Property Name="DevelopmentCharges" Type="bigint" />
           <Property Name="UnitStatus" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="2" />
           <Property Name="CreatedDate" Type="datetime" />
@@ -262,11 +254,6 @@ warning 6002: The table/view 'Property.dbo.View_CustomerFileBooking' does not ha
             <PropertyRef Name="fkFileID" />
             <PropertyRef Name="CustomerID" />
             <PropertyRef Name="fkProjectID" />
-            <PropertyRef Name="CustomerRegNo" />
-            <PropertyRef Name="CustomerName" />
-            <PropertyRef Name="CNIC" />
-            <PropertyRef Name="DealerYN" />
-            <PropertyRef Name="ActiveYN" />
           </Key>
           <Property Name="FileBookID" Type="bigint" Nullable="false" />
           <Property Name="fkFileID" Type="int" Nullable="false" />
@@ -284,8 +271,16 @@ warning 6002: The table/view 'Property.dbo.View_CustomerFileBooking' does not ha
           <Property Name="OfficeNumber" Type="nvarchar" MaxLength="10" />
           <Property Name="DealerYN" Type="nvarchar" MaxLength="1" Nullable="false" />
           <Property Name="ActiveYN" Type="nvarchar" MaxLength="1" Nullable="false" />
-          <Property Name="Price" Type="bigint" />
           <Property Name="DownPayment" Type="bigint" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="ConfirmationAmount" Type="bigint" />
+          <Property Name="ConfirmationFeeDate" Type="date" />
+          <Property Name="RegistrationAmount" Type="bigint" />
+          <Property Name="DiscountAmount" Type="bigint" />
+          <Property Name="Area" Type="float" />
+          <Property Name="AreaType" Type="nvarchar" MaxLength="70" />
+          <Property Name="PayMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="BookingStatus" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Property.dbo.View_Installment_Receive' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -683,7 +678,6 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="Pro_CheckLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="PARM_USER_NAME" Type="nvarchar" Mode="In" />
           <Parameter Name="PARM_PASSWORD" Type="nvarchar" Mode="In" />
@@ -705,7 +699,8 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Parameter Name="PARAM_ConfirmationFee" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_ConfirmationFeeDate" Type="date" Mode="In" />
           <Parameter Name="PARAM_PayMethod" Type="nvarchar" Mode="In" />
-          <Parameter Name="PARAM_RegistrationFee" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_RegistrationAmount" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_DiscountAmount" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_BookingStatus" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
@@ -763,15 +758,16 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Parameter Name="PARAM_PlotCat" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_Plot_Factor" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_PlotNo" Type="nvarchar" Mode="In" />
-          <Parameter Name="PARAM_PlotSize" Type="float" Mode="In" />
-          <Parameter Name="PARAM_ConfirmationFee" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_AreaSize" Type="float" Mode="In" />
+          <Parameter Name="PARAM_AreaType" Type="nvarchar" Mode="In" />
+          <Parameter Name="PARAM_ConfirmationAmount" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_AutoPlotNo" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_PlotRate" Type="float" Mode="In" />
           <Parameter Name="PARAM_TotalPloValue" Type="bigint" Mode="In" />
           <Parameter Name="PARAM_PlotCatDesc" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_FileStatus" Type="nvarchar" Mode="In" />
-          <Parameter Name="PARAM_PlotValue" Type="bigint" Mode="In" />
-          <Parameter Name="PARAM_PlotExtChargs" Type="int" Mode="In" />
+          <Parameter Name="PARAM_BookingAmount" Type="bigint" Mode="In" />
+          <Parameter Name="PARAM_DevelopmentCharges" Type="int" Mode="In" />
           <Parameter Name="PARAM_UnitStatus" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_CreatedBy" Type="nvarchar" Mode="In" />
           <Parameter Name="PARAM_CreatedDate" Type="datetime" Mode="In" />
@@ -878,38 +874,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Parameter Name="PARM_ACTIVEYN" Type="nvarchar" Mode="In" />
           <Parameter Name="PARM_ERROR_MESSAGE" Type="nvarchar" Mode="InOut" />
         </Function>
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="PropertyModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_CustomerFileBook" EntityType="Self.tbl_CustomerFileBook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_CustomerKin" EntityType="Self.tbl_CustomerKin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_CustomerRegM" EntityType="Self.tbl_CustomerRegM" Schema="dbo" store:Type="Tables" />
@@ -941,8 +906,16 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
     [View_CustomerFileBooking].[OfficeNumber] AS [OfficeNumber], 
     [View_CustomerFileBooking].[DealerYN] AS [DealerYN], 
     [View_CustomerFileBooking].[ActiveYN] AS [ActiveYN], 
+    [View_CustomerFileBooking].[DownPayment] AS [DownPayment], 
     [View_CustomerFileBooking].[Price] AS [Price], 
-    [View_CustomerFileBooking].[DownPayment] AS [DownPayment]
+    [View_CustomerFileBooking].[ConfirmationAmount] AS [ConfirmationAmount], 
+    [View_CustomerFileBooking].[ConfirmationFeeDate] AS [ConfirmationFeeDate], 
+    [View_CustomerFileBooking].[RegistrationAmount] AS [RegistrationAmount], 
+    [View_CustomerFileBooking].[DiscountAmount] AS [DiscountAmount], 
+    [View_CustomerFileBooking].[Area] AS [Area], 
+    [View_CustomerFileBooking].[AreaType] AS [AreaType], 
+    [View_CustomerFileBooking].[PayMethod] AS [PayMethod], 
+    [View_CustomerFileBooking].[BookingStatus] AS [BookingStatus]
     FROM [dbo].[View_CustomerFileBooking] AS [View_CustomerFileBooking]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="View_Installment_Receive" EntityType="Self.View_Installment_Receive" store:Type="Views" store:Schema="dbo">
@@ -1099,15 +1072,32 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PropertyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
+        <EntityType Name="tbl_CustomerFileBook">
           <Key>
-            <PropertyRef Name="diagram_id" />
+            <PropertyRef Name="FileBookID" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileBookID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkCustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="AreaType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="Double" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="DownPayment" Type="Int64" />
+          <Property Name="ConfirmationAmount" Type="Int64" />
+          <Property Name="ConfirmationFeeDate" Type="DateTime" Precision="0" />
+          <Property Name="PayMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationAmount" Type="Int64" />
+          <Property Name="DiscountAmount" Type="Int64" />
+          <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerRegM" Relationship="Self.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_CustomerRegM" />
+          <NavigationProperty Name="tbl_Files" Relationship="Self.CustFileBook_FileID_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_Files" />
+          <NavigationProperty Name="tbl_UserLogin" Relationship="Self.FileBook_Createdby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
+          <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.FileBook_Updatedby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
         </EntityType>
         <EntityType Name="tbl_CustomerKin">
           <Key>
@@ -1152,11 +1142,11 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="Self.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_CustomerFileBook" />
           <NavigationProperty Name="tbl_CustomerKin" Relationship="Self.CustFileBook_tbl_CustRegM_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_CustomerKin" />
           <NavigationProperty Name="tbl_Projects" Relationship="Self.CustRegM_tbl_Projects_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_Projects" />
           <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_CustomerRegM_Createdby_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_UserLogin" />
           <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_CustomerRegM_Updatedby_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_UserLogin" />
-          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerRegM" ToRole="tbl_CustomerFileBook" />
         </EntityType>
         <EntityType Name="tbl_Files">
           <Key>
@@ -1169,32 +1159,33 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Property Name="PlotCat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Plot_Factor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PlotNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PlotSize" Type="Double" />
-          <Property Name="ConfirmationFee" Type="Int64" />
+          <Property Name="AreaSize" Type="Double" />
+          <Property Name="AreaType" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ConfirmationAmount" Type="Int64" />
           <Property Name="AutoPlotNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="PlotRate" Type="Double" />
           <Property Name="TotalPloValue" Type="Int64" />
           <Property Name="PlotCatDesc" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="FileStatus" Type="Int64" />
-          <Property Name="PlotValue" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="PlotExtChargs" Type="Int32" />
+          <Property Name="FileStatus" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="BookingAmount" Type="Int64" />
+          <Property Name="DevelopmentCharges" Type="Int64" />
           <Property Name="UnitStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="Self.CustFileBook_FileID_fk" FromRole="tbl_Files" ToRole="tbl_CustomerFileBook" />
           <NavigationProperty Name="tbl_Projects" Relationship="Self.Files_tbl_Project_fk" FromRole="tbl_Files" ToRole="tbl_Projects" />
           <NavigationProperty Name="tbl_InstMaster" Relationship="Self.InstMaster_tbl_File_fk" FromRole="tbl_Files" ToRole="tbl_InstMaster" />
           <NavigationProperty Name="tbl_InstReceived" Relationship="Self.InstReceived_tbl_File_fk" FromRole="tbl_Files" ToRole="tbl_InstReceived" />
           <NavigationProperty Name="tbl_UserLogin" Relationship="Self.tbl_Files_Createdby_fk" FromRole="tbl_Files" ToRole="tbl_UserLogin" />
           <NavigationProperty Name="tbl_UserLogin1" Relationship="Self.tbl_Files_Updatedby_fk" FromRole="tbl_Files" ToRole="tbl_UserLogin" />
-          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.CustFileBook_FileID_fk" FromRole="tbl_Files" ToRole="tbl_CustomerFileBook" />
         </EntityType>
         <EntityType Name="tbl_InstDetail">
           <Key>
             <PropertyRef Name="instDID" />
           </Key>
-          <Property Name="instDID" Type="Int64" Nullable="false" />
+          <Property Name="instDID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkInstMId" Type="Int64" Nullable="false" />
           <Property Name="srno" Type="Int32" />
           <Property Name="Total" Type="Int32" />
@@ -1238,7 +1229,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Key>
             <PropertyRef Name="InstRcvID" />
           </Key>
-          <Property Name="InstRcvID" Type="Int64" Nullable="false" />
+          <Property Name="InstRcvID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fkFileID" Type="Int32" Nullable="false" />
           <Property Name="fkinstDID" Type="Int64" Nullable="false" />
           <Property Name="srno" Type="Int32" />
@@ -1322,6 +1313,8 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <Property Name="PWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="CPWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="Self.FileBook_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
+          <NavigationProperty Name="tbl_CustomerFileBook1" Relationship="Self.FileBook_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
           <NavigationProperty Name="tbl_CustomerKin" Relationship="Self.tbl_CustomerKin_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerKin" />
           <NavigationProperty Name="tbl_CustomerKin1" Relationship="Self.tbl_CustomerKin_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerKin" />
           <NavigationProperty Name="tbl_CustomerRegM" Relationship="Self.tbl_CustomerRegM_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerRegM" />
@@ -1337,8 +1330,6 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <NavigationProperty Name="tbl_Projects" Relationship="Self.Projects_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Projects" />
           <NavigationProperty Name="tbl_Projects1" Relationship="Self.Projects_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_Projects" />
           <NavigationProperty Name="tbl_UserRole" Relationship="Self.UserRole_fk" FromRole="tbl_UserLogin" ToRole="tbl_UserRole" />
-          <NavigationProperty Name="tbl_CustomerFileBook" Relationship="PropertyModel.FileBook_Createdby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
-          <NavigationProperty Name="tbl_CustomerFileBook1" Relationship="PropertyModel.FileBook_Updatedby_fk" FromRole="tbl_UserLogin" ToRole="tbl_CustomerFileBook" />
         </EntityType>
         <EntityType Name="tbl_userMenu">
           <Key>
@@ -1380,6 +1371,132 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <NavigationProperty Name="tbl_UserLogin" Relationship="Self.UserRole_fk" FromRole="tbl_UserRole" ToRole="tbl_UserLogin" />
           <NavigationProperty Name="tbl_userMenu" Relationship="Self.userMenu_userrole_FK" FromRole="tbl_UserRole" ToRole="tbl_userMenu" />
         </EntityType>
+        <EntityType Name="View_CustomerFileBooking">
+          <Key>
+            <PropertyRef Name="FileBookID" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+          </Key>
+          <Property Name="FileBookID" Type="Int64" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkProjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubProjID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerRegNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CNIC" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PresentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PermAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DealerYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DownPayment" Type="Int64" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="ConfirmationAmount" Type="Int64" />
+          <Property Name="ConfirmationFeeDate" Type="DateTime" Precision="0" />
+          <Property Name="RegistrationAmount" Type="Int64" />
+          <Property Name="DiscountAmount" Type="Int64" />
+          <Property Name="Area" Type="Double" />
+          <Property Name="AreaType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="PayMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_Installment_Receive">
+          <Key>
+            <PropertyRef Name="instDID" />
+            <PropertyRef Name="fkInstMId" />
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="fkProjectID" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CustomerRegNo" />
+            <PropertyRef Name="fkFileID" />
+            <PropertyRef Name="FileBookID" />
+          </Key>
+          <Property Name="instDID" Type="Int64" Nullable="false" />
+          <Property Name="fkInstMId" Type="Int64" Nullable="false" />
+          <Property Name="srno" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="CustomAmount" Type="Int32" />
+          <Property Name="DueDate" Type="DateTime" Precision="0" />
+          <Property Name="InstType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="fkProjectID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CustomerRegNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fkFileID" Type="Int32" Nullable="false" />
+          <Property Name="FileBookID" Type="Int64" Nullable="false" />
+          <Property Name="InstRcvID" Type="Int64" />
+          <Property Name="CustIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="View_user_with_role">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="fkRoleID" />
+            <PropertyRef Name="ActiveYN" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fkRoleID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RMKS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CPWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ActiveYN" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="CustFileBook_CustRegM_fk">
+          <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_CustomerRegM">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkCustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustFileBook_FileID_fk">
+          <End Role="tbl_Files" Type="Self.tbl_Files" Multiplicity="1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Files">
+              <PropertyRef Name="FileID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="fkFileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Createdby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FileBook_Updatedby_fk">
+          <End Role="tbl_UserLogin" Type="Self.tbl_UserLogin" Multiplicity="0..1" />
+          <End Role="tbl_CustomerFileBook" Type="Self.tbl_CustomerFileBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_UserLogin">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tbl_CustomerFileBook">
+              <PropertyRef Name="UpdatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="CustFileBook_tbl_CustRegM_fk">
           <End Role="tbl_CustomerRegM" Type="Self.tbl_CustomerRegM" Multiplicity="1" />
           <End Role="tbl_CustomerKin" Type="Self.tbl_CustomerKin" Multiplicity="*" />
@@ -1681,7 +1798,7 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PropertyEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tbl_CustomerFileBook" EntityType="Self.tbl_CustomerFileBook" />
           <EntitySet Name="tbl_CustomerKin" EntityType="Self.tbl_CustomerKin" />
           <EntitySet Name="tbl_CustomerRegM" EntityType="Self.tbl_CustomerRegM" />
           <EntitySet Name="tbl_Files" EntityType="Self.tbl_Files" />
@@ -1694,6 +1811,25 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <EntitySet Name="tbl_UserLogin" EntityType="Self.tbl_UserLogin" />
           <EntitySet Name="tbl_userMenu" EntityType="Self.tbl_userMenu" />
           <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" />
+          <EntitySet Name="View_CustomerFileBooking" EntityType="Self.View_CustomerFileBooking" />
+          <EntitySet Name="View_Installment_Receive" EntityType="Self.View_Installment_Receive" />
+          <EntitySet Name="View_user_with_role" EntityType="Self.View_user_with_role" />
+          <AssociationSet Name="CustFileBook_CustRegM_fk" Association="Self.CustFileBook_CustRegM_fk">
+            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="CustFileBook_FileID_fk" Association="Self.CustFileBook_FileID_fk">
+            <End Role="tbl_Files" EntitySet="tbl_Files" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Createdby_fk" Association="Self.FileBook_Createdby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
+          <AssociationSet Name="FileBook_Updatedby_fk" Association="Self.FileBook_Updatedby_fk">
+            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
+            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
+          </AssociationSet>
           <AssociationSet Name="CustFileBook_tbl_CustRegM_fk" Association="Self.CustFileBook_tbl_CustRegM_fk">
             <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
             <End Role="tbl_CustomerKin" EntitySet="tbl_CustomerKin" />
@@ -1802,6 +1938,29 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARM_USER_ROLE" Mode="InOut" Type="String" />
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="Pro_IDU_CustomerFileBook">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_FileBookID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkCustomerID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkFileID" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_MemberShipNo" Mode="In" Type="String" />
+            <Parameter Name="PARAM_AreaType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_Area" Mode="In" Type="Double" />
+            <Parameter Name="PARAM_Price" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DownPayment" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_ConfirmationFee" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_ConfirmationFeeDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_PayMethod" Mode="In" Type="String" />
+            <Parameter Name="PARAM_RegistrationAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DiscountAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_BookingStatus" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_FileBookID" Mode="InOut" Type="Int64" />
+          </FunctionImport>
           <FunctionImport Name="Pro_IDU_CustomerKin">
             <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
             <Parameter Name="PARAM_CustomerKinId" Mode="In" Type="Int64" />
@@ -1851,21 +2010,39 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARAM_PlotCat" Mode="In" Type="String" />
             <Parameter Name="PARAM_Plot_Factor" Mode="In" Type="String" />
             <Parameter Name="PARAM_PlotNo" Mode="In" Type="String" />
-            <Parameter Name="PARAM_PlotSize" Mode="In" Type="Double" />
-            <Parameter Name="PARAM_ConfirmationFee" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_AreaSize" Mode="In" Type="Double" />
+            <Parameter Name="PARAM_AreaType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_ConfirmationAmount" Mode="In" Type="Int64" />
             <Parameter Name="PARAM_AutoPlotNo" Mode="In" Type="String" />
             <Parameter Name="PARAM_PlotRate" Mode="In" Type="Double" />
             <Parameter Name="PARAM_TotalPloValue" Mode="In" Type="Int64" />
             <Parameter Name="PARAM_PlotCatDesc" Mode="In" Type="String" />
             <Parameter Name="PARAM_FileStatus" Mode="In" Type="String" />
-            <Parameter Name="PARAM_PlotValue" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_PlotExtChargs" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_BookingAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DevelopmentCharges" Mode="In" Type="Int32" />
             <Parameter Name="PARAM_UnitStatus" Mode="In" Type="String" />
             <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
             <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
             <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Pro_IDU_InstDetail">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARAM_instDID" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_fkInstMId" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
+            <Parameter Name="PARAM_Total" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_Amount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int64" />
+            <Parameter Name="PARAM_DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_InstType" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+            <Parameter Name="PARAM_New_instDID" Mode="InOut" Type="Int64" />
           </FunctionImport>
           <FunctionImport Name="Pro_IDU_InstMaster">
             <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
@@ -1906,6 +2083,19 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
             <Parameter Name="PARAM_New_instRcvID" Mode="InOut" Type="Int64" />
           </FunctionImport>
+          <FunctionImport Name="Pro_IDU_List">
+            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
+            <Parameter Name="PARM_ListID" Mode="In" Type="Int32" />
+            <Parameter Name="PARM_Name" Mode="In" Type="String" />
+            <Parameter Name="PARM_Description" Mode="In" Type="String" />
+            <Parameter Name="PARM_Type" Mode="In" Type="String" />
+            <Parameter Name="PARM_ActiveYN" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="PARM_UpdatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="Pro_IDU_Projects">
             <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
             <Parameter Name="PARM_ProjectID" Mode="In" Type="String" />
@@ -1936,283 +2126,34 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
             <Parameter Name="PARM_ACTIVEYN" Mode="In" Type="String" />
             <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PropertyModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PropertyModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <FunctionImport Name="Pro_IDU_CustomerFileBook">
-            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
-            <Parameter Name="PARAM_FileBookID" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_fkCustomerID" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_fkFileID" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_MemberShipNo" Mode="In" Type="String" />
-            <Parameter Name="PARAM_AreaType" Mode="In" Type="String" />
-            <Parameter Name="PARAM_Area" Mode="In" Type="Double" />
-            <Parameter Name="PARAM_Price" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_DownPayment" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_ConfirmationFee" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_ConfirmationFeeDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_PayMethod" Mode="In" Type="String" />
-            <Parameter Name="PARAM_RegistrationFee" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_BookingStatus" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
-            <Parameter Name="PARAM_New_FileBookID" Mode="InOut" Type="Int64" />
-          </FunctionImport>
-          <EntitySet Name="tbl_CustomerFileBook" EntityType="PropertyModel.tbl_CustomerFileBook" />
-          <AssociationSet Name="CustFileBook_CustRegM_fk" Association="PropertyModel.CustFileBook_CustRegM_fk">
-            <End Role="tbl_CustomerRegM" EntitySet="tbl_CustomerRegM" />
-            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
-          </AssociationSet>
-          <AssociationSet Name="CustFileBook_FileID_fk" Association="PropertyModel.CustFileBook_FileID_fk">
-            <End Role="tbl_Files" EntitySet="tbl_Files" />
-            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
-          </AssociationSet>
-          <AssociationSet Name="FileBook_Createdby_fk" Association="PropertyModel.FileBook_Createdby_fk">
-            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
-            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
-          </AssociationSet>
-          <AssociationSet Name="FileBook_Updatedby_fk" Association="PropertyModel.FileBook_Updatedby_fk">
-            <End Role="tbl_UserLogin" EntitySet="tbl_UserLogin" />
-            <End Role="tbl_CustomerFileBook" EntitySet="tbl_CustomerFileBook" />
-          </AssociationSet>
-          <EntitySet Name="View_CustomerFileBooking" EntityType="PropertyModel.View_CustomerFileBooking" />
-          <EntitySet Name="View_Installment_Receive" EntityType="PropertyModel.View_Installment_Receive" />
-          <FunctionImport Name="Pro_IDU_List">
-            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
-            <Parameter Name="PARM_ListID" Mode="In" Type="Int32" />
-            <Parameter Name="PARM_Name" Mode="In" Type="String" />
-            <Parameter Name="PARM_Description" Mode="In" Type="String" />
-            <Parameter Name="PARM_Type" Mode="In" Type="String" />
-            <Parameter Name="PARM_ActiveYN" Mode="In" Type="String" />
-            <Parameter Name="PARM_CreatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARM_CreatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARM_UpdatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARM_UpdatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="View_user_with_role" EntityType="PropertyModel.View_user_with_role" />
-          <FunctionImport Name="Pro_IDU_InstDetail">
-            <Parameter Name="PARM_IDU_STS" Mode="In" Type="String" />
-            <Parameter Name="PARAM_instDID" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_fkInstMId" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_srno" Mode="In" Type="Int32" />
-            <Parameter Name="PARAM_Total" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_Amount" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_CustomAmount" Mode="In" Type="Int64" />
-            <Parameter Name="PARAM_DueDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_InstType" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_CreatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARAM_UpdatedBy" Mode="In" Type="String" />
-            <Parameter Name="PARAM_UpdatedDate" Mode="In" Type="DateTime" />
-            <Parameter Name="PARM_ERROR_MESSAGE" Mode="InOut" Type="String" />
-            <Parameter Name="PARAM_New_instDID" Mode="InOut" Type="Int64" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
-        <EntityType Name="tbl_CustomerFileBook">
-          <Key>
-            <PropertyRef Name="FileBookID" />
-          </Key>
-          <Property Name="FileBookID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fkCustomerID" Type="Int64" Nullable="false" />
-          <Property Name="fkFileID" Type="Int32" Nullable="false" />
-          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="AreaType" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="Area" Type="Double" />
-          <Property Name="Price" Type="Int64" />
-          <Property Name="DownPayment" Type="Int64" />
-          <Property Name="ConfirmationFee" Type="Int64" />
-          <Property Name="ConfirmationFeeDate" Type="DateTime" Precision="0" />
-          <Property Name="PayMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RegistrationFee" Type="Int64" />
-          <Property Name="BookingStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="tbl_CustomerRegM" Relationship="PropertyModel.CustFileBook_CustRegM_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_CustomerRegM" />
-          <NavigationProperty Name="tbl_Files" Relationship="PropertyModel.CustFileBook_FileID_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_Files" />
-          <NavigationProperty Name="tbl_UserLogin" Relationship="PropertyModel.FileBook_Createdby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
-          <NavigationProperty Name="tbl_UserLogin1" Relationship="PropertyModel.FileBook_Updatedby_fk" FromRole="tbl_CustomerFileBook" ToRole="tbl_UserLogin" />
-        </EntityType>
-        <Association Name="CustFileBook_CustRegM_fk">
-          <End Type="PropertyModel.tbl_CustomerRegM" Role="tbl_CustomerRegM" Multiplicity="1" />
-          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_CustomerRegM">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="tbl_CustomerFileBook">
-              <PropertyRef Name="fkCustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="CustFileBook_FileID_fk">
-          <End Type="PropertyModel.tbl_Files" Role="tbl_Files" Multiplicity="1" />
-          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_Files">
-              <PropertyRef Name="FileID" />
-            </Principal>
-            <Dependent Role="tbl_CustomerFileBook">
-              <PropertyRef Name="fkFileID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FileBook_Createdby_fk">
-          <End Type="PropertyModel.tbl_UserLogin" Role="tbl_UserLogin" Multiplicity="0..1" />
-          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_UserLogin">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="tbl_CustomerFileBook">
-              <PropertyRef Name="CreatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FileBook_Updatedby_fk">
-          <End Type="PropertyModel.tbl_UserLogin" Role="tbl_UserLogin" Multiplicity="0..1" />
-          <End Type="PropertyModel.tbl_CustomerFileBook" Role="tbl_CustomerFileBook" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tbl_UserLogin">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="tbl_CustomerFileBook">
-              <PropertyRef Name="UpdatedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="View_CustomerFileBooking">
-          <Key>
-            <PropertyRef Name="FileBookID" />
-            <PropertyRef Name="fkFileID" />
-            <PropertyRef Name="CustomerID" />
-            <PropertyRef Name="fkProjectID" />
-            <PropertyRef Name="CustomerRegNo" />
-            <PropertyRef Name="CustomerName" />
-            <PropertyRef Name="CNIC" />
-            <PropertyRef Name="DealerYN" />
-            <PropertyRef Name="ActiveYN" />
-          </Key>
-          <Property Name="FileBookID" Type="Int64" Nullable="false" />
-          <Property Name="fkFileID" Type="Int32" Nullable="false" />
-          <Property Name="MemberShipNo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerID" Type="Int64" Nullable="false" />
-          <Property Name="fkProjectID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SubProjID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerRegNo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="FatherName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CNIC" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
-          <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="PresentAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="PermAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OfficeNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="DealerYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="ActiveYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Int64" />
-          <Property Name="DownPayment" Type="Int64" />
-        </EntityType>
-        <EntityType Name="View_Installment_Receive">
-          <Key>
-            <PropertyRef Name="instDID" />
-            <PropertyRef Name="fkInstMId" />
-            <PropertyRef Name="CustomerID" />
-            <PropertyRef Name="fkProjectID" />
-            <PropertyRef Name="CustomerName" />
-            <PropertyRef Name="CustomerRegNo" />
-            <PropertyRef Name="fkFileID" />
-            <PropertyRef Name="FileBookID" />
-          </Key>
-          <Property Name="instDID" Type="Int64" Nullable="false" />
-          <Property Name="fkInstMId" Type="Int64" Nullable="false" />
-          <Property Name="srno" Type="Int32" />
-          <Property Name="Total" Type="Int32" />
-          <Property Name="Amount" Type="Int32" />
-          <Property Name="CustomAmount" Type="Int32" />
-          <Property Name="DueDate" Type="DateTime" Precision="0" />
-          <Property Name="InstType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerID" Type="Int64" Nullable="false" />
-          <Property Name="fkProjectID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="CustomerRegNo" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="fkFileID" Type="Int32" Nullable="false" />
-          <Property Name="FileBookID" Type="Int64" Nullable="false" />
-          <Property Name="InstRcvID" Type="Int64" />
-          <Property Name="CustIMG" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="View_user_with_role">
-          <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="fkRoleID" />
-            <PropertyRef Name="ActiveYN" />
-          </Key>
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="fkRoleID" Type="Int32" Nullable="false" />
-          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RMKS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="PWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="CPWD" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ActiveYN" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PropertyModelStoreContainer" CdmEntityContainer="PropertyEntities">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PropertyModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
+          <EntitySetMapping Name="tbl_CustomerFileBook">
+            <EntityTypeMapping TypeName="PropertyModel.tbl_CustomerFileBook">
+              <MappingFragment StoreEntitySet="tbl_CustomerFileBook">
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+                <ScalarProperty Name="fkCustomerID" ColumnName="fkCustomerID" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
+                <ScalarProperty Name="ConfirmationAmount" ColumnName="ConfirmationAmount" />
+                <ScalarProperty Name="ConfirmationFeeDate" ColumnName="ConfirmationFeeDate" />
+                <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+                <ScalarProperty Name="RegistrationAmount" ColumnName="RegistrationAmount" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2269,15 +2210,16 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
                 <ScalarProperty Name="PlotCat" ColumnName="PlotCat" />
                 <ScalarProperty Name="Plot_Factor" ColumnName="Plot_Factor" />
                 <ScalarProperty Name="PlotNo" ColumnName="PlotNo" />
-                <ScalarProperty Name="PlotSize" ColumnName="PlotSize" />
-                <ScalarProperty Name="ConfirmationFee" ColumnName="ConfirmationFee" />
+                <ScalarProperty Name="AreaSize" ColumnName="AreaSize" />
+                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+                <ScalarProperty Name="ConfirmationAmount" ColumnName="ConfirmationAmount" />
                 <ScalarProperty Name="AutoPlotNo" ColumnName="AutoPlotNo" />
                 <ScalarProperty Name="PlotRate" ColumnName="PlotRate" />
                 <ScalarProperty Name="TotalPloValue" ColumnName="TotalPloValue" />
                 <ScalarProperty Name="PlotCatDesc" ColumnName="PlotCatDesc" />
                 <ScalarProperty Name="FileStatus" ColumnName="FileStatus" />
-                <ScalarProperty Name="PlotValue" ColumnName="PlotValue" />
-                <ScalarProperty Name="PlotExtChargs" ColumnName="PlotExtChargs" />
+                <ScalarProperty Name="BookingAmount" ColumnName="BookingAmount" />
+                <ScalarProperty Name="DevelopmentCharges" ColumnName="DevelopmentCharges" />
                 <ScalarProperty Name="UnitStatus" ColumnName="UnitStatus" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
@@ -2348,15 +2290,15 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
           <EntitySetMapping Name="tbl_List">
             <EntityTypeMapping TypeName="PropertyModel.tbl_List">
               <MappingFragment StoreEntitySet="tbl_List">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2444,125 +2386,86 @@ warning 6002: The table/view 'Property.dbo.View_user_with_role' does not have a 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="Pro_CheckLogin" FunctionName="PropertyModel.Store.Pro_CheckLogin" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerKin" FunctionName="PropertyModel.Store.Pro_IDU_CustomerKin" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerRegM" FunctionName="PropertyModel.Store.Pro_IDU_CustomerRegM" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_Files" FunctionName="PropertyModel.Store.Pro_IDU_Files" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_InstMaster" FunctionName="PropertyModel.Store.Pro_IDU_InstMaster" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_InstReceived" FunctionName="PropertyModel.Store.Pro_IDU_InstReceived" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_Projects" FunctionName="PropertyModel.Store.Pro_IDU_Projects" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_UserLogin" FunctionName="PropertyModel.Store.Pro_IDU_UserLogin" />
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PropertyModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PropertyModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PropertyModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PropertyModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="PropertyModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PropertyModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="PropertyModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PropertyModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PropertyModel.Store.sp_upgraddiagrams" />
-          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerFileBook" FunctionName="PropertyModel.Store.Pro_IDU_CustomerFileBook" />
-          <EntitySetMapping Name="tbl_CustomerFileBook">
-            <EntityTypeMapping TypeName="PropertyModel.tbl_CustomerFileBook">
-              <MappingFragment StoreEntitySet="tbl_CustomerFileBook">
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
-                <ScalarProperty Name="RegistrationFee" ColumnName="RegistrationFee" />
-                <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
-                <ScalarProperty Name="ConfirmationFeeDate" ColumnName="ConfirmationFeeDate" />
-                <ScalarProperty Name="ConfirmationFee" ColumnName="ConfirmationFee" />
-                <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
-                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
-                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
-                <ScalarProperty Name="fkCustomerID" ColumnName="fkCustomerID" />
-                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="View_CustomerFileBooking">
             <EntityTypeMapping TypeName="PropertyModel.View_CustomerFileBooking">
               <MappingFragment StoreEntitySet="View_CustomerFileBooking">
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="PayMethod" ColumnName="PayMethod" />
+                <ScalarProperty Name="AreaType" ColumnName="AreaType" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="RegistrationAmount" ColumnName="RegistrationAmount" />
+                <ScalarProperty Name="ConfirmationFeeDate" ColumnName="ConfirmationFeeDate" />
+                <ScalarProperty Name="ConfirmationAmount" ColumnName="ConfirmationAmount" />
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="SubProjID" ColumnName="SubProjID" />
+                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
+                <ScalarProperty Name="PermAddress" ColumnName="PermAddress" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="DealerYN" ColumnName="DealerYN" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
                 <ScalarProperty Name="DownPayment" ColumnName="DownPayment" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
-                <ScalarProperty Name="DealerYN" ColumnName="DealerYN" />
-                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
-                <ScalarProperty Name="PermAddress" ColumnName="PermAddress" />
-                <ScalarProperty Name="PresentAddress" ColumnName="PresentAddress" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
-                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
-                <ScalarProperty Name="SubProjID" ColumnName="SubProjID" />
-                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
-                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
-                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="View_Installment_Receive">
             <EntityTypeMapping TypeName="PropertyModel.View_Installment_Receive">
               <MappingFragment StoreEntitySet="View_Installment_Receive">
-                <ScalarProperty Name="CustIMG" ColumnName="CustIMG" />
-                <ScalarProperty Name="InstRcvID" ColumnName="InstRcvID" />
-                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
-                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
-                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="InstType" ColumnName="InstType" />
-                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
-                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="srno" ColumnName="srno" />
-                <ScalarProperty Name="fkInstMId" ColumnName="fkInstMId" />
                 <ScalarProperty Name="instDID" ColumnName="instDID" />
+                <ScalarProperty Name="fkInstMId" ColumnName="fkInstMId" />
+                <ScalarProperty Name="srno" ColumnName="srno" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CustomAmount" ColumnName="CustomAmount" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="InstType" ColumnName="InstType" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="fkProjectID" ColumnName="fkProjectID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerRegNo" ColumnName="CustomerRegNo" />
+                <ScalarProperty Name="fkFileID" ColumnName="fkFileID" />
+                <ScalarProperty Name="FileBookID" ColumnName="FileBookID" />
+                <ScalarProperty Name="InstRcvID" ColumnName="InstRcvID" />
+                <ScalarProperty Name="CustIMG" ColumnName="CustIMG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="Pro_IDU_List" FunctionName="PropertyModel.Store.Pro_IDU_List" />
           <EntitySetMapping Name="View_user_with_role">
             <EntityTypeMapping TypeName="PropertyModel.View_user_with_role">
               <MappingFragment StoreEntitySet="View_user_with_role">
-                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
-                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
-                <ScalarProperty Name="CPWD" ColumnName="CPWD" />
-                <ScalarProperty Name="PWD" ColumnName="PWD" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
-                <ScalarProperty Name="NAME" ColumnName="NAME" />
-                <ScalarProperty Name="fkRoleID" ColumnName="fkRoleID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="fkRoleID" ColumnName="fkRoleID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="RMKS" ColumnName="RMKS" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="CPWD" ColumnName="CPWD" />
+                <ScalarProperty Name="ActiveYN" ColumnName="ActiveYN" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Pro_CheckLogin" FunctionName="PropertyModel.Store.Pro_CheckLogin" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerFileBook" FunctionName="PropertyModel.Store.Pro_IDU_CustomerFileBook" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerKin" FunctionName="PropertyModel.Store.Pro_IDU_CustomerKin" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_CustomerRegM" FunctionName="PropertyModel.Store.Pro_IDU_CustomerRegM" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_Files" FunctionName="PropertyModel.Store.Pro_IDU_Files" />
           <FunctionImportMapping FunctionImportName="Pro_IDU_InstDetail" FunctionName="PropertyModel.Store.Pro_IDU_InstDetail" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstMaster" FunctionName="PropertyModel.Store.Pro_IDU_InstMaster" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_InstReceived" FunctionName="PropertyModel.Store.Pro_IDU_InstReceived" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_List" FunctionName="PropertyModel.Store.Pro_IDU_List" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_Projects" FunctionName="PropertyModel.Store.Pro_IDU_Projects" />
+          <FunctionImportMapping FunctionImportName="Pro_IDU_UserLogin" FunctionName="PropertyModel.Store.Pro_IDU_UserLogin" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

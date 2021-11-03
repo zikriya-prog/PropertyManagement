@@ -170,7 +170,7 @@ namespace PropertyManagement
                         XtraMessageBox.Show("Please Select Installment Type");
                         return;
                     }
-                    long plotvalue = cfb.Price.Value - cfb.DownPayment.Value;
+                    long plotvalue = cfb.Price.Value - cfb.DownPayment.Value-cfb.ConfirmationAmount.Value-cfb.DiscountAmount.Value;
                     long instprice = plotvalue - ((Convert.ToInt32(txt_noOfinst.Text) / Convert.ToInt32(cmb_customTime.EditValue)) * Convert.ToInt64(txt_customAmount.Text));
                     instprice = instprice / Convert.ToInt32(txt_noOfinst.Text);
 
