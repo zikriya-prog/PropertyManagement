@@ -73,16 +73,8 @@ namespace PropertyManagement
                 if (cont is TextEdit)
                 {
                     TextEdit tx = ((TextEdit)cont);
-                    if (tx.Properties.Tag == "n")
-                        tx.Text = "0";
-                    else if (tx.Name == "cmb_paymentMethod")
-                    {
-
-                    }
-                    else
-                    {
-                        tx.ResetText();
-                    }
+                    tx.EditValue = null;
+                    
 
                 }
                 else if (cont is CheckEdit)
@@ -123,7 +115,8 @@ namespace PropertyManagement
         }
         private void setFields(View_Installment_Receive instRcv)
         {
-            txt_amount.EditValue = instRcv.Total;
+            txt_amount.EditValue = instRcv.Amount;
+            txt_custom_amount.EditValue = instRcv.CustomAmount;
         }
         private void btn_create_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -170,11 +163,13 @@ namespace PropertyManagement
                 {
                     XtraMessageBox.Show("Installment Already Received!");
                     txt_amount.ReadOnly = true;
+                    txt_custom_amount.ReadOnly = true;
                 }
                 else
                 {
                     setFields(_View_Installment_Receive);
                     txt_amount.ReadOnly = false;
+                    txt_custom_amount.ReadOnly = false;
                 }
                 // setFields(_View_Installment_Receive);
                 // makereadonly(true);
@@ -237,8 +232,8 @@ namespace PropertyManagement
 
         private void textEdit1_EditValueChanged(object sender, EventArgs e)
         {
-            txt_discAmount.EditValue = Convert.ToInt32(txt_amount.EditValue) * Convert.ToDouble(txt_disc.EditValue);
-            txt_total.EditValue = Convert.ToInt32(txt_amount.EditValue) - (Convert.ToInt32(txt_amount.EditValue) * Convert.ToDouble(txt_disc.EditValue));
+            txt_discAmount.EditValue = (Convert.ToInt32(txt_amount.EditValue) + Convert.ToInt32(txt_custom_amount.EditValue)) * Convert.ToDouble(txt_disc.EditValue);
+            txt_total.EditValue = (Convert.ToInt32(txt_amount.EditValue) + Convert.ToInt32(txt_custom_amount.EditValue)) - Convert.ToInt32(txt_discAmount.EditValue) ;
 
         }
     }

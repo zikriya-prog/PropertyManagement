@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression3 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression4 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
             this.colfkInstMId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsrno = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInstRcvID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -129,6 +129,8 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.txt_custom_amount = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -158,6 +160,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_custom_amount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // colfkInstMId
@@ -188,6 +192,7 @@
             this.layoutControl1.Controls.Add(this.txt_total);
             this.layoutControl1.Controls.Add(this.txt_discAmount);
             this.layoutControl1.Controls.Add(this.cmb_paymentMethod);
+            this.layoutControl1.Controls.Add(this.txt_custom_amount);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 27);
             this.layoutControl1.Name = "layoutControl1";
@@ -240,20 +245,20 @@
             this.colfkFileID,
             this.colFileBookID,
             this.colInstRcvID});
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.colfkInstMId;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleExpression1.Expression = "[InstRcvID] Is Not Null";
-            formatConditionRuleExpression1.PredefinedName = "Green Fill";
-            gridFormatRule1.Rule = formatConditionRuleExpression1;
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colfkInstMId;
-            gridFormatRule2.Name = "Format1";
-            formatConditionRuleExpression2.Expression = "[InstRcvID] Is Null";
-            formatConditionRuleExpression2.PredefinedName = "Red Fill";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            this.gridView3.FormatRules.Add(gridFormatRule1);
-            this.gridView3.FormatRules.Add(gridFormatRule2);
+            gridFormatRule3.ApplyToRow = true;
+            gridFormatRule3.Column = this.colfkInstMId;
+            gridFormatRule3.Name = "Format0";
+            formatConditionRuleExpression3.Expression = "[InstRcvID] Is Not Null";
+            formatConditionRuleExpression3.PredefinedName = "Green Fill";
+            gridFormatRule3.Rule = formatConditionRuleExpression3;
+            gridFormatRule4.ApplyToRow = true;
+            gridFormatRule4.Column = this.colfkInstMId;
+            gridFormatRule4.Name = "Format1";
+            formatConditionRuleExpression4.Expression = "[InstRcvID] Is Null";
+            formatConditionRuleExpression4.PredefinedName = "Red Fill";
+            gridFormatRule4.Rule = formatConditionRuleExpression4;
+            this.gridView3.FormatRules.Add(gridFormatRule3);
+            this.gridView3.FormatRules.Add(gridFormatRule4);
             this.gridView3.GridControl = this.gridControl1;
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsBehavior.Editable = false;
@@ -374,7 +379,7 @@
             // vGridControl1
             // 
             this.vGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.SizeNS;
+            this.vGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.vGridControl1.CustomizationFormBounds = new System.Drawing.Rectangle(873, 225, 216, 262);
             this.vGridControl1.LayoutStyle = DevExpress.XtraVerticalGrid.LayoutViewStyle.SingleRecordView;
             this.vGridControl1.Location = new System.Drawing.Point(700, 53);
@@ -746,13 +751,13 @@
             // 
             // cmb_paymentMethod
             // 
-            this.cmb_paymentMethod.Location = new System.Drawing.Point(106, 94);
+            this.cmb_paymentMethod.Location = new System.Drawing.Point(417, 94);
             this.cmb_paymentMethod.MenuManager = this.barManager1;
             this.cmb_paymentMethod.Name = "cmb_paymentMethod";
             this.cmb_paymentMethod.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmb_paymentMethod.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmb_paymentMethod.Size = new System.Drawing.Size(578, 20);
+            this.cmb_paymentMethod.Size = new System.Drawing.Size(267, 20);
             this.cmb_paymentMethod.StyleController = this.layoutControl1;
             this.cmb_paymentMethod.TabIndex = 17;
             // 
@@ -894,7 +899,8 @@
             this.txt_total_lable,
             this.layoutControlItem4,
             this.layoutControlItem8,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem6});
             this.Root1.Location = new System.Drawing.Point(0, 0);
             this.Root1.Name = "Root1";
             this.Root1.Size = new System.Drawing.Size(1226, 463);
@@ -1007,9 +1013,9 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.cmb_paymentMethod;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem8.Location = new System.Drawing.Point(311, 72);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(666, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(355, 24);
             this.layoutControlItem8.Text = "Payment Method";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(81, 13);
             // 
@@ -1020,6 +1026,36 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(355, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // txt_custom_amount
+            // 
+            this.txt_custom_amount.Location = new System.Drawing.Point(106, 94);
+            this.txt_custom_amount.Name = "txt_custom_amount";
+            this.txt_custom_amount.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.txt_custom_amount.Properties.DisplayFormat.FormatString = "d";
+            this.txt_custom_amount.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txt_custom_amount.Properties.EditFormat.FormatString = "d";
+            this.txt_custom_amount.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txt_custom_amount.Properties.Mask.EditMask = "f0";
+            this.txt_custom_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txt_custom_amount.Properties.NullText = "0";
+            this.txt_custom_amount.Properties.ReadOnly = true;
+            this.txt_custom_amount.Properties.Tag = "n";
+            this.txt_custom_amount.Properties.UseReadOnlyAppearance = false;
+            this.txt_custom_amount.Size = new System.Drawing.Size(223, 20);
+            this.txt_custom_amount.StyleController = this.layoutControl1;
+            this.txt_custom_amount.TabIndex = 8;
+            this.txt_custom_amount.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.txt_custom_amount;
+            this.layoutControlItem6.CustomizationFormText = "Date Of Installment";
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(311, 24);
+            this.layoutControlItem6.Text = "Custom Amount";
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(81, 13);
             // 
             // frmInstallmentReceive
             // 
@@ -1064,6 +1100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_custom_amount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1167,5 +1205,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmb_paymentMethod;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraEditors.TextEdit txt_custom_amount;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

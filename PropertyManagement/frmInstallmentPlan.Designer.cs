@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInstallmentPlan));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.tblInstDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -51,6 +57,7 @@
             this.coltbl_InstDetail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltbl_UserLogin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltbl_UserLogin1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btn_create = new DevExpress.XtraBars.BarButtonItem();
@@ -58,6 +65,7 @@
             this.btn_delete = new DevExpress.XtraBars.BarButtonItem();
             this.btn_save = new DevExpress.XtraBars.BarButtonItem();
             this.btn_cancel = new DevExpress.XtraBars.BarButtonItem();
+            this.btn_printplan = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -65,6 +73,7 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btn_receive = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colinstDID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfkInstMId = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -162,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInstDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).BeginInit();
@@ -231,12 +241,13 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
+            this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1});
             this.gridControl1.Size = new System.Drawing.Size(1217, 258);
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
             this.gridView2});
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click_2);
             // 
             // tblInstDetailBindingSource
             // 
@@ -271,6 +282,7 @@
             this.gridView1.OptionsDetail.AutoZoomDetail = true;
             this.gridView1.OptionsDetail.EnableDetailToolTip = true;
             this.gridView1.OptionsDetail.SmartDetailHeight = true;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colInstMId
             // 
@@ -288,6 +300,7 @@
             this.colType.Name = "colType";
             this.colType.Visible = true;
             this.colType.VisibleIndex = 0;
+            this.colType.Width = 133;
             // 
             // colDateOfInst
             // 
@@ -295,6 +308,7 @@
             this.colDateOfInst.Name = "colDateOfInst";
             this.colDateOfInst.Visible = true;
             this.colDateOfInst.VisibleIndex = 1;
+            this.colDateOfInst.Width = 133;
             // 
             // colNature
             // 
@@ -302,6 +316,7 @@
             this.colNature.Name = "colNature";
             this.colNature.Visible = true;
             this.colNature.VisibleIndex = 2;
+            this.colNature.Width = 133;
             // 
             // colNoOfInst
             // 
@@ -309,6 +324,7 @@
             this.colNoOfInst.Name = "colNoOfInst";
             this.colNoOfInst.Visible = true;
             this.colNoOfInst.VisibleIndex = 3;
+            this.colNoOfInst.Width = 133;
             // 
             // colInstAmount
             // 
@@ -316,6 +332,7 @@
             this.colInstAmount.Name = "colInstAmount";
             this.colInstAmount.Visible = true;
             this.colInstAmount.VisibleIndex = 4;
+            this.colInstAmount.Width = 133;
             // 
             // colCustomPeriod
             // 
@@ -323,6 +340,7 @@
             this.colCustomPeriod.Name = "colCustomPeriod";
             this.colCustomPeriod.Visible = true;
             this.colCustomPeriod.VisibleIndex = 5;
+            this.colCustomPeriod.Width = 133;
             // 
             // colCustomAmount
             // 
@@ -330,6 +348,7 @@
             this.colCustomAmount.Name = "colCustomAmount";
             this.colCustomAmount.Visible = true;
             this.colCustomAmount.VisibleIndex = 6;
+            this.colCustomAmount.Width = 133;
             // 
             // colCustomTime
             // 
@@ -337,6 +356,7 @@
             this.colCustomTime.Name = "colCustomTime";
             this.colCustomTime.Visible = true;
             this.colCustomTime.VisibleIndex = 7;
+            this.colCustomTime.Width = 133;
             // 
             // colCreatedBy
             // 
@@ -378,6 +398,16 @@
             this.coltbl_UserLogin1.FieldName = "tbl_UserLogin1";
             this.coltbl_UserLogin1.Name = "coltbl_UserLogin1";
             // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.repositoryItemButtonEdit1.Click += new System.EventHandler(this.repositoryItemButtonEdit1_Click);
+            // 
             // barManager1
             // 
             this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
@@ -395,8 +425,10 @@
             this.btn_save,
             this.btn_cancel,
             this.btn_receive,
-            this.barButtonItem2});
-            this.barManager1.MaxItemId = 7;
+            this.barButtonItem2,
+            this.btn_printplan,
+            this.barSubItem1});
+            this.barManager1.MaxItemId = 9;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -410,7 +442,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_update),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_delete),
             new DevExpress.XtraBars.LinkPersistInfo(this.btn_save),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btn_cancel)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_cancel),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btn_printplan)});
             this.bar1.Text = "Tools";
             // 
             // btn_create
@@ -445,6 +478,13 @@
             this.btn_cancel.Caption = "Cancel";
             this.btn_cancel.Id = 4;
             this.btn_cancel.Name = "btn_cancel";
+            // 
+            // btn_printplan
+            // 
+            this.btn_printplan.Caption = "Print Plan";
+            this.btn_printplan.Id = 7;
+            this.btn_printplan.Name = "btn_printplan";
+            this.btn_printplan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_printplan_ItemClick);
             // 
             // bar3
             // 
@@ -502,6 +542,12 @@
             this.barButtonItem2.Caption = "Cancel";
             this.barButtonItem2.Id = 6;
             this.barButtonItem2.Name = "barButtonItem2";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "barSubItem1";
+            this.barSubItem1.Id = 8;
+            this.barSubItem1.Name = "barSubItem1";
             // 
             // gridView2
             // 
@@ -1410,6 +1456,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblInstDetailBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vGridControl1)).EndInit();
@@ -1582,5 +1629,8 @@
         private System.Windows.Forms.BindingSource tblListBindingSource;
         private DevExpress.XtraEditors.LookUpEdit cmb_customTime;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
+        private DevExpress.XtraBars.BarButtonItem btn_printplan;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
     }
 }

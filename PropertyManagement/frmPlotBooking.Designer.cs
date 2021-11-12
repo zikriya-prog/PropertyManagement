@@ -130,6 +130,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.cmb_areaType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txt_confirmationFees = new DevExpress.XtraEditors.TextEdit();
             this.dateEdit_confirmation = new DevExpress.XtraEditors.DateEdit();
@@ -137,6 +139,8 @@
             this.txt_registrationFees = new DevExpress.XtraEditors.TextEdit();
             this.cmb_bookingStatus = new DevExpress.XtraEditors.ComboBoxEdit();
             this.txt_disc_price = new DevExpress.XtraEditors.TextEdit();
+            this.btn_Certificate = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_sale_agreement = new DevExpress.XtraEditors.SimpleButton();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -160,12 +164,12 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.btn_Certificate = new DevExpress.XtraEditors.SimpleButton();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btn_welcome = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -214,9 +218,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -237,6 +243,8 @@
             this.layoutControl1.Controls.Add(this.cmb_bookingStatus);
             this.layoutControl1.Controls.Add(this.txt_disc_price);
             this.layoutControl1.Controls.Add(this.btn_Certificate);
+            this.layoutControl1.Controls.Add(this.btn_sale_agreement);
+            this.layoutControl1.Controls.Add(this.btn_welcome);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 27);
             this.layoutControl1.Name = "layoutControl1";
@@ -995,6 +1003,20 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 419);
             // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Caption = "Reports";
+            this.barSubItem1.Id = 5;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
+            this.barSubItem1.Name = "barSubItem1";
+            // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // cmb_areaType
             // 
             this.cmb_areaType.EditValue = "";
@@ -1088,6 +1110,26 @@
             this.txt_disc_price.StyleController = this.layoutControl1;
             this.txt_disc_price.TabIndex = 7;
             // 
+            // btn_Certificate
+            // 
+            this.btn_Certificate.Location = new System.Drawing.Point(332, 156);
+            this.btn_Certificate.Name = "btn_Certificate";
+            this.btn_Certificate.Size = new System.Drawing.Size(75, 22);
+            this.btn_Certificate.StyleController = this.layoutControl1;
+            this.btn_Certificate.TabIndex = 14;
+            this.btn_Certificate.Text = "Certificate";
+            this.btn_Certificate.Click += new System.EventHandler(this.btn_Certificate_Click);
+            // 
+            // btn_sale_agreement
+            // 
+            this.btn_sale_agreement.Location = new System.Drawing.Point(411, 156);
+            this.btn_sale_agreement.Name = "btn_sale_agreement";
+            this.btn_sale_agreement.Size = new System.Drawing.Size(85, 22);
+            this.btn_sale_agreement.StyleController = this.layoutControl1;
+            this.btn_sale_agreement.TabIndex = 15;
+            this.btn_sale_agreement.Text = "Sale Agreement";
+            this.btn_sale_agreement.Click += new System.EventHandler(this.btn_sale_agreement_Click);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -1109,7 +1151,9 @@
             this.layoutControlItem16,
             this.layoutControlItem3,
             this.emptySpaceItem2,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem17,
+            this.layoutControlItem18});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1189, 419);
             this.Root.TextVisible = false;
@@ -1343,14 +1387,6 @@
             this.layoutControlItem16.Text = "Booking Status";
             this.layoutControlItem16.TextSize = new System.Drawing.Size(106, 13);
             // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(400, 144);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(243, 26);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.txt_disc_price;
@@ -1361,38 +1397,50 @@
             this.layoutControlItem3.Text = "Discounted Price";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(106, 13);
             // 
-            // barSubItem1
+            // emptySpaceItem2
             // 
-            this.barSubItem1.Caption = "Reports";
-            this.barSubItem1.Id = 5;
-            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1)});
-            this.barSubItem1.Name = "barSubItem1";
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "barButtonItem1";
-            this.barButtonItem1.Id = 6;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // btn_Certificate
-            // 
-            this.btn_Certificate.Location = new System.Drawing.Point(332, 156);
-            this.btn_Certificate.Name = "btn_Certificate";
-            this.btn_Certificate.Size = new System.Drawing.Size(76, 22);
-            this.btn_Certificate.StyleController = this.layoutControl1;
-            this.btn_Certificate.TabIndex = 14;
-            this.btn_Certificate.Text = "Certificate";
-            this.btn_Certificate.Click += new System.EventHandler(this.btn_Certificate_Click);
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(576, 144);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(67, 26);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btn_Certificate;
             this.layoutControlItem4.Location = new System.Drawing.Point(320, 144);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // layoutControlItem17
+            // 
+            this.layoutControlItem17.Control = this.btn_sale_agreement;
+            this.layoutControlItem17.Location = new System.Drawing.Point(399, 144);
+            this.layoutControlItem17.Name = "layoutControlItem17";
+            this.layoutControlItem17.Size = new System.Drawing.Size(89, 26);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem17.TextVisible = false;
+            // 
+            // btn_welcome
+            // 
+            this.btn_welcome.Location = new System.Drawing.Point(500, 156);
+            this.btn_welcome.Name = "btn_welcome";
+            this.btn_welcome.Size = new System.Drawing.Size(84, 22);
+            this.btn_welcome.StyleController = this.layoutControl1;
+            this.btn_welcome.TabIndex = 16;
+            this.btn_welcome.Text = "Welcome Letter";
+            this.btn_welcome.Click += new System.EventHandler(this.btn_welcome_Click);
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.btn_welcome;
+            this.layoutControlItem18.Location = new System.Drawing.Point(488, 144);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(88, 26);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem18.TextVisible = false;
             // 
             // frmPlotBooking
             // 
@@ -1456,9 +1504,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1603,5 +1653,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraEditors.SimpleButton btn_Certificate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraEditors.SimpleButton btn_sale_agreement;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
+        private DevExpress.XtraEditors.SimpleButton btn_welcome;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
     }
 }

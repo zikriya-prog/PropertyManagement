@@ -14,6 +14,8 @@ using PropertyManagement.Model.proModel;
 using System.IO;
 using PropertyManagement.Reports;
 using DevExpress.XtraReports.UI;
+using PropertyManagement.Model.CustomModels;
+using PropertyManagement.Model.Helper;
 
 namespace PropertyManagement
 {
@@ -356,6 +358,70 @@ namespace PropertyManagement
                 report.Parameters["parm_project"].Value = fl.tbl_Projects.ProjectName;
                 report.Parameters["parm_areatype"].Value = cmb_areaType.Text;
                 report.Parameters["parm_areasize"].Value = txt_areaSize.Text;
+
+                report.RequestParameters = false;
+                ReportPrintTool pt = new ReportPrintTool(report);
+                pt.AutoShowParametersPanel = false;
+
+                pt.ShowPreviewDialog();
+            }
+        }
+
+        private void btn__Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_sale_agreement_Click(object sender, EventArgs e)
+        {
+            if (txt_membershipNo.EditValue != null && searchLookUpEdit_customer.EditValue != null)
+            {
+                tbl_Files fl = fileList.FirstOrDefault(x => x.FileID == (searchLookUpEdit_file.EditValue.ToString() != "" ? Convert.ToInt64(searchLookUpEdit_file.EditValue) : 0));
+                long customerId = Convert.ToInt64(searchLookUpEdit_customer.EditValue);
+                View_CustomerFileBooking cfb = db.View_CustomerFileBooking.FirstOrDefault(x => x.CustomerID == customerId);
+                tbl_CustomerRegM cust = db.tbl_CustomerRegM.FirstOrDefault(x => x.CustomerID == customerId);
+                SaleAgreement report = new SaleAgreement();
+                List<VMSaleAgreement> sale_list = new List<VMSaleAgreement>(){new VMSaleAgreement()
+                {
+                    address = fl.tbl_Projects.ProjectAddress,
+                    customeraddress = cust.PresentAddress,
+                    customercnic = cust.CNIC,
+                    customername = cust.CustomerName,
+                    membershipno = fl.FileNumber,
+                    plotfactor = fl.Plot_Factor,
+                    plotvalue = string.Format("Rs. {0} ({1})",fl.TotalPloValue.ToString(),Currency_Helper.ConvertToWords(fl.TotalPloValue.ToString())),
+                    project = fl.tbl_Projects.ProjectName,
+                    size = fl.AreaSize+"-"+cfb.AreaType
+                } };
+
+                report.Parameters["parm_date"].Value = fl.CreatedDate.Value.ToString("dd-MMM-yyyy"
+                    );
+
+                report.DataSource = sale_list;
+                report.RequestParameters = false;
+                ReportPrintTool pt = new ReportPrintTool(report);
+                pt.AutoShowParametersPanel = false;
+
+                pt.ShowPreviewDialog();
+            }
+        }
+
+        private void btn_welcome_Click(object sender, EventArgs e)
+        {
+            if (txt_membershipNo.EditValue != null && searchLookUpEdit_customer.EditValue != null)
+            {
+                tbl_Files fl = fileList.FirstOrDefault(x => x.FileID == (searchLookUpEdit_file.EditValue.ToString() != "" ? Convert.ToInt64(searchLookUpEdit_file.EditValue) : 0));
+                welcomletter report = new welcomletter();
+
+                report.Parameters["parm_Name"].Value = customer.CustomerName;
+                report.Parameters["parm_cnic"].Value = customer.CNIC;
+                report.Parameters["parm_membership_no"].Value = txt_membershipNo.EditValue.ToString();
+                report.Parameters["parm_project"].Value = fl.tbl_Projects.ProjectName;
+                report.Parameters["parm_areatype"].Value = cmb_areaType.Text;
+                report.Parameters["parm_areasize"].Value = txt_areaSize.Text;
+                report.Parameters["parm_address"].Value = fl.tbl_Projects.ProjectAddress;
+                report.Parameters["parm_date"].Value = fl.CreatedDate.Value.ToString("dd-MMM-yyyy"
+                    );
                 
                 report.RequestParameters = false;
                 ReportPrintTool pt = new ReportPrintTool(report);

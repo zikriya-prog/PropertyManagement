@@ -12,6 +12,9 @@ using PropertyManagement.Model;
 using System.Data.Entity.Core.Objects;
 using System.IO;
 using PropertyManagement.Model.proModel;
+using PropertyManagement.Reports;
+using PropertyManagement.Model.CustomModels;
+using DevExpress.XtraReports.UI;
 
 namespace PropertyManagement
 {
@@ -31,8 +34,10 @@ namespace PropertyManagement
             //layoutControl1.RestoreLayoutFromXml("mylayout");Custom Time
             
             cmb_instType.Properties.DataSource = _tbl_list.Where(x => x.Type == "Instalment Type").ToList();
-            
             cmb_customTime.Properties.DataSource = _tbl_list.Where(x => x.Type == "Instalment Type").ToList();
+            cmb_customTime.Properties.DisplayMember = "Name";
+            cmb_customTime.Properties.ValueMember = "Description";
+            
             
             loadUserRights(this.Tag.ToString());
         }
@@ -302,20 +307,10 @@ namespace PropertyManagement
 
         }
 
-        private void gridControl1_Click(object sender, EventArgs e)
-        {
+       
+        
 
-        }
-
-        private void gridControl1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gridControl1_Click_2(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btn_receive_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -336,6 +331,88 @@ namespace PropertyManagement
             {
                 radioselection(true);
             }
+        }
+
+        private void btn_printplan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!isnew)
+            {
+                //tbl_Files fl = fileList.FirstOrDefault(x => x.FileID == (searchLookUpEdit_file.EditValue.ToString() != "" ? Convert.ToInt64(searchLookUpEdit_file.EditValue) : 0));
+                var _instMaster = (tbl_InstMaster)gridView1.GetRow(gridView1.FocusedRowHandle);
+                InstalmentPlan report = new InstalmentPlan();
+              
+                long customerId = Convert.ToInt64(searchLookUpEdit_customerfile.EditValue);
+                View_CustomerFileBooking cfb = db.View_CustomerFileBooking.FirstOrDefault(x=>x.CustomerID == customerId);
+                if (cfb != null)
+                {
+                    report.Parameters["parm_projectName"].Value = _instMaster.tbl_Files.tbl_Projects.ProjectName;
+                    report.Parameters["parm_company"].Value = "Al Qadeer";
+                    long plotvalue = cfb.Price.Value - cfb.DownPayment.Value - cfb.ConfirmationAmount.Value - cfb.DiscountAmount.Value;
+                    long instprice = plotvalue - ((_instMaster.NoOfInst.Value / _instMaster.CustomPeriod.Value) * _instMaster.CustomAmount.Value);
+                    instprice = instprice / Convert.ToInt32(txt_noOfinst.Text);
+                    //report.Parameters["parm_Name"].Value = customer.CustomerName;
+                    //report.Parameters["parm_cnic"].Value = customer.CNIC;
+                    //report.Parameters["parm_membership_no"].Value = txt_membershipNo.EditValue.ToString();
+                    //report.Parameters["parm_project"].Value = fl.tbl_Projects.ProjectName;
+                    //report.Parameters["parm_areatype"].Value = cmb_areaType.Text;
+                    //report.Parameters["parm_areasize"].Value = txt_areaSize.Text;
+                    List<VMInstallmentPlan> list = new List<VMInstallmentPlan>();
+                    DateTime dueDate = dateEdit_instDate.DateTime;
+                    int noofinst = 0;
+                    Int32.TryParse(txt_noOfinst.EditValue.ToString(), out noofinst);
+                    int customamount = 0;
+                    report.Parameters["parm_plotvalue"].Value = plotvalue;
+                    for (int i = 1; i <= noofinst; i++)
+                    {
+                        plotvalue = plotvalue - (instprice + customamount);
+                        if (i % _instMaster.CustomPeriod.Value == 0)
+                            customamount = Convert.ToInt32(txt_customAmount.EditValue);
+                        else
+                            customamount = 0;
+                        list.Add(new VMInstallmentPlan()
+                        {
+                            DueDate = dueDate,
+                            Installment = instprice + customamount,
+                            paymentDescription = "Installment",
+                            Month = i,
+                            Remaining = plotvalue
+                        });
+
+                        dueDate = dueDate.AddMonths(1);
+                    }
+                    //foreach (var item in _instMaster.tbl_InstDetail.ToList())
+                    //{
+                    //    list.Add(new VMInstallmentPlan()
+                    //    {
+                    //        DueDate = item.DueDate.Value,
+                    //        Installment = item.Amount.Value,
+                    //        paymentDescription = "Installment"
+                    //    });
+                    //}
+                    report.DataSource = list;
+                    report.RequestParameters = false;
+                    ReportPrintTool pt = new ReportPrintTool(report);
+                    pt.AutoShowParametersPanel = false;
+
+                    pt.ShowPreviewDialog();
+                }
+                else
+                {
+                    XtraMessageBox.Show("Customer Is Missing!");
+                }
+            }
+        }
+
+        private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            var _instMaster = (tbl_InstMaster)gridView1.GetRow(gridView1.FocusedRowHandle);
+            setFields(_instMaster);
+            makereadonly(true);
         }
     }
 }

@@ -35,20 +35,20 @@
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement8 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement_files = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.customerRegistration_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.customerPlotBooking_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.installmentPlan_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.installmentReceive_accordionControlElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement_files = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement_idu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
@@ -125,6 +125,15 @@
             this.accordionControlElement3.Text = "Payment Plan";
             this.accordionControlElement3.Visible = false;
             // 
+            // accordionControlElement_files
+            // 
+            this.accordionControlElement_files.Name = "accordionControlElement_files";
+            this.accordionControlElement_files.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement_files.Tag = "05";
+            this.accordionControlElement_files.Text = "Inventory (Files)";
+            this.accordionControlElement_files.Visible = false;
+            this.accordionControlElement_files.Click += new System.EventHandler(this.accordionControlElement_files_Click);
+            // 
             // customerRegistration_accordionControlElement
             // 
             this.customerRegistration_accordionControlElement.Name = "customerRegistration_accordionControlElement";
@@ -142,13 +151,6 @@
             this.customerPlotBooking_accordionControlElement.Text = "Customer Plot Booking";
             this.customerPlotBooking_accordionControlElement.Visible = false;
             this.customerPlotBooking_accordionControlElement.Click += new System.EventHandler(this.customerPlotBooking_accordionControlElement_Click);
-            // 
-            // accordionControlElement7
-            // 
-            this.accordionControlElement7.Name = "accordionControlElement7";
-            this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement7.Text = "Down Payment Receiving";
-            this.accordionControlElement7.Visible = false;
             // 
             // installmentPlan_accordionControlElement
             // 
@@ -176,6 +178,13 @@
             this.accordionControlElement5.Text = "Customer Ledger View";
             this.accordionControlElement5.Visible = false;
             // 
+            // accordionControlElement4
+            // 
+            this.accordionControlElement4.Name = "accordionControlElement4";
+            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement4.Tag = "11";
+            this.accordionControlElement4.Text = "File Transfer";
+            // 
             // accordionControlElement6
             // 
             this.accordionControlElement6.Name = "accordionControlElement6";
@@ -184,22 +193,6 @@
             this.accordionControlElement6.Text = "Installment Report";
             this.accordionControlElement6.Visible = false;
             // 
-            // accordionControlElement10
-            // 
-            this.accordionControlElement10.Name = "accordionControlElement10";
-            this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement10.Text = "Installment Due Report";
-            this.accordionControlElement10.Visible = false;
-            // 
-            // accordionControlElement_files
-            // 
-            this.accordionControlElement_files.Name = "accordionControlElement_files";
-            this.accordionControlElement_files.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement_files.Tag = "05";
-            this.accordionControlElement_files.Text = "Inventory (Files)";
-            this.accordionControlElement_files.Visible = false;
-            this.accordionControlElement_files.Click += new System.EventHandler(this.accordionControlElement_files_Click);
-            // 
             // accordionControlElement_idu
             // 
             this.accordionControlElement_idu.Name = "accordionControlElement_idu";
@@ -207,6 +200,20 @@
             this.accordionControlElement_idu.Tag = "13";
             this.accordionControlElement_idu.Text = "IDU List";
             this.accordionControlElement_idu.Click += new System.EventHandler(this.accordionControlElement_idu_Click);
+            // 
+            // accordionControlElement7
+            // 
+            this.accordionControlElement7.Name = "accordionControlElement7";
+            this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement7.Text = "Down Payment Receiving";
+            this.accordionControlElement7.Visible = false;
+            // 
+            // accordionControlElement10
+            // 
+            this.accordionControlElement10.Name = "accordionControlElement10";
+            this.accordionControlElement10.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement10.Text = "Installment Due Report";
+            this.accordionControlElement10.Visible = false;
             // 
             // fluentDesignFormControl1
             // 
@@ -224,13 +231,6 @@
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
-            // accordionControlElement4
-            // 
-            this.accordionControlElement4.Name = "accordionControlElement4";
-            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement4.Tag = "11";
-            this.accordionControlElement4.Text = "File Transfer";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,7 +241,6 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "frmMain";
             this.NavigationControl = this.accordionControl1;
-            this.Text = "FluentDesignForm1";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(237)))), ((int)(((byte)(241)))));
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
